@@ -1,0 +1,3 @@
+descanso 0-100
+camianr 110-150
+correr 160-180

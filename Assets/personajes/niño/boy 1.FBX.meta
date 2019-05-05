@@ -1,0 +1,309 @@
+fileFormatVersion: 2
+guid: 1cde9618e7dab3b499dbe15cb9822ada
+timeCreated: 1506434598
+licenseType: Free
+ModelImporter:
+  serializedVersion: 21
+  fileIDToRecycleName:
+    100000: Arc001
+    100002: Arc002
+    100004: Bone001
+    100006: Bone002
+    100008: //RootNode
+    100010: brazo_D01
+    100012: brazo_D04
+    100014: brazo_D05
+    100016: brazo_I01
+    100018: brazo_I03
+    100020: brazo_I05
+    100022: cabeza01
+    100024: child01_m_highpoly
+    100026: Circle001
+    100028: Circle002
+    100030: Circle005
+    100032: Circle006
+    100034: Circle007
+    100036: Circle008
+    100038: Circle009
+    100040: Circle010
+    100042: Circle011
+    100044: Circle012
+    100046: Circle013
+    100048: Circle014
+    100050: Circle015
+    100052: columna02
+    100054: columna03
+    100056: columna04
+    100058: dedos_I_D00
+    100060: dedos_I_D01
+    100062: dedos_I_D02
+    100064: dedos_I_D03
+    100066: dedos_I_D04
+    100068: dedos_I_D05
+    100070: dedos_I_D06
+    100072: dedos_I_D07
+    100074: dedos_I_D08
+    100076: dedos_I_D09
+    100078: dedos_I_D10
+    100080: dedos_I_D11
+    100082: dedos_I_D12
+    100084: dedos_I_D13
+    100086: dedos_I_D14
+    100088: dedos_I_D15
+    100090: dedos_I_D16
+    100092: dedos_I_D17
+    100094: dedos_I_D18
+    100096: dedos_I_D19
+    100098: dedos_I_D20
+    100100: dedos_I_D21
+    100102: dedos_I_D22
+    100104: dedos_I_D23
+    100106: dedos_I_D24
+    100108: dedos_I_D25
+    100110: dedos_I_D26
+    100112: dedos_I_D27
+    100114: dedos_I_D28
+    100116: dedos_I_D29
+    100118: default
+    100120: endd
+    100122: endPDD
+    100124: endPi
+    100126: endPII
+    100128: Group27264
+    100130: IK Chain001
+    100132: IK Chain002
+    100134: IK Chain003
+    100136: IK Chain004
+    100138: Line001
+    100140: Line002
+    100142: Line003
+    100144: Line004
+    100146: Pd001
+    100148: Pd002
+    100150: Pi001
+    100152: Pi002
+    100154: pieD1
+    100156: pieD2
+    100158: pieI1
+    100160: pieI2
+    400000: Arc001
+    400002: Arc002
+    400004: Bone001
+    400006: Bone002
+    400008: //RootNode
+    400010: brazo_D01
+    400012: brazo_D04
+    400014: brazo_D05
+    400016: brazo_I01
+    400018: brazo_I03
+    400020: brazo_I05
+    400022: cabeza01
+    400024: child01_m_highpoly
+    400026: Circle001
+    400028: Circle002
+    400030: Circle005
+    400032: Circle006
+    400034: Circle007
+    400036: Circle008
+    400038: Circle009
+    400040: Circle010
+    400042: Circle011
+    400044: Circle012
+    400046: Circle013
+    400048: Circle014
+    400050: Circle015
+    400052: columna02
+    400054: columna03
+    400056: columna04
+    400058: dedos_I_D00
+    400060: dedos_I_D01
+    400062: dedos_I_D02
+    400064: dedos_I_D03
+    400066: dedos_I_D04
+    400068: dedos_I_D05
+    400070: dedos_I_D06
+    400072: dedos_I_D07
+    400074: dedos_I_D08
+    400076: dedos_I_D09
+    400078: dedos_I_D10
+    400080: dedos_I_D11
+    400082: dedos_I_D12
+    400084: dedos_I_D13
+    400086: dedos_I_D14
+    400088: dedos_I_D15
+    400090: dedos_I_D16
+    400092: dedos_I_D17
+    400094: dedos_I_D18
+    400096: dedos_I_D19
+    400098: dedos_I_D20
+    400100: dedos_I_D21
+    400102: dedos_I_D22
+    400104: dedos_I_D23
+    400106: dedos_I_D24
+    400108: dedos_I_D25
+    400110: dedos_I_D26
+    400112: dedos_I_D27
+    400114: dedos_I_D28
+    400116: dedos_I_D29
+    400118: default
+    400120: endd
+    400122: endPDD
+    400124: endPi
+    400126: endPII
+    400128: Group27264
+    400130: IK Chain001
+    400132: IK Chain002
+    400134: IK Chain003
+    400136: IK Chain004
+    400138: Line001
+    400140: Line002
+    400142: Line003
+    400144: Line004
+    400146: Pd001
+    400148: Pd002
+    400150: Pi001
+    400152: Pi002
+    400154: pieD1
+    400156: pieD2
+    400158: pieI1
+    400160: pieI2
+    4300000: default
+    4300002: child01_m_highpoly
+    4300004: Group27264
+    7400000: caminar
+    7400002: descanso
+    9500000: //RootNode
+    13700000: child01_m_highpoly
+    13700002: default
+    13700004: Group27264
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: caminar
+      takeName: Take 001
+      firstFrame: 110
+      lastFrame: 150
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: descanso
+      takeName: Take 001
+      firstFrame: 0
+      lastFrame: 100
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
