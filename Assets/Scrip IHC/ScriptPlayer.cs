@@ -10,6 +10,7 @@ public class ScriptPlayer : MonoBehaviour {
 	[Header("Particulas")]
 	public GameObject ParticulaPlayer;
 	public GameObject ParticulaFree;
+	private Vector3 posicionAdicional  =new Vector3 (0,0.3f,0);
 	[Header("Parent")]
 	public GameObject Parent;
 	[Header("DistanciaPasos")]
@@ -183,7 +184,7 @@ public class ScriptPlayer : MonoBehaviour {
 					EjecutarSecuencias = 1;
 					n_activador = 1;
 					EnEjecucionComandos = true;
-					ParticulaFree.transform.position = this.transform.position;
+					ParticulaFree.transform.position = this.transform.position+posicionAdicional;
 					ParticulaPlayer.SetActive (false);
 					ParticulaFree.SetActive (true);
 					
@@ -228,7 +229,7 @@ public class ScriptPlayer : MonoBehaviour {
 						ContadorInstrucciones--;
 					}
 				} else if (Input.GetKeyDown ("space")) {
-					ParticulaFree.transform.position = this.transform.position;
+					ParticulaFree.transform.position = this.transform.position+posicionAdicional;
 					ParticulaPlayer.SetActive (false);
 					ParticulaFree.SetActive (true);
 					ContadorInstrucciones = 0;
@@ -325,7 +326,7 @@ public class ScriptPlayer : MonoBehaviour {
 			SCarrow.ContadorInstrucciones=0;
 			SCarrow.LP = transform.position;
 
-			ParticulaFree.transform.position =jugador.position;
+			ParticulaFree.transform.position =jugador.position+posicionAdicional;
 			ParticulaPlayer.SetActive (true);
 			ParticulaFree.SetActive (false);
 
@@ -523,7 +524,7 @@ public class ScriptPlayer : MonoBehaviour {
 	}
 
 	public void Enter (){
-		ParticulaFree.transform.position = this.transform.position;
+		ParticulaFree.transform.position = this.transform.position+posicionAdicional;
 		ParticulaPlayer.SetActive (false);
 		ParticulaFree.SetActive (true);
 
