@@ -74,6 +74,8 @@ namespace Fungus
             
         protected virtual void Update()
         {
+			
+			
             if (EventSystem.current == null)
             {
                 return;

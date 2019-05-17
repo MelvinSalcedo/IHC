@@ -151,16 +151,23 @@ namespace Fungus
 
         protected virtual void LateUpdate()
         {
+			
             UpdateAlpha();
 
             if (continueButton != null)
             {
+				
                 continueButton.gameObject.SetActive( GetWriter().IsWaitingForInput );
             }
         }
 
         protected virtual void UpdateAlpha()
         {
+			
+			if (Input.anyKey) {
+				//targetAlpha = 0f;
+			}
+
             if (GetWriter().IsWriting)
             {
                 targetAlpha = 1f;
