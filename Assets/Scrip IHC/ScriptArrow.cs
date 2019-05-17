@@ -84,25 +84,25 @@ public class ScriptArrow : MonoBehaviour {
 
 
 					}
-				} else if (Input.GetKeyDown ("w")) {
+				} else if (Input.GetKeyDown ("w")||Input.GetKeyDown ("up")) {
 					LP += new Vector3 (numero_pasos_dados, 0, 0);
 					CreatePlane (LP, mt_arrowBlue);
 					ContadorInstrucciones++;
 					ListaPosiciones.Add ('w');
 
-				} else if (Input.GetKeyDown ("s")) {
+				} else if (Input.GetKeyDown ("s")||Input.GetKeyDown ("down")) {
 					LP += new Vector3 (-numero_pasos_dados, 0, 0);
 					CreatePlane (LP, mt_arrowBlue);
 					ContadorInstrucciones++;
 					ListaPosiciones.Add ('s');
 
-				} else if (Input.GetKeyDown ("a")) {
+				} else if (Input.GetKeyDown ("a")||Input.GetKeyDown ("left")) {
 					LP += new Vector3 (0, 0, numero_pasos_dados);
 					CreatePlane (LP, mt_arrowBlue);
 					ContadorInstrucciones++;
 					ListaPosiciones.Add ('a');
 
-				} else if (Input.GetKeyDown ("d")) {
+				} else if (Input.GetKeyDown ("d")||Input.GetKeyDown ("right")) {
 					LP += new Vector3 (0, 0, -numero_pasos_dados);
 					CreatePlane (LP, mt_arrowBlue);
 					ContadorInstrucciones++;

@@ -22,6 +22,9 @@ public class ScriptPlayer : MonoBehaviour {
 	[Header("Posicion Final Juego")]
 	public GameObject final;
 
+	[Header ("Text")]
+	public Text numberOfPases;
+
 	[Header("Sprites")]
 	public Sprite right;
 	public Sprite left;
@@ -100,7 +103,7 @@ public class ScriptPlayer : MonoBehaviour {
 
 	private GameObject temp;
 	private ScriptArrow SCarrow;
-
+	private int lengTextInt;
 	[HideInInspector]
 	public int TipoEjecucion=0;
 
@@ -121,6 +124,11 @@ public class ScriptPlayer : MonoBehaviour {
 		Array.Sort(comandosSpriteEjecucion, CompareNames);
 		PosicionInicial = this.transform.position;
 		sizeComandos = comandos.Length;
+
+		numberOfPases.text = sizeComandos.ToString();// convert int to string
+		//lengTextInt = int.Parse(numberOfPases.text);// convert string to int
+
+
 	}
 
 	void Update () {
@@ -177,8 +185,13 @@ public class ScriptPlayer : MonoBehaviour {
 						comandos [ListaAcumuladorInstrucciones.Count - 1].GetComponent<Image> ().sprite = SpriteDefault;
 						ListaAcumuladorInstrucciones.RemoveAt (ListaAcumuladorInstrucciones.Count - 1);
 						ContadorInstrucciones--;
+
+						int temporal = int.Parse (numberOfPases.text) + 1;
+
+						numberOfPases.text = temporal.ToString();
+
 					}
-				} else if (Input.GetKeyDown ("space")) {
+				} else if (Input.GetKeyDown ("space") ) {
 					ContadorInstrucciones = 0;
 					ArmarSecuenciaInstruciones ();
 					EjecutarSecuencias = 1;
@@ -188,23 +201,30 @@ public class ScriptPlayer : MonoBehaviour {
 					ParticulaPlayer.SetActive (false);
 					ParticulaFree.SetActive (true);
 					
-				} else if (Input.GetKeyDown ("w")) {
+				} else if (Input.GetKeyDown ("w") || Input.GetKeyDown ("up")) {
 					reproducirSonido ();
 					TipoEjecucion = 0;
 					comandos [ContadorInstrucciones].GetComponent<Image> ().sprite = up;
 					Pair pair_ = new Pair (new Vector3 (numero_pasos_dados, 0, 0), -1);
 					ContadorInstrucciones += 1;
 					ListaAcumuladorInstrucciones.Add (pair_);
+					int temporal = sizeComandos - ContadorInstrucciones;
+					numberOfPases.text = temporal.ToString();
 
-				} else if (Input.GetKeyDown ("s")) {
+
+				} else if (Input.GetKeyDown ("s") || Input.GetKeyDown ("down")) {
 					reproducirSonido ();
 					TipoEjecucion = 1;
 					comandos [ContadorInstrucciones].GetComponent<Image> ().sprite = down;
 					ContadorInstrucciones += 1;
 					Pair pair_ = new Pair (new Vector3 (-numero_pasos_dados, 0, 0), -1);
 					ListaAcumuladorInstrucciones.Add (pair_);
+
+					int temporal = sizeComandos - ContadorInstrucciones;
+					numberOfPases.text = temporal.ToString();
+
 		
-				} else if (Input.GetKeyDown ("a")) {
+				} else if (Input.GetKeyDown ("a") || Input.GetKeyDown ("left")) {
 					reproducirSonido ();
 					TipoEjecucion = 2;
 					comandos [ContadorInstrucciones].GetComponent<Image> ().sprite = left;
@@ -212,13 +232,19 @@ public class ScriptPlayer : MonoBehaviour {
 					Pair pair_ = new Pair (new Vector3 (0, 0, numero_pasos_dados), -1);
 					ListaAcumuladorInstrucciones.Add (pair_);
 
-				} else if (Input.GetKeyDown ("d")) {
+					int temporal = sizeComandos - ContadorInstrucciones;
+					numberOfPases.text = temporal.ToString();
+
+				} else if (Input.GetKeyDown ("d") || Input.GetKeyDown ("right")) {
 					reproducirSonido ();
 					TipoEjecucion = 3;
 					comandos [ContadorInstrucciones].GetComponent<Image> ().sprite = right;
 					ContadorInstrucciones += 1;
 					Pair pair_ = new Pair (new Vector3 (0, 0, -numero_pasos_dados), -1);
 					ListaAcumuladorInstrucciones.Add (pair_);
+
+					int temporal = sizeComandos - ContadorInstrucciones;
+					numberOfPases.text = temporal.ToString();
 
 				}
 			} else {
@@ -227,6 +253,10 @@ public class ScriptPlayer : MonoBehaviour {
 						comandos [ListaAcumuladorInstrucciones.Count - 1].GetComponent<Image> ().sprite = SpriteDefault;
 						ListaAcumuladorInstrucciones.RemoveAt (ListaAcumuladorInstrucciones.Count - 1);
 						ContadorInstrucciones--;
+
+						int temporal = int.Parse (numberOfPases.text) + 1;
+
+						numberOfPases.text = temporal.ToString();
 					}
 				} else if (Input.GetKeyDown ("space")) {
 					ParticulaFree.transform.position = this.transform.position+posicionAdicional;
@@ -237,6 +267,7 @@ public class ScriptPlayer : MonoBehaviour {
 					EjecutarSecuencias = 1;
 					n_activador = 1;
 					EnEjecucionComandos = true;
+
 
 				}	
 			}
@@ -257,6 +288,10 @@ public class ScriptPlayer : MonoBehaviour {
 			distancia =	Vector3.Distance (jugador.position, cube.transform.position);
 			navmesh.destination = cube.transform.position;
 			if (distancia <= 0.2f) {
+				int temporal = int.Parse(numberOfPases.text)+1;
+
+				numberOfPases.text = temporal.ToString();
+
 				ContadorListaInstrucciones++;
 				ListaInstrucciones.RemoveAt (0);
 				comandosSpriteEjecucion [ContadorListaInstrucciones-1].GetComponent<Image> ().sprite = SpriteDefault;
@@ -274,6 +309,7 @@ public class ScriptPlayer : MonoBehaviour {
 						Destroy(Parent.transform.GetChild(y).gameObject);
 					}
 					SCarrow.BoolPermitirPressBotonos = true;
+
 				}
 			}
 		}else {
@@ -305,7 +341,7 @@ public class ScriptPlayer : MonoBehaviour {
 			navmesh.destination = PosicionInicial;
 		}
 		else if(target.tag=="inicio"){arriba = false;
-			
+			numberOfPases.text = "10";
 			eliminar_instrucionnes ();
 			P_I_P_segundo.transform.position =PosicionInicial;
 			jugador.position = PosicionInicial;
@@ -338,7 +374,12 @@ public class ScriptPlayer : MonoBehaviour {
 		bool mmm = false;
 		if (EnEjecucionComandos == false) {
 			if (ContadorInstrucciones < sizeComandos) {
+				
+				int temporal =int.Parse(numberOfPases.text)-1;
+				numberOfPases.text = temporal.ToString();
+
 				if (mmm == false) {
+					
 
 					TipoEjecucion = 0;
 					comandos [ContadorInstrucciones].GetComponent<Image> ().sprite = up;
@@ -361,6 +402,8 @@ public class ScriptPlayer : MonoBehaviour {
 			bool mmm = false;
 			if (ContadorInstrucciones < sizeComandos) {
 				if (mmm == false) {
+					int temporal =int.Parse(numberOfPases.text)-1;
+					numberOfPases.text = temporal.ToString();
 
 					TipoEjecucion = 1;
 					comandos [ContadorInstrucciones].GetComponent<Image> ().sprite = down;
@@ -384,6 +427,8 @@ public class ScriptPlayer : MonoBehaviour {
 			bool mmm = false;
 			if (ContadorInstrucciones < sizeComandos) {
 				if (mmm == false) {
+					int temporal =int.Parse(numberOfPases.text)-1;
+					numberOfPases.text = temporal.ToString();
 
 					TipoEjecucion = 2;
 					comandos [ContadorInstrucciones].GetComponent<Image> ().sprite = left;
@@ -408,6 +453,9 @@ public class ScriptPlayer : MonoBehaviour {
 			if (ContadorInstrucciones < sizeComandos) {
 				if (mmm == false) {
 
+					int temporal =int.Parse(numberOfPases.text)-1;
+					numberOfPases.text = temporal.ToString();
+
 					TipoEjecucion = 3;
 					comandos [ContadorInstrucciones].GetComponent<Image> ().sprite = right;
 					ContadorInstrucciones += 1;
@@ -429,8 +477,12 @@ public class ScriptPlayer : MonoBehaviour {
 		if (EnEjecucionComandos == false) {
 			bool mmm = false;
 			if (ContadorInstrucciones < sizeComandos) {
-
+					
 				if (ContadorInstrucciones > 0) {
+
+					int temporal =int.Parse(numberOfPases.text)+1;
+					numberOfPases.text = temporal.ToString();
+
 					comandos [ListaAcumuladorInstrucciones.Count - 1].GetComponent<Image> ().sprite = SpriteDefault;
 					ListaAcumuladorInstrucciones.RemoveAt (ListaAcumuladorInstrucciones.Count - 1);
 					ContadorInstrucciones--;
