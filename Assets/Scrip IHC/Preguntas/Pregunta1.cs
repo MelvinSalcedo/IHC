@@ -4,7 +4,7 @@ using UnityEngine;
 using Fungus;
 
 public class Pregunta1 : MonoBehaviour {
-
+	
 	[Header("fungus flowchart ")]
 	public Flowchart fc;
 
@@ -34,8 +34,8 @@ public class Pregunta1 : MonoBehaviour {
 				}
 				//print (MainCamera.transform.position.z);
 			} else {
-				MainCamera.transform.Translate (Vector3.left * Time.deltaTime * Speed);
-				if (MainCamera.transform.position.z > InicialPositionOfCamera) {
+				MainCamera.transform.Translate (-Vector3.left * Time.deltaTime * Speed);
+				if (MainCamera.transform.position.z <-18	) {
 					Doonce = false;
 				}
 			}
@@ -47,22 +47,21 @@ public class Pregunta1 : MonoBehaviour {
 
 	void OnTriggerEnter(Collider col){
 		if (col.tag == "Jugador") {
-			Doonce = true;
-			SectionCritic = 1;
-			NumeroNivel = 0;
-			foreach (Transform child in transform) {
-				//print ("Foreach loop: " + child);
-				child.gameObject.SetActive (false);
-			}
-			fc.ExecuteBlock ("Pregunta 1");
-		}
-	}
-	void OnTriggerExit(Collider col){
-		if (col.tag == "Jugador") {
-			Doonce = true;
-			SectionCritic = 1;
-			NumeroNivel = 1;
+			if (NumeroNivel == 0) {
+				Doonce = true;
+				SectionCritic = 1;
+				NumeroNivel = 0;
+				foreach (Transform child in transform) {
+					//print ("Foreach loop: " + child);
+					child.gameObject.SetActive (false);
+				}
 
+				fc.ExecuteBlock ("EscogePeces");
+			} else {
+				Doonce = true;
+				SectionCritic = 1;
+				NumeroNivel = 1;
+			}
 		}
 	}
 

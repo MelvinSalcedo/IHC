@@ -587,11 +587,13 @@
      <Compile Include="Assets\JMO Assets\Cartoon FX\Scripts\CFX_LightFlicker.cs" />
      <Compile Include="Assets\JMO Assets\Cartoon FX\Scripts\CFX_LightIntensityFade.cs" />
      <Compile Include="Assets\Scrip IHC\Colisiones.cs" />
+     <Compile Include="Assets\Scrip IHC\ExamQuestion.cs" />
      <Compile Include="Assets\Scrip IHC\Misiones.cs" />
      <Compile Include="Assets\Scrip IHC\OutlineMesh.cs" />
      <Compile Include="Assets\Scrip IHC\Preguntas\Pregunta1.cs" />
      <Compile Include="Assets\Scrip IHC\ScriptArrow.cs" />
      <Compile Include="Assets\Scrip IHC\ScriptPlayer.cs" />
+     <Compile Include="Assets\Scrip IHC\VariablesGlobales.cs" />
      <None Include="Assets\JMO Assets\Cartoon FX\Shaders\CFX3 Multiply Color.shader" />
      <None Include="Assets\Fungus\Thirdparty\FungusLua\Thirdparty\JSON\readme.txt" />
      <None Include="Assets\JMO Assets\Cartoon FX\Shaders\CFXM_MobileParticleAdd_Alpha8.shader" />

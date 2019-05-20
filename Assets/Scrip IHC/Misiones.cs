@@ -7,7 +7,7 @@ public class Misiones : MonoBehaviour {
 	
 	[Header("el personaje puedo pasar")]
 	public GameObject CanPassPlayer;
-	public GameObject CanPassPlayer1;
+
 	[Header("source")]
 	public AudioSource  source;
 	[Header("sound")]
@@ -28,8 +28,6 @@ public class Misiones : MonoBehaviour {
 	private Animator animDor;
 
 	void Start () {
-		//StartCoroutine(OpenDor(5f));
-//		source = GetComponent<AudioSource> ();
 		if (obj_rotate == null) {
 			obj_rotate = this.gameObject;
 		}
@@ -57,7 +55,6 @@ public class Misiones : MonoBehaviour {
 				animDor.enabled=true;
 				reproducirSonido (1);	
 				Destroy (CanPassPlayer);
-				Destroy (CanPassPlayer1);
 
 			}
 
@@ -68,23 +65,5 @@ public class Misiones : MonoBehaviour {
 		
 		obj_rotate.transform.Rotate (0,Time.deltaTime*speed,0);
 	}
-
-
-	//>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>><<
-	private IEnumerator OpenDor()
-	{
 		
-		float RotateDoorY = Door.transform.rotation.y;
-		print ("RotateDoorY " + Door.transform.rotation.y);
-		while(Door.transform.rotation.y>-70f/1.0)
-		{
-			print (". "+Door.transform.rotation.y);
-			Door.transform.Rotate (0,RotateDoorY,0);
-			RotateDoorY-=1;
-			yield return null;
-		}
-		print ("end");
-		yield return new WaitForSeconds(1f);
-
-	}
 }
