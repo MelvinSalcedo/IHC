@@ -12,7 +12,7 @@
 
 #define TAA_REMOVE_COLOR_SAMPLE_JITTER 1
 
-#define TAA_USE_EXPERIMENTAL_OPTIMIZATIONS 1
+#define TAA_USE_EXPERimENTAL_OPTimIZATIONS 1
 
 #define TAA_TONEMAP_COLOR_AND_HISTORY_SAMPLES 1
 
@@ -28,10 +28,10 @@
 #define TAA_STORE_FRAGMENT_MOTION_HISTORY 1
 #define TAA_FRAGMENT_MOTION_HISTORY_DECAY .95
 
-#define TAA_MINIMUM_MOTION_NUDGE 6.28318530718
-#define TAA_MINIMUM_MOTION_SENSITIVITY .05
-#define TAA_MAXIMUM_MOTION_NUDGE .5
-#define TAA_MAXIMUM_MOTION_SENSITIVITY .055
+#define TAA_MINimUM_MOTION_NUDGE 6.28318530718
+#define TAA_MINimUM_MOTION_SENSITIVITY .05
+#define TAA_MAXimUM_MOTION_NUDGE .5
+#define TAA_MAXimUM_MOTION_SENSITIVITY .055
 
 #define TAA_SHARPEN_OUTPUT 1
 #define TAA_FINAL_BLEND_METHOD 2
@@ -156,7 +156,7 @@ float2 getClosestFragment(in float2 uv)
         float3 result = float3(0.0, 0.0, SAMPLE_DEPTH_TEXTURE(_CameraDepthTexture, uv));
     #endif
 
-    #if TAA_USE_EXPERIMENTAL_OPTIMIZATIONS
+    #if TAA_USE_EXPERimENTAL_OPTimIZATIONS
         result = lerp(result, float3(-1., -1., neighborhood.x), step(neighborhood.x, result.z));
         result = lerp(result, float3(1., -1., neighborhood.y), step(neighborhood.y, result.z));
         result = lerp(result, float3(-1., 1., neighborhood.z), step(neighborhood.z, result.z));
@@ -336,8 +336,8 @@ Output fragment(Varyings input)
     float4 history = tex2D(_HistoryTex, input.uv.zw - motion);
 
 #if TAA_COLOR_NEIGHBORHOOD_SAMPLE_PATTERN == 2
-    float sensitivity = saturate(smoothstep(TAA_MINIMUM_MOTION_SENSITIVITY * _MainTex_TexelSize.z, TAA_MAXIMUM_MOTION_SENSITIVITY * _MainTex_TexelSize.z, history.a));
-    float nudge = lerp(TAA_MINIMUM_MOTION_NUDGE, TAA_MAXIMUM_MOTION_NUDGE, sensitivity) * max(abs(luma.z - luma.w), abs(luma.x - luma.y));
+    float sensitivity = saturate(smoothstep(TAA_MINimUM_MOTION_SENSITIVITY * _MainTex_TexelSize.z, TAA_MAXimUM_MOTION_SENSITIVITY * _MainTex_TexelSize.z, history.a));
+    float nudge = lerp(TAA_MINimUM_MOTION_NUDGE, TAA_MAXimUM_MOTION_NUDGE, sensitivity) * max(abs(luma.z - luma.w), abs(luma.x - luma.y));
 
     float4 minimum = lerp(bottomRight, topLeft, step(luma.x, luma.y)) - nudge;
     float4 maximum = lerp(topLeft, bottomRight, step(luma.x, luma.y)) + nudge;
@@ -361,7 +361,7 @@ Output fragment(Varyings input)
     // Constant blend factor, works most of the time & cheap; but isn't as nice as a derivative of Sousa 13
     color = lerp(color, history, TAA_FINAL_BLEND_FACTOR);
 #elif TAA_FINAL_BLEND_METHOD == 1
-    // Implements the final blend method from Playdead's TAA implementation
+    // implements the final blend method from Playdead's TAA implementation
     #if TAA_COLOR_NEIGHBORHOOD_SAMPLE_PATTERN < 2
         float2
     #endif

@@ -1,5 +1,5 @@
 
-Importing the CrossPlatformInput package adds a menu item to Unity, "CrossPlatformInput", which allows you to enable or disable the CrossPlatformInput in the editor. You must enable the CrossPlatformInput in order to see the control rigs in the editor, and to start using Unity Remote to control your game.
+importing the CrossPlatformInput package adds a menu item to Unity, "CrossPlatformInput", which allows you to enable or disable the CrossPlatformInput in the editor. You must enable the CrossPlatformInput in order to see the control rigs in the editor, and to start using Unity Remote to control your game.
 
 The CrossPlatformInput sample assets contains two main sections. 
 
@@ -26,7 +26,7 @@ The CrossPlatformInput class is designed to be called instead of Unity's own Inp
 Notes for coders:
 This package sets two compiler define symbols. One is always set automatically, the other is optionally set from a menu item.
 
-Importing the "CrossPlatformInput" package will automatically add a compiler define symbol, "CROSS_PLATFORM_INPUT". This enables the CrossPlatformInput functions defined in some of the other Sample Asset packages (such as the Characters, Planes, etc). Without this symbol defined, those packages use Unity's regular Input class, which means they can be imported alone and still work without the CrossPlatformInput package.
+importing the "CrossPlatformInput" package will automatically add a compiler define symbol, "CROSS_PLATFORM_INPUT". This enables the CrossPlatformInput functions defined in some of the other Sample Asset packages (such as the Characters, Planes, etc). Without this symbol defined, those packages use Unity's regular Input class, which means they can be imported alone and still work without the CrossPlatformInput package.
 
 The optional define (which is set by default, but can be disabled using the "Mobile Input" menu), is "MOBILE_INPUT". This causes the MobileControlRigs to become active when a mobile build target is selected. It also enables certain mobile-specific control nuances in some of the packages, which make more sense when the character or vehicle is being controlled using mobile input (such as auto-leveling the character's look direction). This define is optional because some developers prefer to use standalone input methods instead of the Unity Remote app, when testing mobile apps in the editor's play mode.
 

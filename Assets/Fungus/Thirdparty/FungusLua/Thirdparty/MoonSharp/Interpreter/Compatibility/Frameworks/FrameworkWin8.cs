@@ -52,12 +52,12 @@ namespace MoonSharp.Interpreter.Compatibility.Frameworks
 
 		public override Type GetInterface(Type type, string name)
 		{
-			return type.GetTypeInfo().ImplementedInterfaces.FirstOrDefault(t => t.Name == name);
+			return type.GetTypeInfo().implementedInterfaces.FirstOrDefault(t => t.Name == name);
 		}
 
 		public override Type[] GetInterfaces(Type t)
 		{
-			return SafeArray(GetTypeInfoFromType(t).ImplementedInterfaces);
+			return SafeArray(GetTypeInfoFromType(t).implementedInterfaces);
 		}
 
 

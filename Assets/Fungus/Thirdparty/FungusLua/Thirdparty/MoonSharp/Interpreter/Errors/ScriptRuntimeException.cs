@@ -489,7 +489,7 @@ namespace MoonSharp.Interpreter
 		/// an attempt to access a non-static member from a static userdata was made
 		/// </summary>
 		/// <param name="desc">The member descriptor.</param>
-		public static ScriptRuntimeException AccessInstanceMemberOnStatics(IMemberDescriptor desc)
+		public static ScriptRuntimeException AccessInstanceMemberOnStatics(imemberDescriptor desc)
 		{
 			return new ScriptRuntimeException("attempt to access instance member {0} from a static userdata", desc.Name);
 		}
@@ -501,7 +501,7 @@ namespace MoonSharp.Interpreter
 		/// <param name="typeDescr">The type descriptor.</param>
 		/// <param name="desc">The member descriptor.</param>
 		/// <returns></returns>
-		public static ScriptRuntimeException AccessInstanceMemberOnStatics(IUserDataDescriptor typeDescr, IMemberDescriptor desc)
+		public static ScriptRuntimeException AccessInstanceMemberOnStatics(IUserDataDescriptor typeDescr, imemberDescriptor desc)
 		{
 			return new ScriptRuntimeException("attempt to access instance member {0}.{1} from a static userdata", typeDescr.Name, desc.Name);
 		}

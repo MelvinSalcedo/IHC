@@ -60,7 +60,7 @@ namespace MoonSharp.Interpreter
 		/// <param name="friendlyName">Friendly name for the type (optional)</param>
 		public static IUserDataDescriptor RegisterType<T>(InteropAccessMode accessMode = InteropAccessMode.Default, string friendlyName = null)
 		{
-			return TypeDescriptorRegistry.RegisterType_Impl(typeof(T), accessMode, friendlyName, null);
+			return TypeDescriptorRegistry.RegisterType_impl(typeof(T), accessMode, friendlyName, null);
 		}
 
 		/// <summary>
@@ -71,7 +71,7 @@ namespace MoonSharp.Interpreter
 		/// <param name="friendlyName">Friendly name for the type (optional)</param>
 		public static IUserDataDescriptor RegisterType(Type type, InteropAccessMode accessMode = InteropAccessMode.Default, string friendlyName = null)
 		{
-			return TypeDescriptorRegistry.RegisterType_Impl(type, accessMode, friendlyName, null);
+			return TypeDescriptorRegistry.RegisterType_impl(type, accessMode, friendlyName, null);
 		}
 
 
@@ -84,7 +84,7 @@ namespace MoonSharp.Interpreter
 		/// <returns></returns>
 		public static IUserDataDescriptor RegisterProxyType(IProxyFactory proxyFactory, InteropAccessMode accessMode = InteropAccessMode.Default, string friendlyName = null)
 		{
-			return TypeDescriptorRegistry.RegisterProxyType_Impl(proxyFactory, accessMode, friendlyName);
+			return TypeDescriptorRegistry.RegisterProxyType_impl(proxyFactory, accessMode, friendlyName);
 		}
 
 		/// <summary>
@@ -112,7 +112,7 @@ namespace MoonSharp.Interpreter
 		/// <param name="customDescriptor">The custom descriptor.</param>
 		public static IUserDataDescriptor RegisterType<T>(IUserDataDescriptor customDescriptor)
 		{
-			return TypeDescriptorRegistry.RegisterType_Impl(typeof(T), InteropAccessMode.Default, null, customDescriptor);
+			return TypeDescriptorRegistry.RegisterType_impl(typeof(T), InteropAccessMode.Default, null, customDescriptor);
 		}
 
 		/// <summary>
@@ -122,7 +122,7 @@ namespace MoonSharp.Interpreter
 		/// <param name="customDescriptor">The custom descriptor.</param>
 		public static IUserDataDescriptor RegisterType(Type type, IUserDataDescriptor customDescriptor)
 		{
-			return TypeDescriptorRegistry.RegisterType_Impl(type, InteropAccessMode.Default, null, customDescriptor);
+			return TypeDescriptorRegistry.RegisterType_impl(type, InteropAccessMode.Default, null, customDescriptor);
 		}
 
 		/// <summary>
@@ -131,7 +131,7 @@ namespace MoonSharp.Interpreter
 		/// <param name="customDescriptor">The custom descriptor.</param>
 		public static IUserDataDescriptor RegisterType(IUserDataDescriptor customDescriptor)
 		{
-			return TypeDescriptorRegistry.RegisterType_Impl(customDescriptor.Type, InteropAccessMode.Default, null, customDescriptor);
+			return TypeDescriptorRegistry.RegisterType_impl(customDescriptor.Type, InteropAccessMode.Default, null, customDescriptor);
 		}
 
 

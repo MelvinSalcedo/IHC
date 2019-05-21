@@ -6,7 +6,7 @@ namespace MoonSharp.Interpreter.Interop.BasicDescriptors
 	/// While it's not infrastructural to implement custom type descriptors, it's needed for 
 	/// classes extending <see cref="DispatchingUserDataDescriptor"/>.
 	/// </summary>
-	public interface IMemberDescriptor
+	public interface imemberDescriptor
 	{
 		/// <summary>
 		/// Gets a value indicating whether the described member is static.
@@ -22,7 +22,7 @@ namespace MoonSharp.Interpreter.Interop.BasicDescriptors
 		MemberDescriptorAccess MemberAccess { get; }
 		/// <summary>
 		/// Gets the value of this member as a <see cref="DynValue"/> to be exposed to scripts.
-		/// Implementors should raise exceptions if the value cannot be read or if access to an
+		/// implementors should raise exceptions if the value cannot be read or if access to an
 		/// instance member through a static userdata is attempted.
 		/// </summary>
 		/// <param name="script">The script.</param>
@@ -31,7 +31,7 @@ namespace MoonSharp.Interpreter.Interop.BasicDescriptors
 		DynValue GetValue(Script script, object obj);
 		/// <summary>
 		/// Sets the value of this member from a <see cref="DynValue"/>.
-		/// Implementors should raise exceptions if the value cannot be read or if access to an
+		/// implementors should raise exceptions if the value cannot be read or if access to an
 		/// instance member through a static userdata is attempted.
 		/// </summary>
 		/// <param name="script">The script.</param>
@@ -42,7 +42,7 @@ namespace MoonSharp.Interpreter.Interop.BasicDescriptors
 
 
 	/// <summary>
-	/// Extension methods for <see cref="IMemberDescriptor" /> and <see cref="MemberDescriptorAccess"/> .
+	/// Extension methods for <see cref="imemberDescriptor" /> and <see cref="MemberDescriptorAccess"/> .
 	/// </summary>
 	public static class MemberDescriptor
 	{
@@ -62,7 +62,7 @@ namespace MoonSharp.Interpreter.Interop.BasicDescriptors
 		/// </summary>
 		/// <param name="desc">The descriptor instance.</param>
 		/// <returns></returns>
-		public static bool CanRead(this IMemberDescriptor desc)
+		public static bool CanRead(this imemberDescriptor desc)
 		{
 			return desc.MemberAccess.HasAllFlags(MemberDescriptorAccess.CanRead);
 		}
@@ -72,7 +72,7 @@ namespace MoonSharp.Interpreter.Interop.BasicDescriptors
 		/// </summary>
 		/// <param name="desc">The descriptor instance.</param>
 		/// <returns></returns>
-		public static bool CanWrite(this IMemberDescriptor desc)
+		public static bool CanWrite(this imemberDescriptor desc)
 		{
 			return desc.MemberAccess.HasAllFlags(MemberDescriptorAccess.CanWrite);
 		}
@@ -82,7 +82,7 @@ namespace MoonSharp.Interpreter.Interop.BasicDescriptors
 		/// </summary>
 		/// <param name="desc">The descriptor instance.</param>
 		/// <returns></returns>
-		public static bool CanExecute(this IMemberDescriptor desc)
+		public static bool CanExecute(this imemberDescriptor desc)
 		{
 			return desc.MemberAccess.HasAllFlags(MemberDescriptorAccess.CanExecute);
 		}
@@ -94,7 +94,7 @@ namespace MoonSharp.Interpreter.Interop.BasicDescriptors
 		/// <param name="script">The script.</param>
 		/// <param name="obj">The object.</param>
 		/// <returns></returns>
-		public static DynValue GetGetterCallbackAsDynValue(this IMemberDescriptor desc, Script script, object obj)
+		public static DynValue GetGetterCallbackAsDynValue(this imemberDescriptor desc, Script script, object obj)
 		{
 			return DynValue.NewCallback((p1, p2) => desc.GetValue(script, obj));
 		}
@@ -105,7 +105,7 @@ namespace MoonSharp.Interpreter.Interop.BasicDescriptors
 		/// <param name="desc">The descriptor instance.</param>
 		/// <param name="access">The access mode(s).</param>
 		/// <returns></returns>
-		public static IMemberDescriptor WithAccessOrNull(this IMemberDescriptor desc, MemberDescriptorAccess access)
+		public static imemberDescriptor WithAccessOrNull(this imemberDescriptor desc, MemberDescriptorAccess access)
 		{
 			if (desc == null)
 				return null;
@@ -124,7 +124,7 @@ namespace MoonSharp.Interpreter.Interop.BasicDescriptors
 		/// <param name="desc">The desc.</param>
 		/// <param name="access">The access.</param>
 		/// <param name="obj">The object to be checked for access.</param>
-		public static void CheckAccess(this IMemberDescriptor desc, MemberDescriptorAccess access, object obj)
+		public static void CheckAccess(this imemberDescriptor desc, MemberDescriptorAccess access, object obj)
 		{
 			if (!desc.IsStatic && obj == null)
 				throw ScriptRuntimeException.AccessInstanceMemberOnStatics(desc);

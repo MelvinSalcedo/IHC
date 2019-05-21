@@ -5,7 +5,7 @@ namespace MoonSharp.Interpreter.Interop
 	/// <summary>
 	/// Class providing a simple descriptor for constant DynValues in userdata
 	/// </summary>
-	public class DynValueMemberDescriptor : IMemberDescriptor, IWireableDescriptor
+	public class DynValueMemberDescriptor : imemberDescriptor, IWireableDescriptor
 	{
 		private DynValue m_Value;
 

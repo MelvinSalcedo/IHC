@@ -4,7 +4,7 @@ using MoonSharp.Interpreter.Interop.Converters;
 
 namespace MoonSharp.Interpreter.Interop.StandardDescriptors.HardwiredDescriptors
 {
-	public abstract class HardwiredMemberDescriptor : IMemberDescriptor
+	public abstract class HardwiredMemberDescriptor : imemberDescriptor
 	{
 		public Type MemberType { get; private set; }
 
@@ -26,7 +26,7 @@ namespace MoonSharp.Interpreter.Interop.StandardDescriptors.HardwiredDescriptors
 		public DynValue GetValue(Script script, object obj)
 		{
 			this.CheckAccess(MemberDescriptorAccess.CanRead, obj);
-			object result = GetValueImpl(script, obj);
+			object result = GetValueimpl(script, obj);
 			return ClrToScriptConversions.ObjectToDynValue(script, result);
 		}
 
@@ -34,16 +34,16 @@ namespace MoonSharp.Interpreter.Interop.StandardDescriptors.HardwiredDescriptors
 		{
 			this.CheckAccess(MemberDescriptorAccess.CanWrite, obj);
 			object v = ScriptToClrConversions.DynValueToObjectOfType(value, MemberType, null, false);
-			SetValueImpl(script, obj, v);
+			SetValueimpl(script, obj, v);
 		}
 
 
-		protected virtual object GetValueImpl(Script script, object obj)
+		protected virtual object GetValueimpl(Script script, object obj)
 		{
 			throw new InvalidOperationException("GetValue on write-only hardwired descriptor " + Name);
 		}
 
-		protected virtual void SetValueImpl(Script script, object obj, object value)
+		protected virtual void SetValueimpl(Script script, object obj, object value)
 		{
 			throw new InvalidOperationException("SetValue on read-only hardwired descriptor " + Name);
 		}

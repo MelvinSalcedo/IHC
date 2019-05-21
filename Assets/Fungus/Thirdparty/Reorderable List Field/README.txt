@@ -128,7 +128,7 @@ be as simple as possible. To achieve this the following terms and conditions
 must be met:
 
 - All contributed content (including but not limited to source code, text,
-  image, videos, bug reports, suggestions, ideas, etc.) must be the
+  Image, videos, bug reports, suggestions, ideas, etc.) must be the
   contributors own work.
 
 - The contributor disclaims all copyright and accepts that their contributed

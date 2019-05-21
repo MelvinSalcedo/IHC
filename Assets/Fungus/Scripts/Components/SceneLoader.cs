@@ -12,9 +12,9 @@ namespace Fungus
 {
     /// <summary>
     /// Helper component for loading a new scene.
-    /// A fullscreen loading image is displayed while loading the new scene.
+    /// A fullscreen loading Image is displayed while loading the new scene.
     /// All Rooms are destroyed and unused assets are released from memory before loading the new scene to minimize memory footprint.
-    /// For streaming Web Player builds, the loading image will be displayed until the requested level has finished downloading.
+    /// For streaming Web Player builds, the loading Image will be displayed until the requested level has finished downloading.
     /// </summary>
     public class SceneLoader : MonoBehaviour
     {
@@ -29,7 +29,7 @@ namespace Fungus
 
         protected virtual IEnumerator DoLoadBlock()
         {
-            // Wait until loading image has been displayed in OnGUI
+            // Wait until loading Image has been displayed in OnGUI
             while (loadingTexture != null && 
                    !displayedImage)
             {
@@ -85,7 +85,7 @@ namespace Fungus
 
             if (Event.current.type == EventType.Repaint)
             {
-                // Flag that image is now being shown
+                // Flag that Image is now being shown
                 displayedImage = true;
             }
         }
@@ -96,7 +96,7 @@ namespace Fungus
         /// Asynchronously load a new scene.
         /// </summary>
         /// <param name="_sceneToLoad">The name of the scene to load. Scenes must be added in project build settings.</param>
-        /// <param name="_loadingTexture">Loading image to display while loading the new scene.</param>
+        /// <param name="_loadingTexture">Loading Image to display while loading the new scene.</param>
         public static void LoadScene(string _sceneToLoad, Texture2D _loadingTexture)
         {
             // Unity does not provide a way to check if the named scene actually exists in the project.

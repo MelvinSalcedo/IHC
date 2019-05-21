@@ -162,7 +162,7 @@ namespace MoonSharp.Interpreter.Interop.UserDataRegistries
 			{
 				extensionType = extensionType.GetGenericTypeDefinition();
 
-				foreach (Type t in extendedType.GetAllImplementedTypes())
+				foreach (Type t in extendedType.GetAllimplementedTypes())
 				{
 					if (Framework.Do.IsGenericType(t) && t.GetGenericTypeDefinition() == extensionType)
 					{

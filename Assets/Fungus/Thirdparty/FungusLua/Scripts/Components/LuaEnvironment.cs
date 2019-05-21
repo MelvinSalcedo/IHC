@@ -107,7 +107,7 @@ namespace Fungus
         /// The coroutine is managed by the LuaEnvironment monobehavior, so you can call StopAllCoroutines to
         /// stop all active coroutines later.
         /// </summary>
-        protected virtual IEnumerator RunUnityCoroutineImpl(IEnumerator coroutine)
+        protected virtual IEnumerator RunUnityCoroutineimpl(IEnumerator coroutine)
         {
             if (coroutine == null)
             {
@@ -225,7 +225,7 @@ namespace Fungus
 
             // We use the Task class so we can poll the coroutine to check if it has finished.
             // Standard Unity coroutines don't support this check.
-            return new Task(RunUnityCoroutineImpl(coroutine));
+            return new Task(RunUnityCoroutineimpl(coroutine));
         }
 
         /// <summary>

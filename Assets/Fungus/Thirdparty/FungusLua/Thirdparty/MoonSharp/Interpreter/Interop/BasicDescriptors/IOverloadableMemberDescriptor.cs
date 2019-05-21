@@ -3,13 +3,13 @@
 namespace MoonSharp.Interpreter.Interop.BasicDescriptors
 {
 	/// <summary>
-	/// Specialized <see cref="IMemberDescriptor"/> for members supporting overloads resolution.
+	/// Specialized <see cref="imemberDescriptor"/> for members supporting overloads resolution.
 	/// </summary>
-	public interface IOverloadableMemberDescriptor : IMemberDescriptor
+	public interface IOverloadableMemberDescriptor : imemberDescriptor
 	{
 		/// <summary>
 		/// Invokes the member from script.
-		/// Implementors should raise exceptions if the value cannot be executed or if access to an
+		/// implementors should raise exceptions if the value cannot be executed or if access to an
 		/// instance member through a static userdata is attempted.
 		/// </summary>
 		/// <param name="script">The script.</param>

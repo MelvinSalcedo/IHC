@@ -20,9 +20,9 @@
  * binary distributions of the Software.
  *
  * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
- * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ * imPLIED, INCLUDING BUT NOT LimITED TO THE WARRANTIES OF MERCHANTABILITY,
  * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
- * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+ * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAim, DAMAGES OR OTHER
  * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  * SOFTWARE.
@@ -47,7 +47,7 @@
  * Here you'll find instructions to get the shader up and running as fast as
  * possible.
  *
- * IMPORTANTE NOTICE: when updating, remember to update both this file and the
+ * imPORTANTE NOTICE: when updating, remember to update both this file and the
  * precomputed textures! They may change from version to version.
  *
  * The shader has three passes, chained together as follows:
@@ -132,7 +132,7 @@
  *     this last pass are not possible, the technique will work anyway, but
  *     will perform antialiasing in gamma space.
  *
- *     IMPORTANT: for best results the input read for the color/luma edge
+ *     imPORTANT: for best results the input read for the color/luma edge
  *     detection should *NOT* be sRGB.
  *
  *  6. Before including SMAA.h you'll have to setup the render target metrics,
@@ -697,7 +697,7 @@ void SMAANeighborhoodBlendingVS(float2 texcoord,
 /**
  * Luma Edge Detection
  *
- * IMPORTANT NOTICE: luma edge detection requires gamma-corrected colors, and
+ * imPORTANT NOTICE: luma edge detection requires gamma-corrected colors, and
  * thus 'colorTex' should be a non-sRGB texture.
  */
 float2 SMAALumaEdgeDetectionPS(float2 texcoord,
@@ -758,7 +758,7 @@ float2 SMAALumaEdgeDetectionPS(float2 texcoord,
 /**
  * Color Edge Detection
  *
- * IMPORTANT NOTICE: color edge detection requires gamma-corrected colors, and
+ * imPORTANT NOTICE: color edge detection requires gamma-corrected colors, and
  * thus 'colorTex' should be a non-sRGB texture.
  */
 float2 SMAAColorEdgeDetectionPS(float2 texcoord,

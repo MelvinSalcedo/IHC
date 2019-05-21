@@ -13,7 +13,7 @@ namespace MoonSharp.Interpreter.Interop
 	/// Class providing easier marshalling of CLR events. Handling is limited to a narrow range of handler signatures, which,
 	/// however, covers in practice most of all available events.
 	/// </summary>
-	public class EventMemberDescriptor : IMemberDescriptor
+	public class EventMemberDescriptor : imemberDescriptor
 	{
 		/// <summary>
 		/// The maximum number of arguments supported in an event handler delegate

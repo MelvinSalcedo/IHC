@@ -123,10 +123,10 @@ namespace MoonSharp.Interpreter.Interop.UserDataRegistries
 		/// <param name="accessMode">The access mode.</param>
 		/// <param name="friendlyName">Name of the friendly.</param>
 		/// <returns></returns>
-		internal static IUserDataDescriptor RegisterProxyType_Impl(IProxyFactory proxyFactory, InteropAccessMode accessMode, string friendlyName)
+		internal static IUserDataDescriptor RegisterProxyType_impl(IProxyFactory proxyFactory, InteropAccessMode accessMode, string friendlyName)
 		{
-			IUserDataDescriptor proxyDescriptor = RegisterType_Impl(proxyFactory.ProxyType, accessMode, friendlyName, null);
-			return RegisterType_Impl(proxyFactory.TargetType, accessMode, friendlyName, new ProxyUserDataDescriptor(proxyFactory, proxyDescriptor, friendlyName));
+			IUserDataDescriptor proxyDescriptor = RegisterType_impl(proxyFactory.ProxyType, accessMode, friendlyName, null);
+			return RegisterType_impl(proxyFactory.TargetType, accessMode, friendlyName, new ProxyUserDataDescriptor(proxyFactory, proxyDescriptor, friendlyName));
 		}
 
 
@@ -138,7 +138,7 @@ namespace MoonSharp.Interpreter.Interop.UserDataRegistries
 		/// <param name="friendlyName">Friendly name of the descriptor.</param>
 		/// <param name="descriptor">The descriptor, or null to use a default one.</param>
 		/// <returns></returns>
-		internal static IUserDataDescriptor RegisterType_Impl(Type type, InteropAccessMode accessMode, string friendlyName, IUserDataDescriptor descriptor)
+		internal static IUserDataDescriptor RegisterType_impl(Type type, InteropAccessMode accessMode, string friendlyName, IUserDataDescriptor descriptor)
 		{
 			accessMode = ResolveDefaultAccessModeForType(accessMode, type);
 
@@ -258,7 +258,7 @@ namespace MoonSharp.Interpreter.Interop.UserDataRegistries
 					// no autoreg of delegates
 					if (!Framework.Do.IsAssignableFrom((typeof(Delegate)), type))
 					{
-						return RegisterType_Impl(type, DefaultAccessMode, type.FullName, null);
+						return RegisterType_impl(type, DefaultAccessMode, type.FullName, null);
 					}
 				}
 

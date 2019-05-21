@@ -10,7 +10,7 @@ namespace MoonSharp.Interpreter.Interop
 	{
 		IndexGetter,
 		IndexSetter,
-		ImplicitCast,
+		implicitCast,
 		ExplicitCast,
 
 		OperatorTrue,
@@ -72,8 +72,8 @@ namespace MoonSharp.Interpreter.Interop
 				case "op_Explicit":
 					Type = ReflectionSpecialNameType.ExplicitCast;
 					return;
-				case "op_Implicit":
-					Type = ReflectionSpecialNameType.ImplicitCast;
+				case "op_implicit":
+					Type = ReflectionSpecialNameType.implicitCast;
 					return;
 				case "set_Item":
 					Type = ReflectionSpecialNameType.IndexSetter;

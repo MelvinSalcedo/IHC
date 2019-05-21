@@ -10,12 +10,12 @@ public class bucle_tutorial : MonoBehaviour {
 
 	[Header("pantalla de carga")]
 	public int num_meta=0,nivel;
-	public GameObject imagen_carga;
+	public GameObject Imagen_carga;
 	public Slider barra;
 	private AsyncOperation asyn;
 
 	public void click_carga(){
-		imagen_carga.SetActive (true);
+		Imagen_carga.SetActive (true);
 		StartCoroutine (Loadlevelslider(nivel));
 	}
 

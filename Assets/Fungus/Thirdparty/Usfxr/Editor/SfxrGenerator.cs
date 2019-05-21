@@ -25,7 +25,7 @@ using UnityEditor;
 using UnityEngine;
 
 /// <summary>
-/// Implements a Unity window to generate sounds and their parameters with usfxr.
+/// implements a Unity window to generate sounds and their parameters with usfxr.
 /// </summary>
 /// <remarks>
 /// Open the generator from the Window menu. You can then create a sound and
@@ -119,7 +119,7 @@ public class SfxrGenerator : EditorWindow {
 	}
 	
 	public void CreateWavePreview() {
-		// Creates an image with a preview of the wave
+		// Creates an Image with a preview of the wave
 		
 		/* 
 		// Create the texture and set its colour.

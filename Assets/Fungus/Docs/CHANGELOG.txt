@@ -228,7 +228,7 @@ v3.1.0 {#v3_1_0}
 
 ## Changed
 
-- Default dialog image is now sliced, so can be resized to any width / height required.
+- Default dialog Image is now sliced, so can be resized to any width / height required.
 - Upgraded MoonSharp to v1.6.0.0
 - Added [System.Serializable] attribute to all Variable classes.
 
@@ -271,7 +271,7 @@ Awesome github contributors:
     - Fungus documentation now has an extensive section on LuaScripting.
 - StringDataMulti: Like StringData, but uses a multi-line textbox in the inspector.
 - StopBlock command: Stop executing the named block.
-- Improved string substitution system. Now works with Lua global variables and Lua string table, as well as Flowchart variables.
+- improved string substitution system. Now works with Lua global variables and Lua string table, as well as Flowchart variables.
 - Extend the string substitution system yourself using the new ISubstitutionHandler interface.
 - Added TaskManager library to Thirdparty folder. Allows better control over coroutine execution.
 - Show Line Numbers option in Flowchart. Shows the command index in the inspector (off by default). #231
@@ -294,8 +294,8 @@ Awesome github contributors:
 - Replaced string with StringData, int with IntegerData, etc. in many command properties. Use variables or constants.
 - Block.Execute renamed to Block.StartExecute, can now specify a command index to start at.
 - Say command: Set the Character using an object field or the dropdown menu. Can now select Character prefabs.
-- Improved Flowchart UpdateVersion system
-- Portrait image is now hidden at startup in SayDialog
+- improved Flowchart UpdateVersion system
+- Portrait Image is now hidden at startup in SayDialog
 - Use DialogAudio volume property for starting volume on voiceover audio
 - WriterAudio now respects the volume property in all cases
 - Added short open source license info header to all source files
@@ -352,7 +352,7 @@ v2.4.0 {#v2_4_0}
     - Fungus documentation now has an extensive section on LuaScripting.
 - StringDataMulti: Like StringData, but uses a multi-line textbox in the inspector.
 - StopBlock command: Stop executing the named block.
-- Improved string substitution system. Now works with Lua global variables and Lua string table.
+- improved string substitution system. Now works with Lua global variables and Lua string table.
 - Extend the string substitution system yourself using the new ISubstitutionHandler interface.
 - Added TaskManager library to Thirdparty folder. Allows better control over coroutine execution.
 - Show Line Numbers option in Flowchart. Shows the command index in the inspector (off by default). #231
@@ -367,8 +367,8 @@ v2.4.0 {#v2_4_0}
 - Replaced string with StringData, int with IntegerData, etc. in many command properties.
 - Bock.Execute renamed to Block.StartExecute, can now specify a command index to start at.
 - Say command: Set the Character using an object field or the dropdown menu. Can now select Character prefabs.
-- Improved Flowchart UpdateVersion system
-- Portrait image is now hidden at startup in SayDialog
+- improved Flowchart UpdateVersion system
+- Portrait Image is now hidden at startup in SayDialog
 - Use DialogAudio volume property for starting volume on voiceover audio
 - WriterAudio now respects the volume property in all cases
 
@@ -488,7 +488,7 @@ v2.2.1 {#v2_2_1}
 
 ## Changed
 
-- Improved Enter Name example to demonstrate the new Write, Get Text, Set Text, Set Interactable, etc. commands.
+- improved Enter Name example to demonstrate the new Write, Get Text, Set Text, Set Interactable, etc. commands.
 - Removed punctuation pause for last character in a sentence #168
 - Removed unsupported 'shiver' item from tag help description in Say and Write commands
 - Moved LICENSE and README inside the Fungus folder #185
@@ -513,7 +513,7 @@ v2.2.0 {#v2_2_0}
 - Say Dialog class has been split into Say Dialog, Dialog Input components
 - Dialog Input supports multiple input types; clicks & key presses
 - Can hold down shift while pressing a key to fast forward through dialog text
-- Say Dialog now adjusts Story Text rect when character image is visible.
+- Say Dialog now adjusts Story Text rect when character Image is visible.
 - Added Stop() method to Say Dialog and Writer to cancel writing immediately
 - Fullscreen command. https://trello.com/c/aA5GQlua
 - InputText example in FungusExamples
@@ -536,14 +536,14 @@ v2.2.0 {#v2_2_0}
 ## Changed
 
 - Simplifed Say Dialog hierarchy structure to be easier to customise
-- Say Dialog continue image is now a UI button
+- Say Dialog continue Image is now a UI button
 - Say Dialog automatically fades in / out when writing
 - Updated The Facility example to work with new Say Dialog design
 - Updated Drag And Drop example to use new Set Mouse Cursor command
-- Improved rendering efficiency of Block inspector window.
-- Improved shift-selecting commands in Block inspector.
+- improved rendering efficiency of Block inspector window.
+- improved shift-selecting commands in Block inspector.
 - Portrait command now moves portraits using world position instead of anchored position    
-- Portrait cross fading is now done using image alpha instead of a custom shader
+- Portrait cross fading is now done using Image alpha instead of a custom shader
 - Stage Show / Hide is now done by tweening the CanvasGroup alpha.
 - Portrait MoveSpeed is now MoveDuration
 - Portrait WaitUntilFinished option now works robustly
@@ -566,7 +566,7 @@ v2.2.0 {#v2_2_0}
 - Intermittent null reference error from command editors
 - Draggable objects don't return to start pos if drag completes #130
 - Moving and fading portraits at the same time
-- Character portrait images have display artefacts #92
+- Character portrait Images have display artefacts #92
 - Duplicate Block option does not do a deep copy #129
 - Event System not created after Load Scene #121
 - Voice over audio only works every second time #126
@@ -604,7 +604,7 @@ https://trello.com/c/a333r2QA
 - Can now control swipe pan speed in Start Swipe command
 https://trello.com/c/TmG9SiIa
 
-- Improved layout of Flowchart name and description
+- improved layout of Flowchart name and description
 https://trello.com/c/vwnzaOh2
 
 ## Removed

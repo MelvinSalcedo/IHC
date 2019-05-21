@@ -191,10 +191,10 @@ half4  ExtinctColor (half4 baseColor, half extinctionAmount)
 		half4 CD = steepness.zzww * amp.zzww * dirCD.xyzw;
 		
 		half4 dotABCD = freq.xyzw * half4(dot(dirAB.xy, xzVtx), dot(dirAB.zw, xzVtx), dot(dirCD.xy, xzVtx), dot(dirCD.zw, xzVtx));
-		half4 TIME = _Time.yyyy * speed;
+		half4 TimE = _Time.yyyy * speed;
 		
-		half4 COS = cos (dotABCD + TIME);
-		half4 SIN = sin (dotABCD + TIME);
+		half4 COS = cos (dotABCD + TimE);
+		half4 SIN = sin (dotABCD + TimE);
 		
 		offsets.x = dot(COS, half4(AB.xz, CD.xz));
 		offsets.z = dot(COS, half4(AB.yw, CD.yw));
@@ -226,9 +226,9 @@ half4  ExtinctColor (half4 baseColor, half extinctionAmount)
 		half4 CD = freq.zzww * amp.zzww * dirCD.xyzw;
 		
 		half4 dotABCD = freq.xyzw * half4(dot(dirAB.xy, xzVtx), dot(dirAB.zw, xzVtx), dot(dirCD.xy, xzVtx), dot(dirCD.zw, xzVtx));
-		half4 TIME = _Time.yyyy * speed;
+		half4 TimE = _Time.yyyy * speed;
 		
-		half4 COS = cos (dotABCD + TIME);
+		half4 COS = cos (dotABCD + TimE);
 		
 		nrml.x -= dot(COS, half4(AB.xz, CD.xz));
 		nrml.z -= dot(COS, half4(AB.yw, CD.yw));

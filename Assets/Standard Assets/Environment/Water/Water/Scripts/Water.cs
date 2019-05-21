@@ -146,17 +146,17 @@ namespace UnityStandardAssets.Water
             switch (mode)
             {
                 case WaterMode.Simple:
-                    Shader.EnableKeyword("WATER_SIMPLE");
+                    Shader.EnableKeyword("WATER_SimPLE");
                     Shader.DisableKeyword("WATER_REFLECTIVE");
                     Shader.DisableKeyword("WATER_REFRACTIVE");
                     break;
                 case WaterMode.Reflective:
-                    Shader.DisableKeyword("WATER_SIMPLE");
+                    Shader.DisableKeyword("WATER_SimPLE");
                     Shader.EnableKeyword("WATER_REFLECTIVE");
                     Shader.DisableKeyword("WATER_REFRACTIVE");
                     break;
                 case WaterMode.Refractive:
-                    Shader.DisableKeyword("WATER_SIMPLE");
+                    Shader.DisableKeyword("WATER_SimPLE");
                     Shader.DisableKeyword("WATER_REFLECTIVE");
                     Shader.EnableKeyword("WATER_REFRACTIVE");
                     break;

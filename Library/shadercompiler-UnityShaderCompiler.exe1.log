@@ -1,4 +1,5 @@
 Base path: C:/Program Files/Unity/Editor/Data
 Cmd: initializeCompiler
 Cmd: compileComputeKernel
-  api=4 insize=2753 outsize=2257 ok=1
+  error: 2 plat 4 at HistogramCompute.compute(25): Texture2D<float4> object does not have method 'GetDImensions'
+  api=4 insize=2668 outsize=0 ok=0

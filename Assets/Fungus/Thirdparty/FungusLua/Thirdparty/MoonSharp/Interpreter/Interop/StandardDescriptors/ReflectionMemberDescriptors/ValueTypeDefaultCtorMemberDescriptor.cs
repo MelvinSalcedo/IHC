@@ -78,7 +78,7 @@ namespace MoonSharp.Interpreter.Interop
 
 		/// <summary>
 		/// Invokes the member from script.
-		/// Implementors should raise exceptions if the value cannot be executed or if access to an
+		/// implementors should raise exceptions if the value cannot be executed or if access to an
 		/// instance member through a static userdata is attempted.
 		/// </summary>
 		/// <param name="script">The script.</param>
@@ -115,7 +115,7 @@ namespace MoonSharp.Interpreter.Interop
 		/// <summary>
 		/// Gets the value of this member as a 
 		/// <see cref="DynValue" /> to be exposed to scripts.
-		/// Implementors should raise exceptions if the value cannot be read or if access to an
+		/// implementors should raise exceptions if the value cannot be read or if access to an
 		/// instance member through a static userdata is attempted.
 		/// </summary>
 		/// <param name="script">The script.</param>
@@ -134,7 +134,7 @@ namespace MoonSharp.Interpreter.Interop
 		/// <summary>
 		/// Sets the value of this member from a 
 		/// <see cref="DynValue" />.
-		/// Implementors should raise exceptions if the value cannot be read or if access to an
+		/// implementors should raise exceptions if the value cannot be read or if access to an
 		/// instance member through a static userdata is attempted.
 		/// </summary>
 		/// <param name="script">The script.</param>

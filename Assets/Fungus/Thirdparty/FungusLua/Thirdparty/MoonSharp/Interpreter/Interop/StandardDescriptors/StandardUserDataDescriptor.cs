@@ -87,7 +87,7 @@ namespace MoonSharp.Interpreter.Interop
 
 					// transform explicit/implicit conversions to a friendlier name.
 					string name = mi.Name;
-					if (mi.IsSpecialName && (mi.Name == SPECIALNAME_CAST_EXPLICIT || mi.Name == SPECIALNAME_CAST_IMPLICIT))
+					if (mi.IsSpecialName && (mi.Name == SPECIALNAME_CAST_EXPLICIT || mi.Name == SPECIALNAME_CAST_imPLICIT))
 					{
 						name = mi.ReturnType.GetConversionMethodName();
 					}
@@ -195,7 +195,7 @@ namespace MoonSharp.Interpreter.Interop
 			}
 		}
 
-		private void Serialize(Table t, IEnumerable<KeyValuePair<string, IMemberDescriptor>> members)
+		private void Serialize(Table t, IEnumerable<KeyValuePair<string, imemberDescriptor>> members)
 		{
 			foreach (var pair in members)
 			{

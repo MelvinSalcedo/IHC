@@ -7,7 +7,7 @@ using MoonSharp.Interpreter.Interop.Converters;
 namespace MoonSharp.Interpreter.Interop.BasicDescriptors
 {
 	/// <summary>
-	/// An abstract user data descriptor which accepts members described by <see cref="IMemberDescriptor"/> objects and
+	/// An abstract user data descriptor which accepts members described by <see cref="imemberDescriptor"/> objects and
 	/// correctly dispatches to them.
 	/// Metamethods are also by default dispatched to operator overloads and other similar methods - see
 	/// <see cref="MetaIndex"/> .
@@ -15,8 +15,8 @@ namespace MoonSharp.Interpreter.Interop.BasicDescriptors
 	public abstract class DispatchingUserDataDescriptor : IUserDataDescriptor, IOptimizableDescriptor
 	{
 		private int m_ExtMethodsVersion = 0;
-		private Dictionary<string, IMemberDescriptor> m_MetaMembers = new Dictionary<string, IMemberDescriptor>();
-		private Dictionary<string, IMemberDescriptor> m_Members = new Dictionary<string, IMemberDescriptor>();
+		private Dictionary<string, imemberDescriptor> m_MetaMembers = new Dictionary<string, imemberDescriptor>();
+		private Dictionary<string, imemberDescriptor> m_Members = new Dictionary<string, imemberDescriptor>();
 
 		/// <summary>
 		/// The special name used by CLR for indexer getters
@@ -34,7 +34,7 @@ namespace MoonSharp.Interpreter.Interop.BasicDescriptors
 		/// <summary>
 		/// The special name used by CLR for implicit cast conversions
 		/// </summary>
-		protected const string SPECIALNAME_CAST_IMPLICIT = "op_Implicit";
+		protected const string SPECIALNAME_CAST_imPLICIT = "op_implicit";
 
 
 		/// <summary>
@@ -70,7 +70,7 @@ namespace MoonSharp.Interpreter.Interop.BasicDescriptors
 		/// <exception cref="System.ArgumentException">
 		/// Thrown if a name conflict is detected and one of the conflicting members does not support overloads.
 		/// </exception>
-		public void AddMetaMember(string name, IMemberDescriptor desc)
+		public void AddMetaMember(string name, imemberDescriptor desc)
 		{
 			if (desc != null)
 				AddMemberTo(m_MetaMembers, name, desc);
@@ -96,7 +96,7 @@ namespace MoonSharp.Interpreter.Interop.BasicDescriptors
 		/// <exception cref="System.ArgumentException">
 		/// Thrown if a name conflict is detected and one of the conflicting members does not support overloads.
 		/// </exception>
-		public void AddMember(string name, IMemberDescriptor desc)
+		public void AddMember(string name, imemberDescriptor desc)
 		{
 			if (desc != null)
 				AddMemberTo(m_Members, name, desc);
@@ -113,7 +113,7 @@ namespace MoonSharp.Interpreter.Interop.BasicDescriptors
 		/// <summary>
 		/// Gets the members.
 		/// </summary>
-		public IEnumerable<KeyValuePair<string, IMemberDescriptor>> Members
+		public IEnumerable<KeyValuePair<string, imemberDescriptor>> Members
 		{
 			get { return m_Members; }
 		}
@@ -123,7 +123,7 @@ namespace MoonSharp.Interpreter.Interop.BasicDescriptors
 		/// </summary>
 		/// <param name="memberName">Name of the member.</param>
 		/// <returns></returns>
-		public IMemberDescriptor FindMember(string memberName)
+		public imemberDescriptor FindMember(string memberName)
 		{
 			return m_Members.GetOrDefault(memberName);
 		}
@@ -148,7 +148,7 @@ namespace MoonSharp.Interpreter.Interop.BasicDescriptors
 		/// <summary>
 		/// Gets the meta members.
 		/// </summary>
-		public IEnumerable<KeyValuePair<string, IMemberDescriptor>> MetaMembers
+		public IEnumerable<KeyValuePair<string, imemberDescriptor>> MetaMembers
 		{
 			get { return m_MetaMembers; }
 		}
@@ -157,7 +157,7 @@ namespace MoonSharp.Interpreter.Interop.BasicDescriptors
 		/// Finds the meta member with a given name. If not found, null is returned.
 		/// </summary>
 		/// <param name="memberName">Name of the member.</param>
-		public IMemberDescriptor FindMetaMember(string memberName)
+		public imemberDescriptor FindMetaMember(string memberName)
 		{
 			return m_MetaMembers.GetOrDefault(memberName);
 		}
@@ -174,7 +174,7 @@ namespace MoonSharp.Interpreter.Interop.BasicDescriptors
 
 
 
-		private void AddMemberTo(Dictionary<string, IMemberDescriptor> members, string name, IMemberDescriptor desc)
+		private void AddMemberTo(Dictionary<string, imemberDescriptor> members, string name, imemberDescriptor desc)
 		{
 			IOverloadableMemberDescriptor odesc = desc as IOverloadableMemberDescriptor;
 
@@ -219,7 +219,7 @@ namespace MoonSharp.Interpreter.Interop.BasicDescriptors
 		{
 			if (!isDirectIndexing)
 			{
-				IMemberDescriptor mdesc = m_Members
+				imemberDescriptor mdesc = m_Members
 					.GetOrDefault(SPECIALNAME_INDEXER_GET)
 					.WithAccessOrNull(MemberDescriptorAccess.CanExecute);
 
@@ -304,7 +304,7 @@ namespace MoonSharp.Interpreter.Interop.BasicDescriptors
 		/// <returns></returns>
 		protected virtual DynValue TryIndex(Script script, object obj, string indexName)
 		{
-			IMemberDescriptor desc;
+			imemberDescriptor desc;
 
 			if (m_Members.TryGetValue(indexName, out desc))
 			{
@@ -327,7 +327,7 @@ namespace MoonSharp.Interpreter.Interop.BasicDescriptors
 		{
 			if (!isDirectIndexing)
 			{
-				IMemberDescriptor mdesc = m_Members
+				imemberDescriptor mdesc = m_Members
 					.GetOrDefault(SPECIALNAME_INDEXER_SET)
 					.WithAccessOrNull(MemberDescriptorAccess.CanExecute);
 
@@ -361,7 +361,7 @@ namespace MoonSharp.Interpreter.Interop.BasicDescriptors
 		/// <returns></returns>
 		protected virtual bool TrySetIndex(Script script, object obj, string indexName, DynValue value)
 		{
-			IMemberDescriptor descr = m_Members.GetOrDefault(indexName);
+			imemberDescriptor descr = m_Members.GetOrDefault(indexName);
 
 			if (descr != null)
 			{
@@ -427,7 +427,7 @@ namespace MoonSharp.Interpreter.Interop.BasicDescriptors
 		/// <param name="value">The dynvalue to set on a setter, or null.</param>
 		/// <returns></returns>
 		/// <exception cref="System.NotImplementedException"></exception>
-		protected virtual DynValue ExecuteIndexer(IMemberDescriptor mdesc, Script script, object obj, DynValue index, DynValue value)
+		protected virtual DynValue ExecuteIndexer(imemberDescriptor mdesc, Script script, object obj, DynValue index, DynValue value)
 		{
 			IList<DynValue> values;
 
@@ -492,7 +492,7 @@ namespace MoonSharp.Interpreter.Interop.BasicDescriptors
 		/// <returns></returns>
 		public virtual DynValue MetaIndex(Script script, object obj, string metaname)
 		{
-			IMemberDescriptor desc = m_MetaMembers.GetOrDefault(metaname);
+			imemberDescriptor desc = m_MetaMembers.GetOrDefault(metaname);
 
 			if (desc != null)
 			{
@@ -615,7 +615,7 @@ namespace MoonSharp.Interpreter.Interop.BasicDescriptors
 
 		private DynValue DispatchMetaOnMethod(Script script, object obj, string methodName)
 		{
-			IMemberDescriptor desc = m_Members.GetOrDefault(methodName);
+			imemberDescriptor desc = m_Members.GetOrDefault(methodName);
 
 			if (desc != null)
 			{

@@ -1,4 +1,4 @@
 sceneSetups:
-- path: Assets/Scene IHC/BLUCLES_PRUEVAS.unity
+- path: Assets/Scene IHC/GameIhc.unity
   isLoaded: 1
   isActive: 1

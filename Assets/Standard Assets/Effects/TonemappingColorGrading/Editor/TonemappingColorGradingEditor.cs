@@ -241,7 +241,7 @@ namespace UnityStandardAssets.CinematicEffects
                 m_HistogramBuffer.Release();
         }
 
-        private void SetLUTImportSettings(TextureImporter importer)
+        private void SetLUTimportSettings(TextureImporter importer)
         {
 #if UNITY_5_5_OR_NEWER
             importer.textureType = TextureImporterType.Default;
@@ -327,7 +327,7 @@ namespace UnityStandardAssets.CinematicEffects
 
                                     AssetDatabase.Refresh();
                                     TextureImporter importer = (TextureImporter)AssetImporter.GetAtPath(path);
-                                    SetLUTImportSettings(importer);
+                                    SetLUTimportSettings(importer);
                                 }
                             }
 
@@ -392,7 +392,7 @@ namespace UnityStandardAssets.CinematicEffects
                             GUILayout.FlexibleSpace();
                             if (GUILayout.Button("Fix", GUILayout.Width(60)))
                             {
-                                SetLUTImportSettings(importer);
+                                SetLUTimportSettings(importer);
                                 AssetDatabase.Refresh();
                             }
                             GUILayout.Space(8);

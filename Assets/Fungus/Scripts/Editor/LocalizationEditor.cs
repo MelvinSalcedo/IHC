@@ -39,16 +39,16 @@ namespace Fungus.EditorUtils
 
             GUILayout.Space(10);
 
-            EditorGUILayout.HelpBox("Exports all standard text in the scene to a text file for easy editing in a text editor. Use the Import option to read the standard text back into the scene.", MessageType.Info);
+            EditorGUILayout.HelpBox("Exports all standard text in the scene to a text file for easy editing in a text editor. Use the import option to read the standard text back into the scene.", MessageType.Info);
 
             if (GUILayout.Button(new GUIContent("Export Standard Text")))
             {
                 ExportStandardText(localization);
             }
 
-            if (GUILayout.Button(new GUIContent("Import Standard Text")))
+            if (GUILayout.Button(new GUIContent("import Standard Text")))
             {
-                ImportStandardText(localization);
+                importStandardText(localization);
             }
 
             serializedObject.ApplyModifiedProperties();
@@ -95,9 +95,9 @@ namespace Fungus.EditorUtils
             ShowNotification(localization);
         }
         
-        public virtual void ImportStandardText(Localization localization)
+        public virtual void importStandardText(Localization localization)
         {
-            string path = EditorUtility.OpenFilePanel("Import Standard Text", "Assets/", "txt");
+            string path = EditorUtility.OpenFilePanel("import Standard Text", "Assets/", "txt");
             if (path.Length == 0) 
             {
                 return;

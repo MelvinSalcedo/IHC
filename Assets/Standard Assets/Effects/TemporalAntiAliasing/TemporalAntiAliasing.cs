@@ -27,7 +27,7 @@ namespace UnityStandardAssets.CinematicEffects
             [Range(0.1f, 3f)]
             public float spread;
 
-            [Tooltip("Number of temporal samples. A larger value results in a smoother image but takes longer to converge; whereas a smaller value converges fast but allows for less subpixel information.")]
+            [Tooltip("Number of temporal samples. A larger value results in a smoother Image but takes longer to converge; whereas a smaller value converges fast but allows for less subpixel information.")]
             [Range(4, 64)]
             public int sampleCount;
         }

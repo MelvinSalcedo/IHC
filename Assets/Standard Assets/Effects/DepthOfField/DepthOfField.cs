@@ -3,7 +3,7 @@ using System;
 
 namespace UnityStandardAssets.CinematicEffects
 {
-    //Improvement ideas:
+    //improvement ideas:
     //  Use rgba8 buffer in ldr / in some pass in hdr (in correlation to previous point and remapping coc from -1/0/1 to 0/0.5/1)
     //  Use temporal stabilisation
     //  Add a mode to do bokeh texture in quarter res as well
@@ -625,7 +625,7 @@ namespace UnityStandardAssets.CinematicEffects
                 textureBokehMaterial.SetVector(m_Screen, new Vector3(1f / (1f * source.width), 1f / (1f * source.height), textureBokehMaxRadius));
                 textureBokehMaterial.SetPass((int)BokehTexturesPasses.Apply);
                 Graphics.DrawProceduralIndirect(MeshTopology.Points, computeBufferDrawArgs, 0);
-                Graphics.Blit(tmp, destination); // Hackaround for DX11 flipfun (OPTIMIZEME)
+                Graphics.Blit(tmp, destination); // Hackaround for DX11 flipfun (OPTimIZEME)
             }
             else
             {

@@ -3,13 +3,13 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 public class problemas_bucle : MonoBehaviour {
-	public GameObject imagen_carga;
+	public GameObject Imagen_carga;
 	public Slider barra;
 
 	private AsyncOperation asyn;
 	public int nivel = 0;
 	public void click_carga(){
-		imagen_carga.SetActive (true);
+		Imagen_carga.SetActive (true);
 		StartCoroutine (Loadlevelslider(1));
 	}
 

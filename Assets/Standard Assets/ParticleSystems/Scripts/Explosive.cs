@@ -8,7 +8,7 @@ namespace UnityStandardAssets.Effects
     public class Explosive : MonoBehaviour
     {
         public Transform explosionPrefab;
-        public float detonationImpactVelocity = 10;
+        public float detonationimpactVelocity = 10;
         public float sizeMultiplier = 1;
         public bool reset = true;
         public float resetTimeDelay = 10;
@@ -34,7 +34,7 @@ namespace UnityStandardAssets.Effects
                     float velocityAlongCollisionNormal =
                         Vector3.Project(col.relativeVelocity, col.contacts[0].normal).magnitude;
 
-                    if (velocityAlongCollisionNormal > detonationImpactVelocity || m_Exploded)
+                    if (velocityAlongCollisionNormal > detonationimpactVelocity || m_Exploded)
                     {
                         if (!m_Exploded)
                         {
@@ -42,7 +42,7 @@ namespace UnityStandardAssets.Effects
                                         Quaternion.LookRotation(col.contacts[0].normal));
                             m_Exploded = true;
 
-                            SendMessage("Immobilize");
+                            SendMessage("immobilize");
 
                             if (reset)
                             {

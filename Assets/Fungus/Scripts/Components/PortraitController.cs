@@ -178,7 +178,7 @@ namespace Fungus
         }
 
         /// <summary>
-        /// Creates and sets the portrait image for a character
+        /// Creates and sets the portrait Image for a character
         /// </summary>
         /// <param name="character"></param>
         /// <param name="fadeDuration"></param>
@@ -193,7 +193,7 @@ namespace Fungus
             // Set it to be a child of the stage
             portraitObj.transform.SetParent(stage.PortraitCanvas.transform, true);
 
-            // Configure the portrait image
+            // Configure the portrait Image
             Image portraitImage = portraitObj.GetComponent<Image>();
             portraitImage.preserveAspect = true;
             portraitImage.sprite = character.ProfileSprite;
@@ -202,10 +202,10 @@ namespace Fungus
             // LeanTween doesn't handle 0 duration properly
             float duration = (fadeDuration > 0f) ? fadeDuration : float.Epsilon;
 
-            // Fade in character image (first time)
+            // Fade in character Image (first time)
             LeanTween.alpha(portraitImage.transform as RectTransform, 1f, duration).setEase(stage.FadeEaseType);
 
-            // Tell character about portrait image
+            // Tell character about portrait Image
             character.State.portraitImage = portraitImage;
         }
 
@@ -272,7 +272,7 @@ namespace Fungus
             // LeanTween doesn't handle 0 duration properly
             float duration = (options.moveDuration > 0f) ? options.moveDuration : float.Epsilon;
 
-            // LeanTween.move uses the anchoredPosition, so all position images must have the same anchor position
+            // LeanTween.move uses the anchoredPosition, so all position Images must have the same anchor position
             LeanTween.move(options.character.State.portraitImage.gameObject, options.toPosition.position, duration).setEase(stage.FadeEaseType);
 
             if (options.waitUntilFinished)
@@ -454,7 +454,7 @@ namespace Fungus
             // LeanTween doesn't handle 0 duration properly
             float duration = (options.fadeDuration > 0f) ? options.fadeDuration : float.Epsilon;
 
-            // Fade out a duplicate of the existing portrait image
+            // Fade out a duplicate of the existing portrait Image
             if (options.character.State.portraitImage != null)
             {
                 GameObject tempGO = GameObject.Instantiate(options.character.State.portraitImage.gameObject);
@@ -472,7 +472,7 @@ namespace Fungus
                 });
             }
 
-            // Fade in the new sprite image
+            // Fade in the new sprite Image
             if (options.character.State.portraitImage.sprite != options.portrait ||
                 options.character.State.portraitImage.color.a < 1f)
             {

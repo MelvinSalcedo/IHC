@@ -39,7 +39,7 @@ namespace UnityStandardAssets.CinematicEffects
             public float radius;
 
             [SerializeField]
-            [Tooltip("Blend factor of the result image.")]
+            [Tooltip("Blend factor of the result Image.")]
             public float intensity;
 
             [SerializeField]

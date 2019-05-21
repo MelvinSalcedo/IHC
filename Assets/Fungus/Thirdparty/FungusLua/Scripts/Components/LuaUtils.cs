@@ -313,7 +313,7 @@ namespace Fungus
         }
 
         /// <summary>
-        /// Implementation of StringSubstituter.ISubstitutionHandler
+        /// implementation of StringSubstituter.ISubstitutionHandler
         /// Substitutes specially formatted tokens in the text with global variables and string table values.
         /// The string table value used depends on the currently loaded string table and active language.
         /// </summary>

@@ -1,18 +1,18 @@
 /*============================================================================
 
 
-                    NVIDIA FXAA 3.11 by TIMOTHY LOTTES
+                    NVIDIA FXAA 3.11 by TimOTHY LOTTES
 
 
 ------------------------------------------------------------------------------
 COPYRIGHT (C) 2010, 2011 NVIDIA CORPORATION. ALL RIGHTS RESERVED.
 ------------------------------------------------------------------------------
-TO THE MAXIMUM EXTENT PERMITTED BY APPLICABLE LAW, THIS SOFTWARE IS PROVIDED
-*AS IS* AND NVIDIA AND ITS SUPPLIERS DISCLAIM ALL WARRANTIES, EITHER EXPRESS
-OR IMPLIED, INCLUDING, BUT NOT LIMITED TO, IMPLIED WARRANTIES OF
+TO THE MAXimUM EXTENT PERMITTED BY APPLICABLE LAW, THIS SOFTWARE IS PROVIDED
+*AS IS* AND NVIDIA AND ITS SUPPLIERS DISCLAim ALL WARRANTIES, EITHER EXPRESS
+OR imPLIED, INCLUDING, BUT NOT LimITED TO, imPLIED WARRANTIES OF
 MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE. IN NO EVENT SHALL NVIDIA
 OR ITS SUPPLIERS BE LIABLE FOR ANY SPECIAL, INCIDENTAL, INDIRECT, OR
-CONSEQUENTIAL DAMAGES WHATSOEVER (INCLUDING, WITHOUT LIMITATION, DAMAGES FOR
+CONSEQUENTIAL DAMAGES WHATSOEVER (INCLUDING, WITHOUT LimITATION, DAMAGES FOR
 LOSS OF BUSINESS PROFITS, BUSINESS INTERRUPTION, LOSS OF BUSINESS INFORMATION,
 OR ANY OTHER PECUNIARY LOSS) ARISING OUT OF THE USE OF OR INABILITY TO USE
 THIS SOFTWARE, EVEN IF NVIDIA HAS BEEN ADVISED OF THE POSSIBILITY OF SUCH
@@ -259,7 +259,7 @@ A. Or use FXAA_GREEN_AS_LUMA.
     // Controls algorithm's early exit path.
     // On PS3 turning this ON adds 2 cycles to the shader.
     // On 360 turning this OFF adds 10ths of a millisecond to the shader.
-    // Turning this off on console will result in a more blurry image.
+    // Turning this off on console will result in a more blurry Image.
     // So this defaults to on.
     //
     // 1 = On.
@@ -872,7 +872,7 @@ FxaaFloat4 FxaaPixelShader(
     // Extra constants for 360 FXAA Console only.
     // Use zeros or anything else for other platforms.
     // These must be in physical constant registers and NOT immedates.
-    // Immedates will result in compiler un-optimizing.
+    // immedates will result in compiler un-optimizing.
     // {xyzw} = float4(1.0, -1.0, 0.25, -0.25)
     FxaaFloat4 fxaaConsole360ConstDir
 ) {
@@ -1434,7 +1434,7 @@ float4 FxaaPixelShader(
 
 /*============================================================================
 
-         FXAA3 CONSOLE - OPTIMIZED PS3 PIXEL SHADER (NO EARLY EXIT)
+         FXAA3 CONSOLE - OPTimIZED PS3 PIXEL SHADER (NO EARLY EXIT)
 
 ==============================================================================
 The code below does not exactly match the assembly.
@@ -1722,7 +1722,7 @@ half4 FxaaPixelShader(
 
 /*============================================================================
 
-       FXAA3 CONSOLE - OPTIMIZED PS3 PIXEL SHADER (WITH EARLY EXIT)
+       FXAA3 CONSOLE - OPTimIZED PS3 PIXEL SHADER (WITH EARLY EXIT)
 
 ==============================================================================
 The code mostly matches the assembly.

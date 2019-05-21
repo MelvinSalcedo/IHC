@@ -23,7 +23,7 @@ namespace Fungus
         [Tooltip("Sound effect to play when this character is speaking.")]
         [SerializeField] protected AudioClip soundEffect;
 
-        [Tooltip("List of portrait images that can be displayed for this character.")]
+        [Tooltip("List of portrait Images that can be displayed for this character.")]
         [SerializeField] protected List<Sprite> portraits;
 
         [Tooltip("Direction that portrait sprites face.")]
@@ -77,7 +77,7 @@ namespace Fungus
         public virtual AudioClip SoundEffect { get { return soundEffect; } }
 
         /// <summary>
-        /// List of portrait images that can be displayed for this character.
+        /// List of portrait Images that can be displayed for this character.
         /// </summary>
         public virtual List<Sprite> Portraits { get { return portraits; } }
 

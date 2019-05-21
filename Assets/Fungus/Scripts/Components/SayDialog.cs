@@ -135,7 +135,7 @@ namespace Fungus
             }
 
             // It's possible that SetCharacterImage() has already been called from the
-            // Start method of another component, so check that no image has been set yet.
+            // Start method of another component, so check that no Image has been set yet.
             // Same for nameText.
 
             if (nameText != null && nameText.text == "")
@@ -144,7 +144,7 @@ namespace Fungus
             }
             if (currentCharacterImage == null)
             {                
-                // Character image is hidden by default.
+                // Character Image is hidden by default.
                 SetCharacterImage(null);
             }
         }
@@ -356,20 +356,20 @@ namespace Fungus
         }
 
         /// <summary>
-        /// Sets the character image to display on the Say Dialog.
+        /// Sets the character Image to display on the Say Dialog.
         /// </summary>
-        public virtual void SetCharacterImage(Sprite image)
+        public virtual void SetCharacterImage(Sprite Image)
         {
             if (characterImage == null)
             {
                 return;
             }
 
-            if (image != null)
+            if (Image != null)
             {
-                characterImage.sprite = image;
+                characterImage.sprite = Image;
                 characterImage.gameObject.SetActive(true);
-                currentCharacterImage = image;
+                currentCharacterImage = Image;
             }
             else
             {
@@ -383,7 +383,7 @@ namespace Fungus
                 }
             }
 
-            // Adjust story text box to not overlap image rect
+            // Adjust story text box to not overlap Image rect
             if (fitTextWithImage && 
                 storyText != null &&
                 characterImage.gameObject.activeSelf)
@@ -394,7 +394,7 @@ namespace Fungus
                     startStoryTextInset = storyText.rectTransform.offsetMin.x; 
                 }
 
-                // Clamp story text to left or right depending on relative position of the character image
+                // Clamp story text to left or right depending on relative position of the character Image
                 if (storyText.rectTransform.position.x < characterImage.rectTransform.position.x)
                 {
                     storyText.rectTransform.SetInsetAndSizeFromParentEdge(RectTransform.Edge.Left, 

@@ -12,7 +12,7 @@ namespace MoonSharp.Interpreter.Interop
 	/// <summary>
 	/// Class providing easier marshalling of CLR properties
 	/// </summary>
-	public class PropertyMemberDescriptor : IMemberDescriptor, IOptimizableDescriptor,
+	public class PropertyMemberDescriptor : imemberDescriptor, IOptimizableDescriptor,
 		IWireableDescriptor
 	{
 		/// <summary>

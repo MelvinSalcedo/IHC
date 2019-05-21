@@ -12,9 +12,9 @@
 // all copies or substantial portions of the Software.
 //
 // THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-// IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+// imPLIED, INCLUDING BUT NOT LimITED TO THE WARRANTIES OF MERCHANTABILITY,
 // FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-// AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+// AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAim, DAMAGES OR OTHER
 // LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 // THE SOFTWARE.
@@ -28,7 +28,7 @@ Redistribution and use in source and binary forms, with or without modification,
 Redistributions of source code must retain the above copyright notice, this list of conditions and the following disclaimer.
 Redistributions in binary form must reproduce the above copyright notice, this list of conditions and the following disclaimer in the documentation and/or other materials provided with the distribution.
 Neither the name of the author nor the names of contributors may be used to endorse or promote products derived from this software without specific prior written permission.
-THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND ANY EXPRESS OR imPLIED WARRANTIES, INCLUDING, BUT NOT LimITED TO, THE imPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAimED. IN NO EVENT SHALL THE COPYRIGHT OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LimITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 */
 
 #region Namespaces
@@ -229,7 +229,7 @@ public class iTween : MonoBehaviour{
 	}
 	
 	/// <summary>
-	/// Instantly changes the amount(transparency) of a camera fade and then returns it back over time with MINIMUM customization options.
+	/// Instantly changes the amount(transparency) of a camera fade and then returns it back over time with MINimUM customization options.
 	/// </summary>
 	/// <param name="amount">
 	/// A <see cref="System.Single"/> or <see cref="System.Double"/> for how transparent the Texture2D that the camera fade uses is.
@@ -300,7 +300,7 @@ public class iTween : MonoBehaviour{
 	}	
 	
 	/// <summary>
-	/// Changes the amount(transparency) of a camera fade over time with MINIMUM customization options.
+	/// Changes the amount(transparency) of a camera fade over time with MINimUM customization options.
 	/// </summary>
 	/// <param name="amount">
 	/// A <see cref="System.Single"/> or <see cref="System.Double"/> for how transparent the Texture2D that the camera fade uses is.
@@ -464,7 +464,7 @@ public class iTween : MonoBehaviour{
 	}
 	
 	/// <summary>
-	/// Changes a GameObject's alpha value instantly then returns it to the provided alpha over time with MINIMUM customization options.  If a GUIText or GUITexture component is attached, it will become the target of the animation. Identical to using ColorFrom and using the "a" parameter. 
+	/// Changes a GameObject's alpha value instantly then returns it to the provided alpha over time with MINimUM customization options.  If a GUIText or GUITexture component is attached, it will become the target of the animation. Identical to using ColorFrom and using the "a" parameter. 
 	/// </summary>
 	/// <param name="target">
 	/// A <see cref="GameObject"/> to be the target of the animation.
@@ -535,7 +535,7 @@ public class iTween : MonoBehaviour{
 	}		
 	
 	/// <summary>
-	/// Changes a GameObject's alpha value over time with MINIMUM customization options.  If a GUIText or GUITexture component is attached, it will become the target of the animation. Identical to using ColorTo and using the "a" parameter.
+	/// Changes a GameObject's alpha value over time with MINimUM customization options.  If a GUIText or GUITexture component is attached, it will become the target of the animation. Identical to using ColorTo and using the "a" parameter.
 	/// </summary>
 	/// <param name="target">
 	/// A <see cref="GameObject"/> to be the target of the animation.
@@ -606,7 +606,7 @@ public class iTween : MonoBehaviour{
 	}		
 	
 	/// <summary>
-	/// Changes a GameObject's color values instantly then returns them to the provided properties over time with MINIMUM customization options.  If a GUIText or GUITexture component is attached, it will become the target of the animation.
+	/// Changes a GameObject's color values instantly then returns them to the provided properties over time with MINimUM customization options.  If a GUIText or GUITexture component is attached, it will become the target of the animation.
 	/// </summary>
 	/// <param name="target">
 	/// A <see cref="GameObject"/> to be the target of the animation.
@@ -756,7 +756,7 @@ public class iTween : MonoBehaviour{
 	}		
 	
 	/// <summary>
-	/// Changes a GameObject's color values over time with MINIMUM customization options.  If a GUIText or GUITexture component is attached, they will become the target of the animation.
+	/// Changes a GameObject's color values over time with MINimUM customization options.  If a GUIText or GUITexture component is attached, they will become the target of the animation.
 	/// </summary>
 	/// <param name="target">
 	/// A <see cref="GameObject"/> to be the target of the animation.
@@ -859,7 +859,7 @@ public class iTween : MonoBehaviour{
 	}	
 	
 	/// <summary>
-	/// Instantly changes an AudioSource's volume and pitch then returns it to it's starting volume and pitch over time with MINIMUM customization options. Default AudioSource attached to GameObject will be used (if one exists) if not supplied.
+	/// Instantly changes an AudioSource's volume and pitch then returns it to it's starting volume and pitch over time with MINimUM customization options. Default AudioSource attached to GameObject will be used (if one exists) if not supplied.
 	/// </summary>
 	/// <param name="target"> 
 	/// A <see cref="GameObject"/> to be the target of the animation which holds the AudioSource to be changed.
@@ -981,7 +981,7 @@ public class iTween : MonoBehaviour{
 	}		
 
 	/// <summary>
-	/// Fades volume and pitch of an AudioSource with MINIMUM customization options.  Default AudioSource attached to GameObject will be used (if one exists) if not supplied. 
+	/// Fades volume and pitch of an AudioSource with MINimUM customization options.  Default AudioSource attached to GameObject will be used (if one exists) if not supplied. 
 	/// </summary>
 	/// <param name="target"> 
 	/// A <see cref="GameObject"/> to be the target of the animation which holds the AudioSource to be changed.
@@ -1066,7 +1066,7 @@ public class iTween : MonoBehaviour{
 	}	
 	
 	/// <summary>
-	/// Plays an AudioClip once based on supplied volume and pitch and following any delay with MINIMUM customization options. AudioSource is optional as iTween will provide one.
+	/// Plays an AudioClip once based on supplied volume and pitch and following any delay with MINimUM customization options. AudioSource is optional as iTween will provide one.
 	/// </summary>
 	/// <param name="target">
 	/// A <see cref="GameObject"/> to be the target of the animation which holds the AudioSource to be utilized.
@@ -1136,7 +1136,7 @@ public class iTween : MonoBehaviour{
 	}
 	
 	/// <summary>
-	/// Instantly rotates a GameObject to look at the supplied Vector3 then returns it to it's starting rotation over time with MINIMUM customization options. 
+	/// Instantly rotates a GameObject to look at the supplied Vector3 then returns it to it's starting rotation over time with MINimUM customization options. 
 	/// </summary>
 	/// <param name="target">
 	/// A <see cref="GameObject"/> to be the target of the animation.
@@ -1249,7 +1249,7 @@ public class iTween : MonoBehaviour{
 	}		
 	
 	/// <summary>
-	/// Rotates a GameObject to look at the supplied Vector3 over time with MINIMUM customization options.
+	/// Rotates a GameObject to look at the supplied Vector3 over time with MINimUM customization options.
 	/// </summary>
 	/// <param name="target">
 	/// A <see cref="GameObject"/> to be the target of the animation.
@@ -1335,7 +1335,7 @@ public class iTween : MonoBehaviour{
 	}		
 	
 	/// <summary>
-	/// Changes a GameObject's position over time to a supplied destination with MINIMUM customization options.
+	/// Changes a GameObject's position over time to a supplied destination with MINimUM customization options.
 	/// </summary>
 	/// <param name="target">
 	/// A <see cref="GameObject"/> to be the target of the animation.
@@ -1452,7 +1452,7 @@ public class iTween : MonoBehaviour{
 	}
 		
 	/// <summary>
-	/// Instantly changes a GameObject's position to a supplied destination then returns it to it's starting position over time with MINIMUM customization options.
+	/// Instantly changes a GameObject's position to a supplied destination then returns it to it's starting position over time with MINimUM customization options.
 	/// </summary>
 	/// <param name="target">
 	/// A <see cref="GameObject"/> to be the target of the animation.
@@ -1640,7 +1640,7 @@ public class iTween : MonoBehaviour{
 	}
 		
 	/// <summary>
-	/// Translates a GameObject's position over time with MINIMUM customization options.
+	/// Translates a GameObject's position over time with MINimUM customization options.
 	/// </summary>
 	/// <param name="target">
 	/// A <see cref="GameObject"/> to be the target of the animation.
@@ -1738,7 +1738,7 @@ public class iTween : MonoBehaviour{
 	}
 	
 	/// <summary>
-	/// Adds the supplied coordinates to a GameObject's postion with MINIMUM customization options.
+	/// Adds the supplied coordinates to a GameObject's postion with MINimUM customization options.
 	/// </summary>
 	/// <param name="target">
 	/// A <see cref="GameObject"/> to be the target of the animation.
@@ -1836,7 +1836,7 @@ public class iTween : MonoBehaviour{
 	}
 	
 	/// <summary>
-	/// Changes a GameObject's scale over time with MINIMUM customization options.
+	/// Changes a GameObject's scale over time with MINimUM customization options.
 	/// </summary>
 	/// <param name="target">
 	/// A <see cref="GameObject"/> to be the target of the animation.
@@ -1929,7 +1929,7 @@ public class iTween : MonoBehaviour{
 	}
 	
 	/// <summary>
-	/// Instantly changes a GameObject's scale then returns it to it's starting scale over time with MINIMUM customization options.
+	/// Instantly changes a GameObject's scale then returns it to it's starting scale over time with MINimUM customization options.
 	/// </summary>
 	/// <param name="target">
 	/// A <see cref="GameObject"/> to be the target of the animation.
@@ -2127,7 +2127,7 @@ public class iTween : MonoBehaviour{
 	}
 	
 	/// <summary>
-	/// Multiplies a GameObject's scale over time with MINIMUM customization options.
+	/// Multiplies a GameObject's scale over time with MINimUM customization options.
 	/// </summary>
 	/// <param name="target">
 	/// A <see cref="GameObject"/> to be the target of the animation.
@@ -2210,7 +2210,7 @@ public class iTween : MonoBehaviour{
 	}
 	
 	/// <summary>
-	/// Rotates a GameObject to the supplied Euler angles in degrees over time with MINIMUM customization options.
+	/// Rotates a GameObject to the supplied Euler angles in degrees over time with MINimUM customization options.
 	/// </summary>
 	/// <param name="target">
 	/// A <see cref="GameObject"/> to be the target of the animation.
@@ -2306,7 +2306,7 @@ public class iTween : MonoBehaviour{
 	}	
 	
 	/// <summary>
-	/// Instantly changes a GameObject's Euler angles in degrees then returns it to it's starting rotation over time (if allowed) with MINIMUM customization options.
+	/// Instantly changes a GameObject's Euler angles in degrees then returns it to it's starting rotation over time (if allowed) with MINimUM customization options.
 	/// </summary>
 	/// <param name="target">
 	/// A <see cref="GameObject"/> to be the target of the animation.
@@ -2440,7 +2440,7 @@ public class iTween : MonoBehaviour{
 	}	
 	
 	/// <summary>
-	/// Adds supplied Euler angles in degrees to a GameObject's rotation over time with MINIMUM customization options.
+	/// Adds supplied Euler angles in degrees to a GameObject's rotation over time with MINimUM customization options.
 	/// </summary>
 	/// <param name="target">
 	/// A <see cref="GameObject"/> to be the target of the animation.
@@ -2526,7 +2526,7 @@ public class iTween : MonoBehaviour{
 	}
 	
 	/// <summary>
-	/// Multiplies supplied values by 360 and rotates a GameObject by calculated amount over time with MINIMUM customization options.
+	/// Multiplies supplied values by 360 and rotates a GameObject by calculated amount over time with MINimUM customization options.
 	/// </summary>
 	/// <param name="target">
 	/// A <see cref="GameObject"/> to be the target of the animation.
@@ -2615,7 +2615,7 @@ public class iTween : MonoBehaviour{
 	}		
 	
 	/// <summary>
-	/// Randomly shakes a GameObject's position by a diminishing amount over time with MINIMUM customization options.
+	/// Randomly shakes a GameObject's position by a diminishing amount over time with MINimUM customization options.
 	/// </summary>
 	/// <param name="target">
 	/// A <see cref="GameObject"/> to be the target of the animation.
@@ -2704,7 +2704,7 @@ public class iTween : MonoBehaviour{
 	}		
 	
 	/// <summary>
-	/// Randomly shakes a GameObject's scale by a diminishing amount over time with MINIMUM customization options.
+	/// Randomly shakes a GameObject's scale by a diminishing amount over time with MINimUM customization options.
 	/// </summary>
 	/// <param name="target">
 	/// A <see cref="GameObject"/> to be the target of the animation.
@@ -2781,7 +2781,7 @@ public class iTween : MonoBehaviour{
 	}		
 	
 	/// <summary>
-	/// Randomly shakes a GameObject's rotation by a diminishing amount over time with MINIMUM customization options.
+	/// Randomly shakes a GameObject's rotation by a diminishing amount over time with MINimUM customization options.
 	/// </summary>
 	/// <param name="target">
 	/// A <see cref="GameObject"/> to be the target of the animation.
@@ -2861,7 +2861,7 @@ public class iTween : MonoBehaviour{
 	}			
 	
 	/// <summary>
-	/// Applies a jolt of force to a GameObject's position and wobbles it back to its initial position with MINIMUM customization options.
+	/// Applies a jolt of force to a GameObject's position and wobbles it back to its initial position with MINimUM customization options.
 	/// </summary>
 	/// <param name="target">
 	/// A <see cref="GameObject"/> to be the target of the animation.
@@ -2948,7 +2948,7 @@ public class iTween : MonoBehaviour{
 	}		
 	
 	/// <summary>
-	/// Applies a jolt of force to a GameObject's rotation and wobbles it back to its initial rotation with MINIMUM customization options.
+	/// Applies a jolt of force to a GameObject's rotation and wobbles it back to its initial rotation with MINimUM customization options.
 	/// </summary>
 	/// <param name="target">
 	/// A <see cref="GameObject"/> to be the target of the animation.
@@ -3029,7 +3029,7 @@ public class iTween : MonoBehaviour{
 	}	
 	
 	/// <summary>
-	/// Applies a jolt of force to a GameObject's scale and wobbles it back to its initial scale with MINIMUM customization options.
+	/// Applies a jolt of force to a GameObject's scale and wobbles it back to its initial scale with MINimUM customization options.
 	/// </summary>
 	/// <param name="target">
 	/// A <see cref="GameObject"/> to be the target of the animation.
@@ -4765,7 +4765,7 @@ public class iTween : MonoBehaviour{
 	}
 	
 	/// <summary>
-	/// Similar to FadeTo but incredibly less expensive for usage inside the Update function or similar looping situations involving a "live" set of changing values with MINIMUM customization options. Does not utilize an EaseType. 
+	/// Similar to FadeTo but incredibly less expensive for usage inside the Update function or similar looping situations involving a "live" set of changing values with MINimUM customization options. Does not utilize an EaseType. 
 	/// </summary>
 	/// <param name="target">
 	/// A <see cref="GameObject"/> to be the target of the animation.
@@ -4868,7 +4868,7 @@ public class iTween : MonoBehaviour{
 	}	
 	
 	/// <summary>
-	/// Similar to ColorTo but incredibly less expensive for usage inside the Update function or similar looping situations involving a "live" set of changing values with MINIMUM customization options. Does not utilize an EaseType.
+	/// Similar to ColorTo but incredibly less expensive for usage inside the Update function or similar looping situations involving a "live" set of changing values with MINimUM customization options. Does not utilize an EaseType.
 	/// </summary>
 	/// <param name="target">
 	/// A <see cref="GameObject"/> to be the target of the animation.
@@ -4947,7 +4947,7 @@ public class iTween : MonoBehaviour{
 	}
 	
 	/// <summary>
-	/// Similar to AudioTo but incredibly less expensive for usage inside the Update function or similar looping situations involving a "live" set of changing values with MINIMUM customization options. Does not utilize an EaseType. 
+	/// Similar to AudioTo but incredibly less expensive for usage inside the Update function or similar looping situations involving a "live" set of changing values with MINimUM customization options. Does not utilize an EaseType. 
 	/// </summary>
 	/// <param name="target">
 	/// A <see cref="GameObject"/> to be the target of the animation.
@@ -5047,7 +5047,7 @@ public class iTween : MonoBehaviour{
 	}
 		
 	/// <summary>
-	/// Similar to RotateTo but incredibly less expensive for usage inside the Update function or similar looping situations involving a "live" set of changing values with MINIMUM customization options. Does not utilize an EaseType. 
+	/// Similar to RotateTo but incredibly less expensive for usage inside the Update function or similar looping situations involving a "live" set of changing values with MINimUM customization options. Does not utilize an EaseType. 
 	/// </summary>
 	/// <param name="target">
 	/// A <see cref="GameObject"/> to be the target of the animation.
@@ -5127,7 +5127,7 @@ public class iTween : MonoBehaviour{
 	}	
 	
 	/// <summary>
-	/// Similar to ScaleTo but incredibly less expensive for usage inside the Update function or similar looping situations involving a "live" set of changing values with MINIMUM customization options.  Does not utilize an EaseType.
+	/// Similar to ScaleTo but incredibly less expensive for usage inside the Update function or similar looping situations involving a "live" set of changing values with MINimUM customization options.  Does not utilize an EaseType.
 	/// </summary>
 	/// <param name="target">
 	/// A <see cref="GameObject"/> to be the target of the animation.
@@ -5256,7 +5256,7 @@ public class iTween : MonoBehaviour{
 	}
 
 	/// <summary>
-	/// Similar to MoveTo but incredibly less expensive for usage inside the Update function or similar looping situations involving a "live" set of changing values with MINIMUM customization options. Does not utilize an EaseType. 
+	/// Similar to MoveTo but incredibly less expensive for usage inside the Update function or similar looping situations involving a "live" set of changing values with MINimUM customization options. Does not utilize an EaseType. 
 	/// </summary>
 	/// <param name="target">
 	/// A <see cref="GameObject"/> to be the target of the animation.

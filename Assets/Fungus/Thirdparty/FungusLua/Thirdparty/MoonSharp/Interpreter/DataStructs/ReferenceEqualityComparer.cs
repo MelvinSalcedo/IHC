@@ -3,7 +3,7 @@
 namespace MoonSharp.Interpreter.DataStructs
 {
 	/// <summary>
-	/// Implementation of IEqualityComparer enforcing reference equality
+	/// implementation of IEqualityComparer enforcing reference equality
 	/// </summary>
 	internal class ReferenceEqualityComparer : IEqualityComparer<object>
 	{

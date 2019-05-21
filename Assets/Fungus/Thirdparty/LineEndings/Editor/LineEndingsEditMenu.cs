@@ -18,10 +18,10 @@
 // included in all copies or substantial portions of the Software.
 //
 // THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
-// EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES
+// EXPRESS OR imPLIED, INCLUDING BUT NOT LimITED TO THE WARRANTIES
 // OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
 // NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT
-// HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY,
+// HOLDERS BE LIABLE FOR ANY CLAim, DAMAGES OR OTHER LIABILITY,
 // WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
 // FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR
 // OTHER DEALINGS IN THE SOFTWARE.
@@ -36,7 +36,7 @@ namespace TiaanDotCom.Unity3D.EditorTools
     using UnityEngine;
 
     /// <summary>
-    /// Implements menu items for the Unity Editor to perform
+    /// implements menu items for the Unity Editor to perform
     /// end-of-line conversion and fix issues such as for the
     /// following: "There are inconsistent line endings in the
     /// 'Assets/.../*.cs' script. Some are Mac OS X (UNIX) and

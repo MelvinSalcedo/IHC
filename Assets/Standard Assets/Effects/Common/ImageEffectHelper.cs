@@ -17,7 +17,7 @@ namespace UnityStandardAssets.CinematicEffects
 #endif
                 if (s == null || !s.isSupported)
                 {
-                    Debug.LogWarningFormat("Missing shader for image effect {0}", effect);
+                    Debug.LogWarningFormat("Missing shader for Image effect {0}", effect);
                     return false;
                 }
 

@@ -123,13 +123,13 @@ namespace UnityStandardAssets.Water
         public void OnEnable()
         {
             Shader.EnableKeyword("WATER_REFLECTIVE");
-            Shader.DisableKeyword("WATER_SIMPLE");
+            Shader.DisableKeyword("WATER_SimPLE");
         }
 
 
         public void OnDisable()
         {
-            Shader.EnableKeyword("WATER_SIMPLE");
+            Shader.EnableKeyword("WATER_SimPLE");
             Shader.DisableKeyword("WATER_REFLECTIVE");
         }
 

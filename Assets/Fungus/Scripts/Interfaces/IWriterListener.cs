@@ -7,7 +7,7 @@ using System.Collections;
 namespace Fungus
 {
     /// <summary>
-    /// Implement this interface to be notified about Writer events.
+    /// implement this interface to be notified about Writer events.
     /// </summary>
     public interface IWriterListener
     {

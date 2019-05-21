@@ -33,21 +33,21 @@ namespace Fungus
 
         protected override void ApplyTween(GameObject go)
         {
-            var images = go.GetComponentsInChildren<Image>();
-            for (int i = 0; i < images.Length; i++)
+            var Images = go.GetComponentsInChildren<Image>();
+            for (int i = 0; i < Images.Length; i++)
             {
-                var image = images[i];
+                var Image = Images[i];
                 if (Mathf.Approximately(duration, 0f))
                 {
                     switch (fadeMode)
                     {
                         case FadeMode.Alpha:
-                            Color tempColor = image.color;
+                            Color tempColor = Image.color;
                             tempColor.a = targetAlpha;
-                            image.color = tempColor;
+                            Image.color = tempColor;
                             break;
                         case FadeMode.Color:
-                            image.color = targetColor;
+                            Image.color = targetColor;
                             break;
                     }
                 }
@@ -56,10 +56,10 @@ namespace Fungus
                     switch (fadeMode)
                     {
                         case FadeMode.Alpha:
-                            LeanTween.alpha(image.rectTransform, targetAlpha, duration).setEase(tweenType).setEase(tweenType);
+                            LeanTween.alpha(Image.rectTransform, targetAlpha, duration).setEase(tweenType).setEase(tweenType);
                             break;
                         case FadeMode.Color:
-                            LeanTween.color(image.rectTransform, targetColor, duration).setEase(tweenType).setEase(tweenType);
+                            LeanTween.color(Image.rectTransform, targetColor, duration).setEase(tweenType).setEase(tweenType);
                             break;
                     }
                 }

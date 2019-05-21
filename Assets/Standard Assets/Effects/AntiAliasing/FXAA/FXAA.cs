@@ -55,7 +55,7 @@ namespace UnityStandardAssets.CinematicEffects
             [Range(0.33f, 0.5f)]
             public float subpixelSpreadAmount;
 
-            [Tooltip("This value dictates how sharp the edges in the image are kept; a higher value implies sharper edges.")]
+            [Tooltip("This value dictates how sharp the edges in the Image are kept; a higher value implies sharper edges.")]
             [Range(2.0f, 8.0f)]
             public float edgeSharpnessAmount;
 

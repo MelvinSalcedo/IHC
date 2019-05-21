@@ -98,7 +98,7 @@ Shader "Hidden/Image Effects/Cinematic/MotionBlur/FrameBlending"
         float2 uvCr = uvCb;
         uvCr.x += pw;
 
-        // Sample from the source image
+        // Sample from the source Image
         half4 src = tex2D(_MainTex, i.uv0);
 
         // Sampling and blending

@@ -12,7 +12,7 @@ namespace MoonSharp.Interpreter.Interop
 	/// <summary>
 	/// Class providing easier marshalling of overloaded CLR functions
 	/// </summary>
-	public class OverloadedMethodMemberDescriptor : IOptimizableDescriptor, IMemberDescriptor, IWireableDescriptor
+	public class OverloadedMethodMemberDescriptor : IOptimizableDescriptor, imemberDescriptor, IWireableDescriptor
 	{
 		/// <summary>
 		/// Comparer class for IOverloadableMemberDescriptor

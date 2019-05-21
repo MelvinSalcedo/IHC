@@ -11,7 +11,7 @@ namespace UnityStandardAssets.CinematicEffects
         // This filter acts like a finite impluse response filter; stores
         // succeeding four frames and calculate the weighted average of them.
         //
-        // To save memory, it compresses frame images with the 4:2:2 chroma
+        // To save memory, it compresses frame Images with the 4:2:2 chroma
         // subsampling scheme. This requires MRT support. If the current
         // environment doesn't support MRT, it tries to use one of the 16-bit
         // texture format instead. Unfortunately, some GPUs don't support

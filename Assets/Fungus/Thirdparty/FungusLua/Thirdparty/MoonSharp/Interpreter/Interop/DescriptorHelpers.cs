@@ -198,7 +198,7 @@ namespace MoonSharp.Interpreter.Interop
 		/// </summary>
 		/// <param name="t">The t.</param>
 		/// <returns></returns>
-		public static IEnumerable<Type> GetAllImplementedTypes(this Type t)
+		public static IEnumerable<Type> GetAllimplementedTypes(this Type t)
 		{
 			for (Type ot = t; ot != null; ot = Framework.Do.GetBaseType(ot))
 				yield return ot;

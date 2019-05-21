@@ -273,7 +273,7 @@ public class JSONObject {
 #else
 					Debug.WriteLine
 #endif
-						("Improper (strict) JSON formatting.  First character must be [ or {");
+						("improper (strict) JSON formatting.  First character must be [ or {");
 					return;
 				}
 			}

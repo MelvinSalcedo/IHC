@@ -192,7 +192,7 @@ namespace MoonSharp.Interpreter.Interop.Converters
 
 		/// <summary>
 		/// Gets a relative weight of how much the conversion is matching the given types.
-		/// Implementation must follow that of DynValueToObjectOfType.. it's not very DRY in that sense.
+		/// implementation must follow that of DynValueToObjectOfType.. it's not very DRY in that sense.
 		/// However here we are in perf-sensitive path.. TODO : double-check the gain and see if a DRY impl is better.
 		/// </summary>
 		internal static int DynValueToObjectOfTypeWeight(DynValue value, Type desiredType, bool isOptional)

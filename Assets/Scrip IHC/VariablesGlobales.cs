@@ -5,6 +5,9 @@ using UnityEngine;
 public class VariablesGlobales : MonoBehaviour {
 
 	// Use this for initialization
+	[Header("Activar movimiento de camera siguiente")]
+	public GameObject trigerCamNext;
+
 	[Header("CmabasPeces")]
 	public GameObject[] pez;
 	[HideInInspector]
@@ -16,6 +19,9 @@ public class VariablesGlobales : MonoBehaviour {
 
 	public void  countFishesClicked(){
 		I_CountFishesClicked++;
+		if (I_CountFishesClicked == 3) {
+			trigerCamNext.SetActive (true);
+		}
 	}
 
 	public void activateCamvasPez(){

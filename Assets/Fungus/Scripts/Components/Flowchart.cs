@@ -1241,7 +1241,7 @@ namespace Fungus
         #region IStringSubstituter implementation
 
         /// <summary>
-        /// Implementation of StringSubstituter.ISubstitutionHandler which matches any public variable in the Flowchart.
+        /// implementation of StringSubstituter.ISubstitutionHandler which matches any public variable in the Flowchart.
         /// To perform full variable substitution with all substitution handlers in the scene, you should
         /// use the SubstituteVariables() method instead.
         /// </summary>

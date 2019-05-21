@@ -12,7 +12,7 @@ namespace MoonSharp.Interpreter.Interop
 	/// <summary>
 	/// Class providing easier marshalling of CLR fields
 	/// </summary>
-	public class FieldMemberDescriptor : IMemberDescriptor, IOptimizableDescriptor, IWireableDescriptor
+	public class FieldMemberDescriptor : imemberDescriptor, IOptimizableDescriptor, IWireableDescriptor
 	{
 		/// <summary>
 		/// Gets the FieldInfo got by reflection

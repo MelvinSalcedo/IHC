@@ -4,6 +4,7 @@ using UnityEngine;
 using Fungus;
 public class OutlineMesh : MonoBehaviour {
 	
+
 	[Header("Flowchart General")]
 	public Flowchart fc;
 	[Header("Pase al siguiente nivel")]
@@ -31,7 +32,7 @@ public class OutlineMesh : MonoBehaviour {
 
 	private GameObject objVariableGlobales;
 	private VariablesGlobales VarGlobals;
-
+	private int numberClickThisScript = new int();
 	void Start(){
 		
 		objVariableGlobales = GameObject.Find ("Main Character");
@@ -72,17 +73,19 @@ public class OutlineMesh : MonoBehaviour {
 
 	void OnMouseDown ()
 	{
-		if (sc_P1.SectionCritic == 1 && VarGlobals.I_CountFishesClicked < 3) {
-			fc.ExecuteBlock ("Alerta");
-			VarGlobals.contadorPez++;
-			if (VarGlobals.contadorPez <= VarGlobals.pez.Length) {
-				VarGlobals.activateCamvasPez ();
+
+		if (numberClickThisScript == 0) {
+			if (sc_P1.SectionCritic == 1 && VarGlobals.I_CountFishesClicked < 3) {
+				fc.ExecuteBlock ("Alerta");
+				VarGlobals.contadorPez++;
+				if (VarGlobals.contadorPez <= VarGlobals.pez.Length) {
+					VarGlobals.activateCamvasPez ();
+				}
+				VarGlobals.countFishesClicked ();
+				StartCoroutine (Scale ());
 			}
-
-			VarGlobals.countFishesClicked ();
-			StartCoroutine (Scale ());
-
 		}
+		numberClickThisScript++;
 	}
 
 

@@ -221,7 +221,7 @@ namespace MarkerMetro.Unity.WinLegacy.Reflection
         public static Type GetInterface(this Type type, string name, bool ignoreCase)
         {
 #if NETFX_CORE
-            var interfaces = type.GetTypeInfo().ImplementedInterfaces;
+            var interfaces = type.GetTypeInfo().implementedInterfaces;
 
             foreach (var interfaceType in interfaces)
             {

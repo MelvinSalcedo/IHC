@@ -97,7 +97,7 @@ namespace MoonSharp.Interpreter.DataStructs
 		}
 
 
-		#region IList<T> Impl.
+		#region IList<T> impl.
 
 		int IList<T>.IndexOf(T item)
 		{

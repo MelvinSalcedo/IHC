@@ -118,7 +118,7 @@ CGINCLUDE
 	
 	// shortcuts
 	#define PER_PIXEL_DISPLACE _DistortParams.x
-	#define REALTIME_DISTORTION _DistortParams.y
+	#define REALTimE_DISTORTION _DistortParams.y
 	#define FRESNEL_POWER _DistortParams.z
 	#define VERTEX_WORLD_NORMAL i.normalInterpolator.xyz
 	#define FRESNEL_BIAS _DistortParams.w
@@ -174,7 +174,7 @@ CGINCLUDE
 		half3 worldNormal = PerPixelNormal(_BumpMap, i.bumpCoords, VERTEX_WORLD_NORMAL, PER_PIXEL_DISPLACE);
 		half3 viewVector = normalize(i.viewInterpolator.xyz);
 
-		half4 distortOffset = half4(worldNormal.xz * REALTIME_DISTORTION * 10.0, 0, 0);
+		half4 distortOffset = half4(worldNormal.xz * REALTimE_DISTORTION * 10.0, 0, 0);
 		half4 screenWithOffset = i.screenPos + distortOffset;
 		half4 grabWithOffset = i.grabPassPos + distortOffset;
 		
@@ -277,7 +277,7 @@ CGINCLUDE
 
 		half3 viewVector = normalize(i.viewInterpolator.xyz);
 
-		half4 distortOffset = half4(worldNormal.xz * REALTIME_DISTORTION * 10.0, 0, 0);
+		half4 distortOffset = half4(worldNormal.xz * REALTimE_DISTORTION * 10.0, 0, 0);
 		half4 screenWithOffset = i.screenPos + distortOffset;
 		
 		#ifdef WATER_REFLECTIVE
@@ -388,7 +388,7 @@ Subshader
 		
 			#pragma multi_compile WATER_VERTEX_DISPLACEMENT_ON WATER_VERTEX_DISPLACEMENT_OFF
 			#pragma multi_compile WATER_EDGEBLEND_ON WATER_EDGEBLEND_OFF
-			#pragma multi_compile WATER_REFLECTIVE WATER_SIMPLE
+			#pragma multi_compile WATER_REFLECTIVE WATER_SimPLE
 		
 			ENDCG
 	}
@@ -417,7 +417,7 @@ Subshader
 		
 			#pragma multi_compile WATER_VERTEX_DISPLACEMENT_ON WATER_VERTEX_DISPLACEMENT_OFF
 			#pragma multi_compile WATER_EDGEBLEND_ON WATER_EDGEBLEND_OFF
-			#pragma multi_compile WATER_REFLECTIVE WATER_SIMPLE
+			#pragma multi_compile WATER_REFLECTIVE WATER_SimPLE
 		
 			ENDCG
 	}

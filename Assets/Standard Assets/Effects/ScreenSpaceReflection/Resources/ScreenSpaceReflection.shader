@@ -262,7 +262,7 @@ Shader "Hidden/ScreenSpaceReflection"
                         // View space point being shaded
                         float3 C = GetPosition(tsP);
 
-                        // Final image before this pass
+                        // Final Image before this pass
                         float4 gbuffer3 = tex2D(_MainTex, i.uv);
 
                         float4 specEmission = float4(0.0,0.0,0.0,0.0);
@@ -393,7 +393,7 @@ Shader "Hidden/ScreenSpaceReflection"
 
                                 float weight = temp.a * gaussWeights[abs(i)];
                                 // Bilateral filtering
-                                // if (_ImproveCorners)
+                                // if (_improveCorners)
                                 // {
                                         nAndRough = tex2D(_NormalAndRoughnessTexture, tsTap);
                                         tapRoughness = nAndRough.a;
