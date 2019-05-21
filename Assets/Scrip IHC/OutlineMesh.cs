@@ -77,10 +77,6 @@ public class OutlineMesh : MonoBehaviour {
 		if (numberClickThisScript == 0) {
 			if (sc_P1.SectionCritic == 1 && VarGlobals.I_CountFishesClicked < 3) {
 				fc.ExecuteBlock ("Alerta");
-				VarGlobals.contadorPez++;
-				if (VarGlobals.contadorPez <= VarGlobals.pez.Length) {
-					VarGlobals.activateCamvasPez ();
-				}
 				VarGlobals.countFishesClicked ();
 				StartCoroutine (Scale ());
 			}
@@ -96,7 +92,8 @@ public class OutlineMesh : MonoBehaviour {
 		}
 
 		yield return new WaitForSeconds(0.0f);
-		Destroy (this.gameObject);
+		//Destroy (this.gameObject);
+		//this.gameObject.rende
 
 	}
 

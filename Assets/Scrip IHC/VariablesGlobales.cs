@@ -15,7 +15,8 @@ public class VariablesGlobales : MonoBehaviour {
 
 	[HideInInspector]
 	public int I_CountFishesClicked=0;
-
+	[HideInInspector]
+	public int offset = 0;
 
 	public void  countFishesClicked(){
 		I_CountFishesClicked++;

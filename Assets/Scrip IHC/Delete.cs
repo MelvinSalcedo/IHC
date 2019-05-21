@@ -5,10 +5,10 @@ using UnityEngine.UI;
 
 public class Delete : MonoBehaviour {
 
-	public Image ImgOrigen;
-	public Image ImgDestino;
+	public Image PosInicial;
+	public Image PosFinal;
 	bool translateUI;
-
+	public VariablesGlobales VarGlobals;
 	Vector3 namePose=new Vector3();
 	// Update is called once per frame
 
@@ -18,8 +18,23 @@ public class Delete : MonoBehaviour {
 
 		if (translateUI == true) {
 			
-			ImgOrigen.transform.position = Vector3.MoveTowards(ImgOrigen.transform.position,
-				ImgDestino.transform.position,333*Time.deltaTime);
+			PosInicial.transform.position = Vector3.MoveTowards(PosInicial.transform.position,
+				PosFinal.transform.position,333*Time.deltaTime);
+			
+			if (PosInicial.transform.position == PosFinal.transform.position) {
+				VarGlobals.offset = 110;
+				//Destroy (PosInicial);
+				PosInicial.gameObject.SetActive(false);
+
+				VarGlobals.contadorPez++;
+
+				if (VarGlobals.contadorPez <= VarGlobals.pez.Length) {
+					VarGlobals.activateCamvasPez ();
+				}
+
+				translateUI = false;
+				Destroy (this.gameObject);
+			}
 		}
 
 
@@ -27,10 +42,12 @@ public class Delete : MonoBehaviour {
 
 	void OnMouseDown ()
 	{
+		
+		PosFinal.transform.position += new Vector3 (VarGlobals.offset, 0, 0);
 		namePose = Camera.main.WorldToScreenPoint(this.transform.position);
-		ImgOrigen.transform.position = namePose;
+		PosInicial.transform.position = namePose;
 		translateUI = true;
-		ImgOrigen.gameObject.SetActive (true);
+		PosInicial.gameObject.SetActive (true);
 	}
 
 }

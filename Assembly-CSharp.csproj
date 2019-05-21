@@ -51,11 +51,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-     <Compile Include="Assets\!VibrantEffectTexturesFreePack\acrylics\Textures\aBRIR.cs" />
-     <Compile Include="Assets\BLUCLES_PRUEVAS\script\Activar_bucle.cs" />
-     <Compile Include="Assets\BLUCLES_PRUEVAS\script\bucle_tutorial.cs" />
-     <Compile Include="Assets\BLUCLES_PRUEVAS\script\mover_terminado.cs" />
-     <Compile Include="Assets\BLUCLES_PRUEVAS\script\problemas_bucle.cs" />
      <Compile Include="Assets\Fungus\Scripts\Commands\Break.cs" />
      <Compile Include="Assets\Fungus\Scripts\Commands\Call.cs" />
      <Compile Include="Assets\Fungus\Scripts\Commands\CallMethod.cs" />
@@ -608,9 +603,7 @@
      <None Include="Assets\JMO Assets\Cartoon FX Easy Editor\CartoonFX Easy Editor Readme.txt" />
      <None Include="Assets\Fungus\Thirdparty\Reorderable List Field\README.txt" />
      <None Include="Assets\Fungus\Thirdparty\FungusLua\Resources\Types\FungusTypes.txt" />
-     <None Include="Assets\Modelos3d\ambiente\b\archibase.net.txt" />
      <None Include="Assets\Fungus\Thirdparty\FungusLua\Resources\Types\UnityTypes.txt" />
-     <None Include="Assets\Modelos3d\ambiente\a\archibase.net.txt" />
      <None Include="Assets\Fungus\Integrations\Spine\Readme.txt" />
      <None Include="Assets\personajes\niña\paola_niña\animacion.txt" />
      <None Include="Assets\Fungus\Fonts\Amaranth\SIL Open Font License.txt" />
@@ -618,7 +611,6 @@
      <None Include="Assets\Fungus\Thirdparty\Reorderable List Field\LICENSE.txt" />
      <None Include="Assets\Fungus\Textures\Attribution.txt" />
      <None Include="Assets\Fungus\Thirdparty\FungusLua\Resources\Lua\inspect.txt" />
-     <None Include="Assets\Modelos3d\ambiente\c\archibase.net.txt" />
      <None Include="Assets\Fungus\Thirdparty\FungusLua\Resources\Lua\fungus.txt" />
      <None Include="Assets\Fungus\Docs\CHANGELOG.txt" />
  <Reference Include="UnityEngine.UI">
