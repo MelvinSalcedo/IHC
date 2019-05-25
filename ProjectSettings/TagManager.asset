@@ -10,6 +10,7 @@ TagManager:
   - entrenamiento
   - pared
   - Question
+  - VariablesGlobales
   layers:
   - Default
   - TransparentFX

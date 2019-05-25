@@ -10,13 +10,22 @@ public class VariablesGlobales : MonoBehaviour {
 
 	[Header("CmabasPeces")]
 	public GameObject[] pez;
+
 	[HideInInspector]
 	public int contadorPez=-1;
 
 	[HideInInspector]
 	public int I_CountFishesClicked=0;
+
 	[HideInInspector]
 	public int offset = 0;
+
+	[HideInInspector]
+	public bool Bool_PermitirPressBotonos;
+
+	void Start(){
+		Bool_PermitirPressBotonos = true;
+	}
 
 	public void  countFishesClicked(){
 		I_CountFishesClicked++;

@@ -3,14 +3,16 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class ScriptArrow : MonoBehaviour {
+	[Header("GameObject whit script VarGlobals")]
+	public GameObject GameObjectVarGlobals;
+	private VariablesGlobales cs_VarGlobals;
+
 	[Header("Parent")]
 	public GameObject Parent;
+
 	[Header("Arrows material")]
-	public Material mt_arrowBlue;
+	public Material[] mt_arrowBlue;
 	public Material mt_arrowRed;
-	/*public Material mt_down;
-	public Material mt_left;
-	public Material mt_right;*/
 
 	[Header("DistanciaPasos")]
 	public float numero_pasos_dados = 2.00f;
@@ -18,18 +20,25 @@ public class ScriptArrow : MonoBehaviour {
 	[Header("Player")]
 	public Transform jugador;
 
+	//>>>>>>>>>>>>>>>>>>>>>>><
+	[HideInInspector]
+	public AudioSource  source;
+	[Header("sound")]
+	public AudioClip clip_pressButton;
+	//>>>>>>>>>>>>>>>>>>>>>>
 
 	// PRIVATE
 	[HideInInspector]
 	public int ContadorInstrucciones = 0;
-	private Vector3 PosicionInicial;
 
+	private Vector3 PosicionInicial;
 	private GameObject ArrowSequence;
 
 	// Direccionales 
 	// Listas 
 	[HideInInspector]
 	public List<char> ListaPosiciones = new List<char>();
+
 	[HideInInspector]
 	public List<GameObject> ListaAcumuladorInstruccionesMT= new List<GameObject>();
 
@@ -38,12 +47,22 @@ public class ScriptArrow : MonoBehaviour {
 	public Vector3 LP;
 
 	[HideInInspector]
-	public bool BoolPermitirPressBotonos;
+	public int NumberArrow=0;
+
 
 	void Start () {
-		BoolPermitirPressBotonos = true;
+		source = GetComponent<AudioSource> ();
 		LP = this.transform.position;
+		//encontrar scritp de variables globales
+		GameObjectVarGlobals = GameObject.FindWithTag ("VariablesGlobales");
+		cs_VarGlobals = GameObjectVarGlobals.GetComponent<VariablesGlobales> ();
+
 	}
+
+	public void reproducirSonido(){
+		source.PlayOneShot (clip_pressButton);
+	}	
+
 
 	public void CreatePlane(Vector3 LastPosition,Material mt){
 		
@@ -61,87 +80,92 @@ public class ScriptArrow : MonoBehaviour {
 	void Update(){
 		crear_cubos ();
 	}
+		
+	public void GnerateImageArrow(char Key,Vector3 NumpasosDados){
+		reproducirSonido ();
+		if (NumberArrow < mt_arrowBlue.Length) {
+			LP += NumpasosDados;
+			CreatePlane (LP, mt_arrowBlue [NumberArrow]);
+			ContadorInstrucciones++;
+			ListaPosiciones.Add (Key);
+			NumberArrow++;
+		}
+	}
+
+	public void DeleteArrow(){
+		int children = Parent.transform.childCount;
+		reproducirSonido ();
+		Destroy (Parent.transform.GetChild (children - 1).gameObject);
+
+		if (ListaPosiciones [ListaPosiciones.Count - 1] == 'w') {
+			LP -= new Vector3 (numero_pasos_dados, 0, 0);
+		} else if (ListaPosiciones [ListaPosiciones.Count - 1] == 's') {
+			LP -= new Vector3 (-numero_pasos_dados, 0, 0);
+		} else if (ListaPosiciones [ListaPosiciones.Count - 1] == 'a') {
+			LP -= new Vector3 (0, 0, numero_pasos_dados);
+		} else if (ListaPosiciones [ListaPosiciones.Count - 1] == 'd') {
+			LP -= new Vector3 (0, 0, -numero_pasos_dados);
+		}
+		ListaPosiciones.RemoveAt (ListaPosiciones.Count - 1);
+		ContadorInstrucciones--;
+		NumberArrow--;
+
+	}
+	public void UpAqrrow(){
+		Vector3 N= new Vector3 (numero_pasos_dados, 0, 0);
+		GnerateImageArrow ('w',N);
+	}
+	public void DownAqrrow(){
+		Vector3 N=new Vector3 (-numero_pasos_dados, 0, 0);
+		GnerateImageArrow ('s',N);
+	}
+	public void RightAqrrow(){
+		Vector3 N= new Vector3 (0, 0, -numero_pasos_dados);
+		GnerateImageArrow ('d',N);
+	}
+	public void LeftAqrrow(){
+		Vector3 N= new Vector3 (0, 0, numero_pasos_dados);
+		GnerateImageArrow ('a',N);
+	}
+	public void  SpaceArrow(){
+		reproducirSonido ();
+		NumberArrow = 0;
+		cs_VarGlobals.Bool_PermitirPressBotonos = false;
+		ListaPosiciones.Clear ();
+		NumberArrow = 0;
+		ContadorInstrucciones = 0;
+	}
+
 	void crear_cubos(){
-		if (BoolPermitirPressBotonos == true) {
+		if (cs_VarGlobals.Bool_PermitirPressBotonos== true) {
 			if (ContadorInstrucciones < 10) {
 				if (Input.GetMouseButtonDown (1)) {
 					if (ContadorInstrucciones > 0) {
-						ContadorInstrucciones--;
-						int children = Parent.transform.childCount;
-						Destroy (Parent.transform.GetChild (children - 1).gameObject);
-
-						if (ListaPosiciones [ListaPosiciones.Count - 1] == 'w') {
-							LP -= new Vector3 (numero_pasos_dados, 0, 0);
-						} else if (ListaPosiciones [ListaPosiciones.Count - 1] == 's') {
-							LP -= new Vector3 (-numero_pasos_dados, 0, 0);
-						} else if (ListaPosiciones [ListaPosiciones.Count - 1] == 'a') {
-							LP -= new Vector3 (0, 0, numero_pasos_dados);
-						} else if (ListaPosiciones [ListaPosiciones.Count - 1] == 'd') {
-							LP -= new Vector3 (0, 0, -numero_pasos_dados);
-						}
-						ListaPosiciones.RemoveAt (ListaPosiciones.Count - 1);
-
-
-
+						DeleteArrow ();
 					}
 				} else if (Input.GetKeyDown ("w")||Input.GetKeyDown ("up")) {
-					LP += new Vector3 (numero_pasos_dados, 0, 0);
-					CreatePlane (LP, mt_arrowBlue);
-					ContadorInstrucciones++;
-					ListaPosiciones.Add ('w');
+					UpAqrrow ();
 
 				} else if (Input.GetKeyDown ("s")||Input.GetKeyDown ("down")) {
-					LP += new Vector3 (-numero_pasos_dados, 0, 0);
-					CreatePlane (LP, mt_arrowBlue);
-					ContadorInstrucciones++;
-					ListaPosiciones.Add ('s');
-
+					DownAqrrow ();
 				} else if (Input.GetKeyDown ("a")||Input.GetKeyDown ("left")) {
-					LP += new Vector3 (0, 0, numero_pasos_dados);
-					CreatePlane (LP, mt_arrowBlue);
-					ContadorInstrucciones++;
-					ListaPosiciones.Add ('a');
+					LeftAqrrow ();
 
 				} else if (Input.GetKeyDown ("d")||Input.GetKeyDown ("right")) {
-					LP += new Vector3 (0, 0, -numero_pasos_dados);
-					CreatePlane (LP, mt_arrowBlue);
-					ContadorInstrucciones++;
-					ListaPosiciones.Add ('d');
-
-				} else if (Input.GetKeyDown ("space")&&ContadorInstrucciones>0) {
-					BoolPermitirPressBotonos = false;
-					ListaPosiciones.Clear ();
-					ContadorInstrucciones = 0;
+					RightAqrrow ();
+				} else if (Input.GetKeyDown ("space")&& ContadorInstrucciones>0) {
+					SpaceArrow ();
 					
 				}
 			} else {
-				if (Input.GetMouseButtonDown (1)) {
-					if (ContadorInstrucciones > 0) {
-						if (ContadorInstrucciones > 0) {
-							ContadorInstrucciones--;
-							int children = Parent.transform.childCount;
-							Destroy (Parent.transform.GetChild (children - 1).gameObject);
-
-							if (ListaPosiciones [ListaPosiciones.Count - 1] == 'w') {
-								LP -= new Vector3 (numero_pasos_dados, 0, 0);
-							} else if (ListaPosiciones [ListaPosiciones.Count - 1] == 's') {
-								LP -= new Vector3 (-numero_pasos_dados, 0, 0);
-							} else if (ListaPosiciones [ListaPosiciones.Count - 1] == 'a') {
-								LP -= new Vector3 (0, 0, numero_pasos_dados);
-							} else if (ListaPosiciones [ListaPosiciones.Count - 1] == 'd') {
-								LP -= new Vector3 (0, 0, -numero_pasos_dados);
-							}
-							ListaPosiciones.RemoveAt (ListaPosiciones.Count - 1);
-						}
-					}
-				} else if (Input.GetKeyDown ("space") && ContadorInstrucciones>0) {
-					ListaPosiciones.Clear ();
-					ContadorInstrucciones = 0;
-					BoolPermitirPressBotonos = false;
+				if (Input.GetMouseButtonDown (1)) {					
+					DeleteArrow ();
+				}
+				else if (Input.GetKeyDown ("space")&& ContadorInstrucciones>0) {
+					SpaceArrow ();
 
 				}
 			}
-	
 		}
 			
 	}

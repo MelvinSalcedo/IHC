@@ -1,4 +1,4 @@
 sceneSetups:
-- path: Assets/Scene IHC/GameIhc.unity
+- path: Assets/Scene IHC/Eliminar.unity
   isLoaded: 1
   isActive: 1

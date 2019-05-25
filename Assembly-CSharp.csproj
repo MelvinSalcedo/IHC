@@ -588,6 +588,7 @@
      <Compile Include="Assets\Scrip IHC\OutlineMesh.cs" />
      <Compile Include="Assets\Scrip IHC\Preguntas\Pregunta1.cs" />
      <Compile Include="Assets\Scrip IHC\ScriptArrow.cs" />
+     <Compile Include="Assets\Scrip IHC\ScriptBasura\ExampleClass.cs" />
      <Compile Include="Assets\Scrip IHC\ScriptPlayer.cs" />
      <Compile Include="Assets\Scrip IHC\VariablesGlobales.cs" />
      <None Include="Assets\JMO Assets\Cartoon FX\Shaders\CFX3 Multiply Color.shader" />

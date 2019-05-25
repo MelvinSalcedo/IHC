@@ -6,7 +6,10 @@ using UnityEngine.UI;
 
 
 public class ScriptPlayer : MonoBehaviour {
-	
+	[Header("GameObject whit script VarGlobals")]
+	public GameObject GameObjectVarGlobals;
+	private VariablesGlobales cs_VarGlobals;
+
 	[Header("Particulas")]
 	public GameObject ParticulaPlayer;
 	public GameObject ParticulaFree;
@@ -84,10 +87,7 @@ public class ScriptPlayer : MonoBehaviour {
 	private float h;
 	private float v;
 
-	//>>>>>>>>>>>>>>>>>>>>>>><
-	private AudioSource  source;
-	[Header("sound")]
-	public AudioClip clip_pressButton;
+
 
 	private struct Pair{
 		public Vector3 vector_3;
@@ -109,7 +109,9 @@ public class ScriptPlayer : MonoBehaviour {
 
 
 	void Start () {
-		source = GetComponent<AudioSource> ();
+		GameObjectVarGlobals = GameObject.FindWithTag ("VariablesGlobales");
+		cs_VarGlobals = GameObjectVarGlobals.GetComponent<VariablesGlobales> ();
+
 		SCarrow = GetComponent<ScriptArrow> ();
 		navmesh = GetComponent<UnityEngine.AI.NavMeshAgent> ();
 		anim = GetComponent<Animator> ();
@@ -157,6 +159,7 @@ public class ScriptPlayer : MonoBehaviour {
 		ListaInstrucciones.Clear ();
 		ListaAcumuladorInstrucciones.Clear ();
 	}
+
 	void Animating(){
 		if (arriba == false) {
 			anim.SetBool ("caminando", true);
@@ -164,12 +167,8 @@ public class ScriptPlayer : MonoBehaviour {
 			anim.SetBool ("caminando", false);	
 		}
 	}
+		
 
-
-
-	void reproducirSonido(){
-		source.PlayOneShot (clip_pressButton);
-	}	
 	void crear_cubos(){
 		if(ListaInstrucciones.Count==0){
 			EnEjecucionComandos=false;
@@ -202,7 +201,6 @@ public class ScriptPlayer : MonoBehaviour {
 					ParticulaFree.SetActive (true);
 					
 				} else if (Input.GetKeyDown ("w") || Input.GetKeyDown ("up")) {
-					reproducirSonido ();
 					TipoEjecucion = 0;
 					comandos [ContadorInstrucciones].GetComponent<Image> ().sprite = up;
 					Pair pair_ = new Pair (new Vector3 (numero_pasos_dados, 0, 0), -1);
@@ -213,7 +211,6 @@ public class ScriptPlayer : MonoBehaviour {
 
 
 				} else if (Input.GetKeyDown ("s") || Input.GetKeyDown ("down")) {
-					reproducirSonido ();
 					TipoEjecucion = 1;
 					comandos [ContadorInstrucciones].GetComponent<Image> ().sprite = down;
 					ContadorInstrucciones += 1;
@@ -225,7 +222,6 @@ public class ScriptPlayer : MonoBehaviour {
 
 		
 				} else if (Input.GetKeyDown ("a") || Input.GetKeyDown ("left")) {
-					reproducirSonido ();
 					TipoEjecucion = 2;
 					comandos [ContadorInstrucciones].GetComponent<Image> ().sprite = left;
 					ContadorInstrucciones += 1;
@@ -236,7 +232,6 @@ public class ScriptPlayer : MonoBehaviour {
 					numberOfPases.text = temporal.ToString();
 
 				} else if (Input.GetKeyDown ("d") || Input.GetKeyDown ("right")) {
-					reproducirSonido ();
 					TipoEjecucion = 3;
 					comandos [ContadorInstrucciones].GetComponent<Image> ().sprite = right;
 					ContadorInstrucciones += 1;
@@ -274,6 +269,8 @@ public class ScriptPlayer : MonoBehaviour {
 		}
 	}
 		
+	private Vector3 diferenciaDistancia;
+	float CuadradosDiferenciaDistancia;
 	void play(){
 		if (ListaInstrucciones.Count > 0) {
 			if (n_activador == 1) {
@@ -284,10 +281,12 @@ public class ScriptPlayer : MonoBehaviour {
 				cube.GetComponentInChildren<Renderer> ().enabled = false;
 				n_activador = 0;
 			}
+			diferenciaDistancia = this.transform.position - cube.transform.position;
+			CuadradosDiferenciaDistancia = diferenciaDistancia.sqrMagnitude;
 
-			distancia =	Vector3.Distance (jugador.position, cube.transform.position);
+			//distancia =	Vector3.Distance (jugador.position, cube.transform.position);
 			navmesh.destination = cube.transform.position;
-			if (distancia <= 0.2f) {
+			if (CuadradosDiferenciaDistancia <= 0.2f) {
 				int temporal = int.Parse(numberOfPases.text)+1;
 
 				numberOfPases.text = temporal.ToString();
@@ -308,7 +307,8 @@ public class ScriptPlayer : MonoBehaviour {
 					for(int y = 0; y < Parent.transform.childCount; y++){
 						Destroy(Parent.transform.GetChild(y).gameObject);
 					}
-					SCarrow.BoolPermitirPressBotonos = true;
+					cs_VarGlobals.Bool_PermitirPressBotonos = true;
+
 
 				}
 			}
@@ -340,7 +340,8 @@ public class ScriptPlayer : MonoBehaviour {
 			jugador.position = PosicionInicial;
 			navmesh.destination = PosicionInicial;
 		}
-		else if(target.tag=="inicio"){arriba = false;
+		else if(target.tag=="inicio"){
+			arriba = false;
 			numberOfPases.text = "10";
 			eliminar_instrucionnes ();
 			P_I_P_segundo.transform.position =PosicionInicial;
@@ -357,9 +358,12 @@ public class ScriptPlayer : MonoBehaviour {
 			for (int y = 0; y < 10; y++) {
 				comandosSpriteEjecucion [y].GetComponent<Image> ().sprite = SpriteDefault;
 			}
+
+
 			SCarrow.ListaPosiciones.Clear ();
-			SCarrow.BoolPermitirPressBotonos = true;
+			cs_VarGlobals.Bool_PermitirPressBotonos = true;
 			SCarrow.ContadorInstrucciones=0;
+			SCarrow.NumberArrow = 0;
 			SCarrow.LP = transform.position;
 
 			ParticulaFree.transform.position =jugador.position+posicionAdicional;
@@ -386,17 +390,14 @@ public class ScriptPlayer : MonoBehaviour {
 					Pair pair_ = new Pair (new Vector3 (numero_pasos_dados, 0, 0), -1);
 					ContadorInstrucciones += 1;
 					ListaAcumuladorInstrucciones.Add (pair_);
-
-					SCarrow.LP += new Vector3 (numero_pasos_dados, 0, 0);
-					SCarrow.CreatePlane (SCarrow.LP, SCarrow.mt_arrowBlue);
-					SCarrow.ContadorInstrucciones++;
-					SCarrow.ListaPosiciones.Add ('w');
+					SCarrow.UpAqrrow();
 
 					mmm = true;
 				} 
 			}
 		}
 	}
+
 	public void Down (){
 		if (EnEjecucionComandos == false) {
 			bool mmm = false;
@@ -410,11 +411,7 @@ public class ScriptPlayer : MonoBehaviour {
 					ContadorInstrucciones += 1;
 					Pair pair_ = new Pair (new Vector3 (-numero_pasos_dados, 0, 0), -1);
 					ListaAcumuladorInstrucciones.Add (pair_);
-
-					SCarrow.LP += new Vector3 (-numero_pasos_dados, 0, 0);
-					SCarrow.CreatePlane (SCarrow.LP, SCarrow.mt_arrowBlue);
-					SCarrow.ContadorInstrucciones++;
-					SCarrow.ListaPosiciones.Add ('s');
+					SCarrow.DownAqrrow();
 
 					mmm = true;
 				} 
@@ -435,11 +432,7 @@ public class ScriptPlayer : MonoBehaviour {
 					ContadorInstrucciones += 1;
 					Pair pair_ = new Pair (new Vector3 (0, 0, numero_pasos_dados), -1);
 					ListaAcumuladorInstrucciones.Add (pair_);
-
-					SCarrow.LP += new Vector3 (0, 0, numero_pasos_dados);
-					SCarrow.CreatePlane (SCarrow.LP, SCarrow.mt_arrowBlue);
-					SCarrow.ContadorInstrucciones++;
-					SCarrow.ListaPosiciones.Add ('a');
+					SCarrow.LeftAqrrow ();
 
 					mmm = true;
 				} 
@@ -461,11 +454,7 @@ public class ScriptPlayer : MonoBehaviour {
 					ContadorInstrucciones += 1;
 					Pair pair_ = new Pair (new Vector3 (0, 0, -numero_pasos_dados), -1);
 					ListaAcumuladorInstrucciones.Add (pair_);
-
-					SCarrow.LP += new Vector3 (0, 0, -numero_pasos_dados);
-					SCarrow.CreatePlane (SCarrow.LP, SCarrow.mt_arrowBlue);
-					SCarrow.ContadorInstrucciones++;
-					SCarrow.ListaPosiciones.Add ('d');
+					SCarrow.RightAqrrow ();
 
 					mmm = true;
 				} 
@@ -486,45 +475,8 @@ public class ScriptPlayer : MonoBehaviour {
 					comandos [ListaAcumuladorInstrucciones.Count - 1].GetComponent<Image> ().sprite = SpriteDefault;
 					ListaAcumuladorInstrucciones.RemoveAt (ListaAcumuladorInstrucciones.Count - 1);
 					ContadorInstrucciones--;
-					if (SCarrow.ContadorInstrucciones < 10) {
-						if (SCarrow.ContadorInstrucciones > 0) {
-							SCarrow.ContadorInstrucciones--;
-							int children = SCarrow.Parent.transform.childCount;
-							Destroy (SCarrow.Parent.transform.GetChild (children - 1).gameObject);
 
-							if (SCarrow.ListaPosiciones [SCarrow.ListaPosiciones.Count - 1] == 'w') {
-								SCarrow.LP -= new Vector3 (SCarrow.numero_pasos_dados, 0, 0);
-							} else if (SCarrow.ListaPosiciones [SCarrow.ListaPosiciones.Count - 1] == 's') {
-								SCarrow.LP -= new Vector3 (-SCarrow.numero_pasos_dados, 0, 0);
-							} else if (SCarrow.ListaPosiciones [SCarrow.ListaPosiciones.Count - 1] == 'a') {
-								SCarrow.LP -= new Vector3 (0, 0, SCarrow.numero_pasos_dados);
-							} else if (SCarrow.ListaPosiciones [SCarrow.ListaPosiciones.Count - 1] == 'd') {
-								SCarrow.LP -= new Vector3 (0, 0, -SCarrow.numero_pasos_dados);
-							}
-							SCarrow.ListaPosiciones.RemoveAt (SCarrow.ListaPosiciones.Count - 1);
-						}
-					} else {
-						if (SCarrow.ContadorInstrucciones > 0) {
-							if (SCarrow.ContadorInstrucciones > 0) {
-								SCarrow.ContadorInstrucciones--;
-								int children = SCarrow.Parent.transform.childCount;
-								Destroy (SCarrow.Parent.transform.GetChild (children - 1).gameObject);
-
-								if (SCarrow.ListaPosiciones [SCarrow.ListaPosiciones.Count - 1] == 'w') {
-									SCarrow.LP -= new Vector3 (SCarrow.numero_pasos_dados, 0, 0);
-								} else if (SCarrow.ListaPosiciones [SCarrow.ListaPosiciones.Count - 1] == 's') {
-									SCarrow.LP -= new Vector3 (-SCarrow.numero_pasos_dados, 0, 0);
-								} else if (SCarrow.ListaPosiciones [SCarrow.ListaPosiciones.Count - 1] == 'a') {
-									SCarrow.LP -= new Vector3 (0, 0, numero_pasos_dados);
-								} else if (SCarrow.ListaPosiciones [SCarrow.ListaPosiciones.Count - 1] == 'd') {
-									SCarrow.LP -= new Vector3 (0, 0, -numero_pasos_dados);
-								}
-								SCarrow.ListaPosiciones.RemoveAt (SCarrow.ListaPosiciones.Count - 1);
-							}
-						}
-
-
-					}
+					SCarrow.DeleteArrow ();
 				}
 			} else {
 				if (ContadorInstrucciones > 0) {
@@ -532,45 +484,7 @@ public class ScriptPlayer : MonoBehaviour {
 					ListaAcumuladorInstrucciones.RemoveAt (ListaAcumuladorInstrucciones.Count - 1);
 					ContadorInstrucciones--;
 				}
-				if (SCarrow.ContadorInstrucciones < 10) {
-					if (SCarrow.ContadorInstrucciones > 0) {
-						SCarrow.ContadorInstrucciones--;
-						int children = SCarrow.Parent.transform.childCount;
-						Destroy (SCarrow.Parent.transform.GetChild (children - 1).gameObject);
-
-						if (SCarrow.ListaPosiciones [SCarrow.ListaPosiciones.Count - 1] == 'w') {
-							SCarrow.LP -= new Vector3 (SCarrow.numero_pasos_dados, 0, 0);
-						} else if (SCarrow.ListaPosiciones [SCarrow.ListaPosiciones.Count - 1] == 's') {
-							SCarrow.LP -= new Vector3 (-SCarrow.numero_pasos_dados, 0, 0);
-						} else if (SCarrow.ListaPosiciones [SCarrow.ListaPosiciones.Count - 1] == 'a') {
-							SCarrow.LP -= new Vector3 (0, 0, SCarrow.numero_pasos_dados);
-						} else if (SCarrow.ListaPosiciones [SCarrow.ListaPosiciones.Count - 1] == 'd') {
-							SCarrow.LP -= new Vector3 (0, 0, -SCarrow.numero_pasos_dados);
-						}
-						SCarrow.ListaPosiciones.RemoveAt (SCarrow.ListaPosiciones.Count - 1);
-					}
-				} else {
-					if (SCarrow.ContadorInstrucciones > 0) {
-						if (SCarrow.ContadorInstrucciones > 0) {
-							SCarrow.ContadorInstrucciones--;
-							int children = SCarrow.Parent.transform.childCount;
-							Destroy (SCarrow.Parent.transform.GetChild (children - 1).gameObject);
-
-							if (SCarrow.ListaPosiciones [SCarrow.ListaPosiciones.Count - 1] == 'w') {
-								SCarrow.LP -= new Vector3 (SCarrow.numero_pasos_dados, 0, 0);
-							} else if (SCarrow.ListaPosiciones [SCarrow.ListaPosiciones.Count - 1] == 's') {
-								SCarrow.LP -= new Vector3 (-SCarrow.numero_pasos_dados, 0, 0);
-							} else if (SCarrow.ListaPosiciones [SCarrow.ListaPosiciones.Count - 1] == 'a') {
-								SCarrow.LP -= new Vector3 (0, 0, numero_pasos_dados);
-							} else if (SCarrow.ListaPosiciones [SCarrow.ListaPosiciones.Count - 1] == 'd') {
-								SCarrow.LP -= new Vector3 (0, 0, -numero_pasos_dados);
-							}
-							SCarrow.ListaPosiciones.RemoveAt (SCarrow.ListaPosiciones.Count - 1);
-						}
-					}
-
-
-				}
+				SCarrow.DeleteArrow ();
 			}
 		}
 	}
@@ -595,18 +509,7 @@ public class ScriptPlayer : MonoBehaviour {
 				EnEjecucionComandos = true;
 			}
 		}
-		if (SCarrow.BoolPermitirPressBotonos == true) {
-			if (SCarrow.ContadorInstrucciones < 10) {
-				SCarrow.BoolPermitirPressBotonos = false;
-				SCarrow.ListaPosiciones.Clear ();
-				SCarrow.ContadorInstrucciones = 0;
-			} else {
-				SCarrow.ListaPosiciones.Clear ();
-				SCarrow.ContadorInstrucciones = 0;
-				SCarrow.BoolPermitirPressBotonos = false;
-			}
-
-		}
+		SCarrow.SpaceArrow ();
 
 	}
 
