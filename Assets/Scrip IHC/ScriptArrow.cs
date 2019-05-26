@@ -53,17 +53,23 @@ public class ScriptArrow : MonoBehaviour {
 	void Start () {
 		source = GetComponent<AudioSource> ();
 		LP = this.transform.position;
-		//encontrar scritp de variables globales
 		GameObjectVarGlobals = GameObject.FindWithTag ("VariablesGlobales");
 		cs_VarGlobals = GameObjectVarGlobals.GetComponent<VariablesGlobales> ();
 
 	}
 
+	public void ClearCsArrow(){
+		ListaPosiciones.Clear ();
+		cs_VarGlobals.Bool_PermitirPressBotonos = true;
+		ContadorInstrucciones=0;
+		NumberArrow = 0;
+		LP = transform.position;
+	}
+
 	public void reproducirSonido(){
 		source.PlayOneShot (clip_pressButton);
 	}	
-
-
+		
 	public void CreatePlane(Vector3 LastPosition,Material mt){
 		
 		ArrowSequence = GameObject.CreatePrimitive(PrimitiveType.Plane);
@@ -76,12 +82,8 @@ public class ScriptArrow : MonoBehaviour {
 		ArrowSequence.transform.parent = Parent.transform.transform;
 		ArrowSequence.gameObject.tag = "pared";
 	}
-		
-	void Update(){
-		crear_cubos ();
-	}
-		
-	public void GnerateImageArrow(char Key,Vector3 NumpasosDados){
+
+	public void GnerateImageArrow(char Key,Vector3 NumpasosDados)	{
 		reproducirSonido ();
 		if (NumberArrow < mt_arrowBlue.Length) {
 			LP += NumpasosDados;
@@ -111,62 +113,33 @@ public class ScriptArrow : MonoBehaviour {
 		NumberArrow--;
 
 	}
+
 	public void UpAqrrow(){
 		Vector3 N= new Vector3 (numero_pasos_dados, 0, 0);
 		GnerateImageArrow ('w',N);
 	}
+
 	public void DownAqrrow(){
 		Vector3 N=new Vector3 (-numero_pasos_dados, 0, 0);
 		GnerateImageArrow ('s',N);
 	}
+
 	public void RightAqrrow(){
 		Vector3 N= new Vector3 (0, 0, -numero_pasos_dados);
 		GnerateImageArrow ('d',N);
 	}
+
 	public void LeftAqrrow(){
 		Vector3 N= new Vector3 (0, 0, numero_pasos_dados);
 		GnerateImageArrow ('a',N);
 	}
-	public void  SpaceArrow(){
+
+	public void SpaceArrow(){
 		reproducirSonido ();
 		NumberArrow = 0;
 		cs_VarGlobals.Bool_PermitirPressBotonos = false;
 		ListaPosiciones.Clear ();
 		NumberArrow = 0;
 		ContadorInstrucciones = 0;
-	}
-
-	void crear_cubos(){
-		if (cs_VarGlobals.Bool_PermitirPressBotonos== true) {
-			if (ContadorInstrucciones < 10) {
-				if (Input.GetMouseButtonDown (1)) {
-					if (ContadorInstrucciones > 0) {
-						DeleteArrow ();
-					}
-				} else if (Input.GetKeyDown ("w")||Input.GetKeyDown ("up")) {
-					UpAqrrow ();
-
-				} else if (Input.GetKeyDown ("s")||Input.GetKeyDown ("down")) {
-					DownAqrrow ();
-				} else if (Input.GetKeyDown ("a")||Input.GetKeyDown ("left")) {
-					LeftAqrrow ();
-
-				} else if (Input.GetKeyDown ("d")||Input.GetKeyDown ("right")) {
-					RightAqrrow ();
-				} else if (Input.GetKeyDown ("space")&& ContadorInstrucciones>0) {
-					SpaceArrow ();
-					
-				}
-			} else {
-				if (Input.GetMouseButtonDown (1)) {					
-					DeleteArrow ();
-				}
-				else if (Input.GetKeyDown ("space")&& ContadorInstrucciones>0) {
-					SpaceArrow ();
-
-				}
-			}
-		}
-			
 	}
 }
