@@ -6,6 +6,9 @@ using UnityEngine.UI;
 
 
 public class ScriptPlayer : MonoBehaviour {
+	[Header("posicion de nombre y text")]
+	public Transform HeadSignal;
+	public Text texto_mas1; 
 	[Header("GameObject whit script VarGlobals")]
 	public GameObject GameObjectVarGlobals;
 	private VariablesGlobales cs_VarGlobals;
@@ -90,6 +93,7 @@ public class ScriptPlayer : MonoBehaviour {
 	private Vector3 diferenciaDistancia;
 	private float CuadradosDiferenciaDistancia;
 	private Vector3 pair_ = new Vector3 ();
+	private Vector3 namePose = new Vector3 ();
 
 	void Start () {
 		GameObjectVarGlobals = GameObject.FindWithTag ("VariablesGlobales");
@@ -101,7 +105,7 @@ public class ScriptPlayer : MonoBehaviour {
 		P_I_P_segundo = GameObject.CreatePrimitive(PrimitiveType.Cube);
 		P_I_P_segundo.transform.position = jugador.position;
 		P_I_P_segundo.GetComponentInChildren<Renderer> ().enabled = false;
-
+		P_I_P_segundo.GetComponent<BoxCollider> ().enabled = false;
 
 		comandos = GameObject.FindGameObjectsWithTag("comandos");
 		comandosSpriteEjecucion=GameObject.FindGameObjectsWithTag("entrenamiento");
@@ -110,7 +114,9 @@ public class ScriptPlayer : MonoBehaviour {
 
 		numberOfPases.text = sizeComandos.ToString();// convert int to string
 		//lengTextInt = int.Parse(numberOfPases.text);// convert string to int
-
+		arriba=false;
+		texto_mas1.enabled = false;
+		anim.Play ("");
 
 	}
 
@@ -138,13 +144,30 @@ public class ScriptPlayer : MonoBehaviour {
 	}
 
 	void Animating(){
+		
 		if (arriba == false) {
+			//anim.SetBool ("celebrate1", false);
+			//anim.SetBool ("celebrate2", false);
+
 			anim.SetBool ("caminando", true);
 		} else {
 			anim.SetBool ("caminando", false);	
+
+			//anim.SetBool ("celebrate1", false);
+			//anim.SetBool ("celebrate2", false);
+
 		}
 	}
-		
+
+	public void Animating2(bool n){
+		print ("asdasdasd");
+
+		if (n == false) {
+			anim.CrossFade ("mixamo_com",0.0f);
+		} else {
+			anim.CrossFade ("mixamo_com2",0.0f);
+		}
+	}
 	void KeyDirections(char key){
 		if (ContadorInstrucciones < sizeComandos) {
 			if (key == 'w') {
@@ -217,6 +240,8 @@ public class ScriptPlayer : MonoBehaviour {
 			}
 	}
 		
+	private bool Head_Signal=false;
+
 	void play(){
 		if (ListaInstrucciones.Count > 0) {
 			if (n_activador == 1) {
@@ -224,6 +249,7 @@ public class ScriptPlayer : MonoBehaviour {
 				cube.transform.position = P_I_P_segundo.transform.position + ListaInstrucciones [0];
 				P_I_P_segundo.transform.position = cube.transform.position;
 				cube.GetComponentInChildren<Renderer> ().enabled = false;
+				cube.GetComponent<BoxCollider> ().enabled = false;
 				n_activador = 0;
 			}
 			diferenciaDistancia = this.transform.position - cube.transform.position;
@@ -231,13 +257,17 @@ public class ScriptPlayer : MonoBehaviour {
 			navmesh.destination = cube.transform.position;
 
 			if (CuadradosDiferenciaDistancia <= 0.2f) {
+				
+				//******************************
+				namePose = Camera.main.WorldToScreenPoint(HeadSignal.position);
+				texto_mas1.transform.position = namePose;
+				StartCoroutine (Mostar_mas1());
+				//*****************************
+
 				int temporal = int.Parse(numberOfPases.text)+1;
-
 				numberOfPases.text = temporal.ToString();
-
 				ContadorListaInstrucciones++;
 				ListaInstrucciones.RemoveAt (0);
-
 				n_activador = 1;
 
 				if (ContadorListaInstrucciones == begin) {
@@ -272,6 +302,9 @@ public class ScriptPlayer : MonoBehaviour {
 	}
 		
 	void OnTriggerEnter(Collider target){
+		if (target.tag == "ChekPoint") {
+			PosicionInicial = target.transform.position;
+		}
 		if(target.tag=="inicio"){
 			arriba = false;
 			numberOfPases.text = "10";
@@ -318,5 +351,16 @@ public class ScriptPlayer : MonoBehaviour {
 		KeySpace ();
 	}
 
+	IEnumerator Mostar_mas1(){
+		float s = 0;
+		texto_mas1.enabled = true;
+		while(s<1){
+			texto_mas1.transform.Translate (Vector3.up*100f*Time.deltaTime);
+			s += Time.deltaTime;
+			yield return null;
+		}
+		texto_mas1.enabled = false;
+		yield return new WaitForSeconds (0.0f);
+	}
 
 }

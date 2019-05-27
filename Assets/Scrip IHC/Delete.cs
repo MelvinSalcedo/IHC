@@ -10,35 +10,6 @@ public class Delete : MonoBehaviour {
 	bool translateUI;
 	public VariablesGlobales VarGlobals;
 	Vector3 namePose=new Vector3();
-	// Update is called once per frame
-
-
-	void Update () {
-		
-
-		if (translateUI == true) {
-			
-			PosInicial.transform.position = Vector3.MoveTowards(PosInicial.transform.position,
-				PosFinal.transform.position,333*Time.deltaTime);
-			
-			if (PosInicial.transform.position == PosFinal.transform.position) {
-				VarGlobals.offset = 110;
-				//Destroy (PosInicial);
-				PosInicial.gameObject.SetActive(false);
-
-				VarGlobals.contadorPez++;
-
-				if (VarGlobals.contadorPez <= VarGlobals.pez.Length) {
-					VarGlobals.activateCamvasPez ();
-				}
-
-				translateUI = false;
-				Destroy (this.gameObject);
-			}
-		}
-
-
-	}	
 
 	void OnMouseDown ()
 	{
@@ -48,6 +19,37 @@ public class Delete : MonoBehaviour {
 		PosInicial.transform.position = namePose;
 		translateUI = true;
 		PosInicial.gameObject.SetActive (true);
+		StartCoroutine (Scale());
+		StartCoroutine (MovePezToCorner());
 	}
+
+	public IEnumerator MovePezToCorner(){
+		
+		while(PosInicial.transform.position != PosFinal.transform.position){
+			PosInicial.transform.position = Vector3.MoveTowards(PosInicial.transform.position,
+				PosFinal.transform.position,333*Time.deltaTime);
+			yield return null;
+		}
+		VarGlobals.offset = 110;
+		VarGlobals.contadorPez++;
+		PosInicial.gameObject.SetActive(false);
+		if (VarGlobals.contadorPez <= VarGlobals.pez.Length) {
+			VarGlobals.activateCamvasPez ();
+		}
+		yield return new WaitForSeconds(0.0f);
+		translateUI = false;
+		Destroy (this.gameObject);
+
+	}
+
+	IEnumerator Scale(){
+		while(0.5f < transform.localScale.x){
+			transform.localScale -= new Vector3(1, 1, 1) * Time.deltaTime * 5.0f;
+			yield return null;
+		}
+		yield return new WaitForSeconds(0.0f);
+
+	}
+
 
 }

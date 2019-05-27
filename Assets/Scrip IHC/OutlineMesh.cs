@@ -24,15 +24,12 @@ public class OutlineMesh : MonoBehaviour {
 	[Header("Numero de Pez")]
 	public int NumeroPez;
 
-	[Header("Script OutlineMesh")]
-	public Pregunta1 sc_P1;
-
-
 	private Animator anim;
 
 	private GameObject objVariableGlobales;
 	private VariablesGlobales VarGlobals;
 	private int numberClickThisScript = new int();
+	private bool St_Courrutine = false;
 	void Start(){
 		
 		objVariableGlobales = GameObject.Find ("Main Character");
@@ -43,30 +40,35 @@ public class OutlineMesh : MonoBehaviour {
 		skinnedMeshRenderer = GetComponentInChildren<SkinnedMeshRenderer>();
 
 	}
-	void Update(){
-		
+
+	void Update(){	
 		if (VarGlobals.I_CountFishesClicked < 3) {
 		} 
 		else {
 			anim.SetBool ("Walk",true);
 			anim_.enabled = true;
+			if (St_Courrutine == false) {
+				StartCoroutine (Timer ());
+				St_Courrutine = true;
+			}
+
 			if (obj != null) {
 				Destroy (obj);
 			}
 		}
-
 	}
 
 	void OnMouseOver()
 	{
-		if (sc_P1.SectionCritic == 1) {
+		if (VarGlobals.SectionCritic == 1) {
 			skinnedMeshRenderer.material = mt_outline;
 		}
 
 	}
 
 	void OnMouseExit()
-	{	if (sc_P1.SectionCritic == 1) {
+	{	
+		if (VarGlobals.SectionCritic == 1) {
 			skinnedMeshRenderer.material = mt_real;
 		}
 	}
@@ -75,26 +77,21 @@ public class OutlineMesh : MonoBehaviour {
 	{
 
 		if (numberClickThisScript == 0) {
-			if (sc_P1.SectionCritic == 1 && VarGlobals.I_CountFishesClicked < 3) {
+			
+			if (VarGlobals.SectionCritic == 1 && VarGlobals.I_CountFishesClicked < 3) {
 				fc.ExecuteBlock ("Alerta");
 				VarGlobals.countFishesClicked ();
-				StartCoroutine (Scale ());
 			}
 		}
 		numberClickThisScript++;
 	}
 
-
-	IEnumerator Scale(){
-		while(0.5f < transform.localScale.x){
+	IEnumerator Timer(){
+		/*while(0.5f < transform.localScale.x){
 			transform.localScale -= new Vector3(1, 1, 1) * Time.deltaTime * 5.0f;
 			yield return null;
-		}
-
-		yield return new WaitForSeconds(0.0f);
-		//Destroy (this.gameObject);
-		//this.gameObject.rende
-
+		}*/
+		yield return new WaitForSeconds(5.0f);
+		Destroy (this.gameObject);
 	}
-
 }

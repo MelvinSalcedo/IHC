@@ -61,6 +61,7 @@ public class Misiones : MonoBehaviour {
 			Destroy (this.gameObject);
 		}
 	}
+
 	void Update () {
 		
 		obj_rotate.transform.Rotate (0,Time.deltaTime*speed,0);

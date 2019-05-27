@@ -11,6 +11,7 @@ TagManager:
   - pared
   - Question
   - VariablesGlobales
+  - ChekPoint
   layers:
   - Default
   - TransparentFX

@@ -6,10 +6,13 @@ public class VariablesGlobales : MonoBehaviour {
 
 	// Use this for initialization
 	[Header("Activar movimiento de camera siguiente")]
-	public GameObject trigerCamNext;
+	/*public GameObject trigerCamNext;*/
 
 	[Header("CmabasPeces")]
 	public GameObject[] pez;
+
+	[Header("GameObject peces")]
+	public GameObject[] peces;
 
 	[HideInInspector]
 	public int contadorPez=-1;
@@ -23,6 +26,10 @@ public class VariablesGlobales : MonoBehaviour {
 	[HideInInspector]
 	public bool Bool_PermitirPressBotonos;
 
+	[HideInInspector]
+	public int SectionCritic=0;
+
+	[HideInInspector]
 	void Start(){
 		Bool_PermitirPressBotonos = true;
 	}
@@ -30,11 +37,19 @@ public class VariablesGlobales : MonoBehaviour {
 	public void  countFishesClicked(){
 		I_CountFishesClicked++;
 		if (I_CountFishesClicked == 3) {
-			trigerCamNext.SetActive (true);
+			//trigerCamNext.SetActive (true);
 		}
 	}
 
 	public void activateCamvasPez(){
 		pez [contadorPez].SetActive (true);
+	}
+
+	public void moverPecesEliminar(){
+		for (int i = 0; i < peces.Length; i++) {
+			if (peces [i] != null) {
+				
+			}
+		}
 	}
 }
