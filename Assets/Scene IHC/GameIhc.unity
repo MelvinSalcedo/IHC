@@ -35,10 +35,10 @@ RenderSettings:
   m_DefaultReflectionMode: 0
   m_DefaultReflectionResolution: 128
   m_ReflectionBounces: 1
-  m_ReflectionIntensity: 1
+  m_ReflectionIntensity: 0.79
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657874, g: 0.49641258, b: 0.574817, a: 1}
+  m_IndirectSpecularColor: {r: 0.39965683, g: 0.44482887, b: 0.5158987, a: 0.79}
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
@@ -14704,11 +14704,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   version: 1
-  scrollPos: {x: -692.9303, y: 40.09787}
+  scrollPos: {x: -527.78766, y: -61.693367}
   variablesScrollPos: {x: 0, y: 0}
   variablesExpanded: 1
   blockViewHeight: 252
-  zoom: 1
+  zoom: 0.9100001
   scrollViewRect:
     serializedVersion: 2
     x: -343
@@ -14716,9 +14716,9 @@ MonoBehaviour:
     width: 1114
     height: 859
   selectedBlocks:
-  - {fileID: 382888403}
+  - {fileID: 382888358}
   selectedCommands:
-  - {fileID: 382888415}
+  - {fileID: 382888365}
   variables: []
   description: 
   stepPause: 0
@@ -14743,7 +14743,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemId: 1
   indentLevel: 0
-  storyText: "Llega al balde\n\t\t\t\t(presiona click para salir)"
+  storyText: "Avanza\n\t\t\t\t(presiona click para salir)"
   description: 
   character: {fileID: 0}
   portrait: {fileID: 0}
@@ -14824,7 +14824,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 312.40958
     y: 179.67477
-    width: 123
+    width: 126.92307
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -14900,7 +14900,7 @@ MonoBehaviour:
   nodeRect:
     serializedVersion: 2
     x: 714.8836
-    y: 126.06653
+    y: 127.16543
     width: 120
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
@@ -15109,7 +15109,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemId: 45
   indentLevel: 0
-  text: a)0
+  text: a) 0
   description: 
   targetBlock: {fileID: 382888363}
   hideIfVisited: 0
@@ -15175,7 +15175,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemId: 44
   indentLevel: 0
-  storyText: "\xBFSi le resto al primer pez el tercer pez, Cu\xE1nto me queda?"
+  storyText: "Si le resto al primer pez el tercer pez, \xBFCu\xE1nto me queda?"
   description: 
   character: {fileID: 0}
   portrait: {fileID: 0}
@@ -15421,7 +15421,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemId: 23
   indentLevel: 0
-  storyText: "\xBFSi quito el pez de la mitad cuando suman los demas peces?"
+  storyText: "Si quito el segundo pez  \xBFCu\xE1nto suman los demas peces?"
   description: 
   character: {fileID: 0}
   portrait: {fileID: 0}
@@ -15932,7 +15932,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 767.84827
     y: -49.295715
-    width: 139
+    width: 142.30768
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -16393,7 +16393,7 @@ MonoBehaviour:
   targetGameObjectOLD: {fileID: 0}
 --- !u!114 &382888419
 MonoBehaviour:
-  m_ObjectHideFlags: 0
+  m_ObjectHideFlags: 2
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 382888345}
@@ -16457,7 +16457,7 @@ MonoBehaviour:
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &382888420
 MonoBehaviour:
-  m_ObjectHideFlags: 0
+  m_ObjectHideFlags: 2
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 382888345}
@@ -16521,7 +16521,7 @@ MonoBehaviour:
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &382888421
 MonoBehaviour:
-  m_ObjectHideFlags: 0
+  m_ObjectHideFlags: 2
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 382888345}
@@ -16585,7 +16585,7 @@ MonoBehaviour:
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &382888422
 MonoBehaviour:
-  m_ObjectHideFlags: 0
+  m_ObjectHideFlags: 2
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 382888345}
@@ -39850,10 +39850,10 @@ MonoBehaviour:
     m_SelectOnRight: {fileID: 0}
   m_Transition: 1
   m_Colors:
-    m_NormalColor: {r: 0.25, g: 1, b: 0.44137937, a: 1}
-    m_HighlightedColor: {r: 1, g: 0.30147058, b: 0.98073035, a: 1}
+    m_NormalColor: {r: 0.25, g: 1, b: 0.7517242, a: 1}
+    m_HighlightedColor: {r: 0, g: 0.91724133, b: 1, a: 1}
     m_PressedColor: {r: 1, g: 0, b: 0.22758676, a: 1}
-    m_DisabledColor: {r: 0.44117647, g: 1, b: 0.56064904, a: 0.5019608}
+    m_DisabledColor: {r: 0.44117647, g: 1, b: 0.88438123, a: 0.5019608}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
   m_SpriteState:
@@ -63115,8 +63115,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1999660437}
-  m_LocalRotation: {x: -0.31274533, y: 0.63418484, z: 0.31274533, w: 0.63418484}
-  m_LocalPosition: {x: -17.148909, y: -19.476011, z: 28.687368}
+  m_LocalRotation: {x: -0.09228844, y: 0.86678666, z: 0.17471421, w: 0.45786315}
+  m_LocalPosition: {x: -20.532207, y: -10.11907, z: 6.239994}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1766957218}
