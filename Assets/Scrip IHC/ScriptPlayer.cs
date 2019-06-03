@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using Random=UnityEngine.Random;
 
 
 public class ScriptPlayer : MonoBehaviour {
@@ -95,6 +96,8 @@ public class ScriptPlayer : MonoBehaviour {
 	private Vector3 pair_ = new Vector3 ();
 	private Vector3 namePose = new Vector3 ();
 
+
+
 	void Start () {
 		GameObjectVarGlobals = GameObject.FindWithTag ("VariablesGlobales");
 		cs_VarGlobals = GameObjectVarGlobals.GetComponent<VariablesGlobales> ();
@@ -117,6 +120,7 @@ public class ScriptPlayer : MonoBehaviour {
 		arriba=false;
 		texto_mas1.enabled = false;
 		anim.Play ("");
+		anim.CrossFade ("mixamo_com3",0.0f);
 
 	}
 
@@ -160,16 +164,33 @@ public class ScriptPlayer : MonoBehaviour {
 	}
 
 	public void Animating2(bool n){
-		print ("asdasdasd");
+		//print ("asdasdasd");
+		int r= Random.Range(0,3);
 
-		if (n == false) {
+
+		if (r == 0) {
 			anim.CrossFade ("mixamo_com",0.0f);
-		} else {
-			anim.CrossFade ("mixamo_com2",0.0f);
+		} else if(r==1){
+			//anim.CrossFade ("mixamo_com2",0.0f);
+			anim.CrossFade ("BackFlip",0.0f);
+		} else if(r==2){
+			anim.CrossFade ("BackFlip",0.0f);
 		}
 	}
+	public void AnimatingError(bool n){
+		int r= Random.Range(0,2);
+		if (r == 0) {
+			anim.CrossFade ("respuestaMala",0.0f);
+		} else{
+			//anim.CrossFade ("mixamo_com2",0.0f);
+			anim.CrossFade ("voltereta",0.0f);
+		}
+
+	}
+
 	void KeyDirections(char key){
-		if (ContadorInstrucciones < sizeComandos) {
+		if (ContadorInstrucciones < sizeComandos && EnEjecucionComandos==false) {
+
 			if (key == 'w') {
 				SCarrow.UpAqrrow ();
 				pair_ = new Vector3 (numero_pasos_dados, 0, 0);
@@ -193,15 +214,17 @@ public class ScriptPlayer : MonoBehaviour {
 	}
 
 	void KeySpace(){
-		SCarrow.SpaceArrow ();
-		ContadorInstrucciones = 0;
-		ArmarSecuenciaInstruciones ();
-		EjecutarSecuencias = 1;
-		n_activador = 1;
-		EnEjecucionComandos = true;
-		ParticulaFree.transform.position = this.transform.position+posicionAdicional;
-		ParticulaPlayer.SetActive (false);
-		ParticulaFree.SetActive (true);
+		if (EnEjecucionComandos == false) {
+			SCarrow.SpaceArrow ();
+			ContadorInstrucciones = 0;
+			ArmarSecuenciaInstruciones ();
+			EjecutarSecuencias = 1;
+			n_activador = 1;
+			EnEjecucionComandos = true;
+			ParticulaFree.transform.position = this.transform.position + posicionAdicional;
+			ParticulaPlayer.SetActive (false);
+			ParticulaFree.SetActive (true);
+		}
 	}
 
 	void KeyDelete(){
@@ -267,6 +290,9 @@ public class ScriptPlayer : MonoBehaviour {
 				int temporal = int.Parse(numberOfPases.text)+1;
 				numberOfPases.text = temporal.ToString();
 				ContadorListaInstrucciones++;
+
+				//SCarrow.fc.ExecuteBlock (ContadorListaInstrucciones.ToString());
+
 				ListaInstrucciones.RemoveAt (0);
 				n_activador = 1;
 
@@ -306,6 +332,7 @@ public class ScriptPlayer : MonoBehaviour {
 			PosicionInicial = target.transform.position;
 		}
 		if(target.tag=="inicio"){
+			
 			arriba = false;
 			numberOfPases.text = "10";
 			eliminar_instrucionnes ();
@@ -320,6 +347,7 @@ public class ScriptPlayer : MonoBehaviour {
 			ParticulaFree.transform.position =jugador.position+posicionAdicional;
 			ParticulaPlayer.SetActive (true);
 			ParticulaFree.SetActive (false);
+
 
 		}
 	}

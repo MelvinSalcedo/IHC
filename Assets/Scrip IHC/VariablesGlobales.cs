@@ -5,8 +5,10 @@ using UnityEngine;
 public class VariablesGlobales : MonoBehaviour {
 
 	// Use this for initialization
-	[Header("Activar movimiento de camera siguiente")]
-	/*public GameObject trigerCamNext;*/
+	//[Header("Numeros")]
+	//public AudtrigerCamNext;
+
+
 
 	[Header("CmabasPeces")]
 	public GameObject[] pez;
@@ -52,4 +54,8 @@ public class VariablesGlobales : MonoBehaviour {
 			}
 		}
 	}
+
+
+
+
 }

@@ -12,6 +12,7 @@ TagManager:
   - Question
   - VariablesGlobales
   - ChekPoint
+  - Flowchart
   layers:
   - Default
   - TransparentFX

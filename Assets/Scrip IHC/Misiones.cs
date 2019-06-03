@@ -1,10 +1,12 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using Fungus;
 
 public class Misiones : MonoBehaviour {
-	
+	[Header("Flowchar ")]
+	public Flowchart fc;
+
 	[Header("el personaje puedo pasar")]
 	public GameObject CanPassPlayer;
 
@@ -38,6 +40,8 @@ public class Misiones : MonoBehaviour {
 	void reproducirSonido(int s){
 		if (s == 0) {
 			source.PlayOneShot (clip_pressButton);
+			fc.ExecuteBlock ("sigueBuscando");
+
 		} else if (s == 1) {
 			source.PlayOneShot (clip_opendDorr);
 		}

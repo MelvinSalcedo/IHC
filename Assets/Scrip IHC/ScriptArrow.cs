@@ -1,8 +1,11 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Fungus;
 
 public class ScriptArrow : MonoBehaviour {
+	[Header("Fungus")]
+	public Flowchart fc;
 	[Header("GameObject whit script VarGlobals")]
 	public GameObject GameObjectVarGlobals;
 	private VariablesGlobales cs_VarGlobals;
@@ -50,6 +53,9 @@ public class ScriptArrow : MonoBehaviour {
 	public int NumberArrow=0;
 
 
+
+	private int InstruccionPlayDeleteOneShot = 0;
+
 	void Start () {
 		source = GetComponent<AudioSource> ();
 		LP = this.transform.position;
@@ -64,6 +70,7 @@ public class ScriptArrow : MonoBehaviour {
 		ContadorInstrucciones=0;
 		NumberArrow = 0;
 		LP = transform.position;
+		fc.ExecuteBlock ("chocar");
 	}
 
 	public void reproducirSonido(){
@@ -86,9 +93,20 @@ public class ScriptArrow : MonoBehaviour {
 	public void GnerateImageArrow(char Key,Vector3 NumpasosDados)	{
 		reproducirSonido ();
 		if (NumberArrow < mt_arrowBlue.Length) {
+			
+			if (InstruccionPlayDeleteOneShot == 1) {
+				fc.ExecuteBlock ("eliminar");
+				InstruccionPlayDeleteOneShot = -1;
+			}
+			else if (InstruccionPlayDeleteOneShot == 0) {
+				fc.ExecuteBlock ("play");
+
+			}
+
 			LP += NumpasosDados;
 			CreatePlane (LP, mt_arrowBlue [NumberArrow]);
 			ContadorInstrucciones++;
+			fc.ExecuteBlock (ContadorInstrucciones.ToString());
 			ListaPosiciones.Add (Key);
 			NumberArrow++;
 		}
@@ -136,6 +154,11 @@ public class ScriptArrow : MonoBehaviour {
 
 	public void SpaceArrow(){
 		reproducirSonido ();
+		if (InstruccionPlayDeleteOneShot == 0) {
+			InstruccionPlayDeleteOneShot = 1;
+
+		}
+
 		NumberArrow = 0;
 		cs_VarGlobals.Bool_PermitirPressBotonos = false;
 		ListaPosiciones.Clear ();
