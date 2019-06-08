@@ -29,7 +29,13 @@ public class Misiones : MonoBehaviour {
 
 	private Animator animDor;
 
+	private GameObject obj_personaje;
+	private ScriptPlayer sc_personaje;
+
 	void Start () {
+		obj_personaje = GameObject.FindWithTag ("Jugador");
+		sc_personaje = obj_personaje.GetComponent<ScriptPlayer> ();
+
 		if (obj_rotate == null) {
 			obj_rotate = this.gameObject;
 		}
@@ -51,11 +57,15 @@ public class Misiones : MonoBehaviour {
 	// Update is called once per frame
 	void OnTriggerEnter(Collider col){
 		if (col.tag == "Jugador") {
+			
+
 			if (obj != null && obj.name != "Puerta") {
 				obj.SetActive (true);
 				reproducirSonido (0);
 				this.gameObject.SetActive (false);
+				sc_personaje.anim.CrossFade ("mixamo_com2",0.0f);
 			} else if (obj.name == "Puerta") {
+				sc_personaje.anim.CrossFade ("mixamo_com",0.0f);
 				animDor.enabled=true;
 				reproducirSonido (1);	
 				Destroy (CanPassPlayer);

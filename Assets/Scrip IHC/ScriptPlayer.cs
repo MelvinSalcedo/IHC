@@ -73,7 +73,7 @@ public class ScriptPlayer : MonoBehaviour {
 	public GameObject[] comandos;
 	private GameObject[] comandosSpriteEjecucion;
 
-	private Animator anim;
+	public Animator anim;
 
 	private UnityEngine.AI.NavMeshAgent navmesh;
 
@@ -331,8 +331,8 @@ public class ScriptPlayer : MonoBehaviour {
 		if (target.tag == "ChekPoint") {
 			PosicionInicial = target.transform.position;
 		}
-		if(target.tag=="inicio"){
-			
+		else if(target.tag=="inicio"){
+			//print (target.name);
 			arriba = false;
 			numberOfPases.text = "10";
 			eliminar_instrucionnes ();

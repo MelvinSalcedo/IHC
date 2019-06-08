@@ -12,7 +12,7 @@ e1048fb987503d69b1e1255ccf72e1f2 Assembly-CSharp.dll:.CFX_Demo_Translate
 7ba1e84ad3d2d8813486668e75f842ce Assembly-CSharp-firstpass.dll:UnityStandardAssets.Effects.ExtinguishableParticleSystem
 fd0f43a3b3758d704d6ddaee31a24a8b Assembly-CSharp.dll:Fungus.FlowchartEnabled
 e3ea99699c3e3c6d4457355e3ca5af67 Assembly-CSharp.dll:Fungus.RotateFrom
-38cb06ac448fc02d7b83b53c705ceef7 Assembly-CSharp.dll:.Misiones
+51641b194c7389238d0df825d194ef2d Assembly-CSharp.dll:.Misiones
 05524b8f659e7bfe5756d1335fec24ba Assembly-CSharp.dll:Fungus.SaveManager
 381d804adff3ba161f944343def3fe1a Assembly-CSharp.dll:Fungus.GetToggleState
 05524b8f659e7bfe5756d1335fec24ba UnityEngine.Timeline.dll:UnityEngine.Timeline.ActivationPlayableAsset
@@ -275,7 +275,7 @@ cfa93710d56cd4da2a3b2eec27bc1139 Assembly-CSharp-firstpass.dll:UnityStandardAsse
 5e98a5480c3a7c1207d0ed1178881744 Assembly-CSharp.dll:Fungus.InvokeEvent
 e97ff9540a49b92b779792c195839d33 Assembly-CSharp-firstpass.dll:UnityStandardAssets.Effects.AfterburnerPhysicsForce
 feeff4fac23b208970dfed6bb23eac10 Assembly-CSharp.dll:Fungus.LookFrom
-2c9aed4018a1cb44b5209e6de077a083 Assembly-CSharp.dll:.ScriptArrow
+93b6639c2461d2dca6726ef1ccfc57dc Assembly-CSharp.dll:.ScriptArrow
 ee3ca0bea58db2a968790b1481a94b2c Assembly-CSharp.dll:Fungus.SaveData
 05524b8f659e7bfe5756d1335fec24ba Assembly-CSharp.dll:Fungus.FungusManager
 31cf01fa5cdbe5572a95e3db8487bdc6 Assembly-CSharp.dll:.CFX_LightIntensityFade
@@ -295,8 +295,9 @@ c1e5e4e5ad9eb07bed8851b99038c6fa Assembly-CSharp.dll:Fungus.KeyPressed
 b8a18df1051085b5f90566253ca49ebf Assembly-CSharp.dll:Fungus.ReloadScene
 6c4575229b336b04f4ced48805920544 Assembly-CSharp.dll:Fungus.ToggleChanged
 eb84b8c4df299d0dd27d75faa87db50c Assembly-CSharp.dll:Fungus.Log
-f3e1995b094157030fb09b865495243d Assembly-CSharp.dll:.ScriptPlayer
+0d8e6dc1a78a7047154c6621b56b2426 Assembly-CSharp.dll:.ScriptPlayer
 341d2a61529e5b97a6d48f6c70329334 Assembly-CSharp.dll:Fungus.SetMouseCursor
+05524b8f659e7bfe5756d1335fec24ba Assembly-CSharp.dll:.SubirObj
 869e5abc2271c3b618904edff22e38ef Assembly-CSharp-firstpass.dll:UnityStandardAssets.Effects.ExplosionFireAndDebris
 ac87c3fd0cc8145764590e9aa7b01c2e Assembly-CSharp.dll:Fungus.LuaBindings
 b6e122c05bcffdd7df830d9e1a631003 Assembly-CSharp.dll:Fungus.SetToggleState
@@ -439,6 +440,7 @@ c9cff83e60c14a1afc21f4bc6e385334 Assembly-CSharp.dll:.Delete
 a421f21e520fcf48744c8ad1fb1bdb00 Assembly-CSharp.dll:Fungus.StopTweensLean
 9b10f1948e3e25a573202bd3ebf3b9f5 Assembly-CSharp.dll:Fungus.MinMax
 52118b803a76f06f343464bf85959c5d Assembly-CSharp-firstpass.dll:UnityStandardAssets.CinematicEffects.TemporalAntiAliasing
+832598ccf5811f1a2b0389d55843fcd0 Assembly-CSharp.dll:.Respuestas
 cd7c8a47f1b5872b6622d92fc7ee6533 Assembly-CSharp.dll:Fungus.DebugLog
 fe3d12793b53f3795d75e32ceb000843 Assembly-CSharp.dll:Fungus.SaveMenu
 05524b8f659e7bfe5756d1335fec24ba Assembly-CSharp.dll:Fungus.LuaStore
