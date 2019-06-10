@@ -1,14 +1,15 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using Fungus;
 public class VariablesGlobales : MonoBehaviour {
 
 	// Use this for initialization
 	//[Header("Numeros")]
 	//public AudtrigerCamNext;
 
-
+	[Header("Flowchar")]
+	public Flowchart fc;
 
 	[Header("CmabasPeces")]
 	public GameObject[] pez;
@@ -32,6 +33,12 @@ public class VariablesGlobales : MonoBehaviour {
 	public int SectionCritic=0;
 
 	[HideInInspector]
+	public int ContadorNumeroPasos=0;
+	public int NP=0;
+
+	[HideInInspector]
+	public bool EnEjecucionComandos=false;
+
 	void Start(){
 		Bool_PermitirPressBotonos = true;
 	}
@@ -55,7 +62,20 @@ public class VariablesGlobales : MonoBehaviour {
 		}
 	}
 
+	public void PreguntaPasos(){
+		//fc.ExecuteBlock ("pasos");
+	}
 
 
+	public void SetEnEjecucionComandos(bool ta){
+		StartCoroutine (time(ta));
+
+	}
+
+	IEnumerator time(bool b){
+		new WaitForSeconds (1.0f);
+		EnEjecucionComandos = b;
+		yield return new WaitForSeconds (0.0f);
+	}
 
 }

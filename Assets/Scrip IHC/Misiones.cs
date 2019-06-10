@@ -7,6 +7,7 @@ public class Misiones : MonoBehaviour {
 	[Header("Flowchar ")]
 	public Flowchart fc;
 
+
 	[Header("el personaje puedo pasar")]
 	public GameObject CanPassPlayer;
 
@@ -31,8 +32,12 @@ public class Misiones : MonoBehaviour {
 
 	private GameObject obj_personaje;
 	private ScriptPlayer sc_personaje;
-
+	public GameObject GameObjectVarGlobals;
+	private VariablesGlobales cs_VarGlobals;
 	void Start () {
+		GameObjectVarGlobals = GameObject.FindWithTag ("VariablesGlobales");
+		cs_VarGlobals = GameObjectVarGlobals.GetComponent<VariablesGlobales> ();
+
 		obj_personaje = GameObject.FindWithTag ("Jugador");
 		sc_personaje = obj_personaje.GetComponent<ScriptPlayer> ();
 
@@ -46,7 +51,12 @@ public class Misiones : MonoBehaviour {
 	void reproducirSonido(int s){
 		if (s == 0) {
 			source.PlayOneShot (clip_pressButton);
-			fc.ExecuteBlock ("sigueBuscando");
+
+			//print ("**** "+cs_VarGlobals.ContadorNumeroPasos);
+			fc.ExecuteBlock ("pasos");
+
+
+			//fc.ExecuteBlock ("sigueBuscando");
 
 		} else if (s == 1) {
 			source.PlayOneShot (clip_opendDorr);
@@ -58,20 +68,18 @@ public class Misiones : MonoBehaviour {
 	void OnTriggerEnter(Collider col){
 		if (col.tag == "Jugador") {
 			
-
 			if (obj != null && obj.name != "Puerta") {
 				obj.SetActive (true);
 				reproducirSonido (0);
 				this.gameObject.SetActive (false);
+
 				sc_personaje.anim.CrossFade ("mixamo_com2",0.0f);
 			} else if (obj.name == "Puerta") {
 				sc_personaje.anim.CrossFade ("mixamo_com",0.0f);
 				animDor.enabled=true;
 				reproducirSonido (1);	
 				Destroy (CanPassPlayer);
-
 			}
-
 			Destroy (this.gameObject);
 		}
 	}

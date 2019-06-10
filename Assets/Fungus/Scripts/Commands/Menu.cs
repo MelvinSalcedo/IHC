@@ -38,6 +38,17 @@ namespace Fungus
         [Tooltip("If true, this option will be passed to the Menu Dialogue but marked as hidden, this can be used to hide options while maintaining a Menu Shuffle.")]
         [SerializeField] protected BooleanData hideThisOption = new BooleanData(false);
 
+		private int numeroPasos=0;
+		public GameObject GameObjectVarGlobals;
+		private VariablesGlobales cs_VarGlobals;
+
+		void Start(){
+			
+			GameObjectVarGlobals = GameObject.FindWithTag ("VariablesGlobales");
+			cs_VarGlobals = GameObjectVarGlobals.GetComponent<VariablesGlobales> ();
+			//print ("Menu"+cs_VarGlobals.ContadorNumeroPasos );
+
+		}
         #region Public members
 
         public MenuDialog SetMenuDialog  { get { return setMenuDialog; } set { setMenuDialog = value; } }
@@ -59,8 +70,19 @@ namespace Fungus
 
                     var flowchart = GetFlowchart();
                     string displayText = flowchart.SubstituteVariables(text);
-
-                    menuDialog.AddOption(displayText, interactable, hideOption, targetBlock);
+					
+					if (cs_VarGlobals.NP == 0) {
+						cs_VarGlobals.NP++;
+						//print ("---- "+cs_VarGlobals.ContadorNumeroPasos);
+						string t = cs_VarGlobals.ContadorNumeroPasos.ToString ();
+						menuDialog.AddOption (t, interactable, hideOption, targetBlock);
+						
+					} else {
+						
+						string t = (cs_VarGlobals.ContadorNumeroPasos+2).ToString ();
+						menuDialog.AddOption (t, interactable, hideOption, targetBlock);
+					}
+		
                 }
             
             Continue();

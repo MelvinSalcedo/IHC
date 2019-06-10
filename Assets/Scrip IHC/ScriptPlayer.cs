@@ -9,7 +9,10 @@ using Random=UnityEngine.Random;
 public class ScriptPlayer : MonoBehaviour {
 	[Header("posicion de nombre y text")]
 	public Transform HeadSignal;
-	public Text texto_mas1; 
+	public Text[] texto_mas1; 
+	public Text posFinalTexto_mas1;
+	public Text PizarraPasos;
+
 	[Header("GameObject whit script VarGlobals")]
 	public GameObject GameObjectVarGlobals;
 	private VariablesGlobales cs_VarGlobals;
@@ -65,7 +68,7 @@ public class ScriptPlayer : MonoBehaviour {
 	private float distancia=0;
 
 	private bool arriba=true;
-	private bool EnEjecucionComandos=false;
+
 
 	private GameObject cube;
 	private GameObject P_I_P_segundo;
@@ -95,8 +98,8 @@ public class ScriptPlayer : MonoBehaviour {
 	private float CuadradosDiferenciaDistancia;
 	private Vector3 pair_ = new Vector3 ();
 	private Vector3 namePose = new Vector3 ();
-
-
+	private bool paseCP=true;
+	private bool mostrarPasosMovimiento=true;
 
 	void Start () {
 		GameObjectVarGlobals = GameObject.FindWithTag ("VariablesGlobales");
@@ -118,7 +121,10 @@ public class ScriptPlayer : MonoBehaviour {
 		numberOfPases.text = sizeComandos.ToString();// convert int to string
 		//lengTextInt = int.Parse(numberOfPases.text);// convert string to int
 		arriba=false;
-		texto_mas1.enabled = false;
+
+		for (int i = 0; i < texto_mas1.Length; i++) {
+			texto_mas1[i].enabled = false;	
+		}
 		anim.Play ("");
 		anim.CrossFade ("mixamo_com3",0.0f);
 
@@ -164,7 +170,6 @@ public class ScriptPlayer : MonoBehaviour {
 	}
 
 	public void Animating2(bool n){
-		//print ("asdasdasd");
 		int r= Random.Range(0,3);
 
 
@@ -177,6 +182,7 @@ public class ScriptPlayer : MonoBehaviour {
 			anim.CrossFade ("BackFlip",0.0f);
 		}
 	}
+
 	public void AnimatingError(bool n){
 		int r= Random.Range(0,2);
 		if (r == 0) {
@@ -189,7 +195,7 @@ public class ScriptPlayer : MonoBehaviour {
 	}
 
 	void KeyDirections(char key){
-		if (ContadorInstrucciones < sizeComandos && EnEjecucionComandos==false) {
+		if (ContadorInstrucciones < sizeComandos && cs_VarGlobals.EnEjecucionComandos==false) {
 
 			if (key == 'w') {
 				SCarrow.UpAqrrow ();
@@ -214,13 +220,14 @@ public class ScriptPlayer : MonoBehaviour {
 	}
 
 	void KeySpace(){
-		if (EnEjecucionComandos == false) {
+		if (cs_VarGlobals.EnEjecucionComandos == false && ContadorInstrucciones!=0) {
+			mostrarPasosMovimiento = true;
 			SCarrow.SpaceArrow ();
 			ContadorInstrucciones = 0;
 			ArmarSecuenciaInstruciones ();
 			EjecutarSecuencias = 1;
 			n_activador = 1;
-			EnEjecucionComandos = true;
+			cs_VarGlobals.EnEjecucionComandos = true;
 			ParticulaFree.transform.position = this.transform.position + posicionAdicional;
 			ParticulaPlayer.SetActive (false);
 			ParticulaFree.SetActive (true);
@@ -238,10 +245,11 @@ public class ScriptPlayer : MonoBehaviour {
 	}
 
 	void crear_cubos(){
+
 		if(ListaInstrucciones.Count==0){
-			EnEjecucionComandos=false;
+			//cs_VarGlobals.EnEjecucionComandos=false;
 		}
-		if (EnEjecucionComandos == false) {
+		if (cs_VarGlobals.EnEjecucionComandos == false) {
 			if (Input.GetMouseButtonDown (1)) {
 				KeyDelete ();
 			} else if (Input.GetKeyDown ("space") ) {
@@ -253,17 +261,18 @@ public class ScriptPlayer : MonoBehaviour {
 			} else if (Input.GetKeyDown ("a") || Input.GetKeyDown ("left")) {
 				KeyDirections ('a');
 			} else if (Input.GetKeyDown ("d") || Input.GetKeyDown ("right")) {
-				KeyDirections ('d');				}
-			} else {
+				KeyDirections ('d');				
+			}
+			else {
 				if (Input.GetMouseButtonDown (1)) {
 					KeyDelete ();
 				} else if (Input.GetKeyDown ("space")) {
 					KeySpace ();
 				}	
 			}
+		} 
+
 	}
-		
-	private bool Head_Signal=false;
 
 	void play(){
 		if (ListaInstrucciones.Count > 0) {
@@ -279,12 +288,26 @@ public class ScriptPlayer : MonoBehaviour {
 			CuadradosDiferenciaDistancia = diferenciaDistancia.sqrMagnitude;
 			navmesh.destination = cube.transform.position;
 
+			if(CuadradosDiferenciaDistancia <= 0.6f && paseCP==true){
+				//print ("d");
+				cs_VarGlobals.ContadorNumeroPasos++;
+				paseCP = false;
+			}
 			if (CuadradosDiferenciaDistancia <= 0.2f) {
 				
 				//******************************
+
 				namePose = Camera.main.WorldToScreenPoint(HeadSignal.position);
-				texto_mas1.transform.position = namePose;
-				StartCoroutine (Mostar_mas1());
+				for (int i = 0; i < texto_mas1.Length; i++) {
+					if (texto_mas1 [i].enabled==false) {
+						texto_mas1[i].transform.position = namePose;
+
+						StartCoroutine (Mostar_mas1(texto_mas1[i]));
+						break;
+					}
+				}
+
+
 				//*****************************
 
 				int temporal = int.Parse(numberOfPases.text)+1;
@@ -297,16 +320,19 @@ public class ScriptPlayer : MonoBehaviour {
 				n_activador = 1;
 
 				if (ContadorListaInstrucciones == begin) {
+					
 					ParticulaPlayer.SetActive (true);
 					ParticulaFree.SetActive (false);
 					//->>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 					for(int y = 0; y < Parent.transform.childCount; y++){
 						Destroy(Parent.transform.GetChild(y).gameObject);
 					}
+					cs_VarGlobals.EnEjecucionComandos=false;
 					cs_VarGlobals.Bool_PermitirPressBotonos = true;
 
 
 				}
+				paseCP = true;
 			}
 		}else {
 			arriba = true;
@@ -332,8 +358,8 @@ public class ScriptPlayer : MonoBehaviour {
 			PosicionInicial = target.transform.position;
 		}
 		else if(target.tag=="inicio"){
-			//print (target.name);
 			arriba = false;
+			mostrarPasosMovimiento = false;
 			numberOfPases.text = "10";
 			eliminar_instrucionnes ();
 			P_I_P_segundo.transform.position =PosicionInicial;
@@ -379,15 +405,31 @@ public class ScriptPlayer : MonoBehaviour {
 		KeySpace ();
 	}
 
-	IEnumerator Mostar_mas1(){
+
+
+	public void ResetPizarraNumeroPasos(){
+		PizarraPasos.text = "";
+		cs_VarGlobals.ContadorNumeroPasos = 0;
+		cs_VarGlobals.NP = 0;
+
+	}
+
+	IEnumerator Mostar_mas1(Text tx){
 		float s = 0;
-		texto_mas1.enabled = true;
-		while(s<1){
-			texto_mas1.transform.Translate (Vector3.up*100f*Time.deltaTime);
-			s += Time.deltaTime;
+		tx.enabled = true;
+		while(tx.transform.position != posFinalTexto_mas1.transform.position){
+			tx.transform.position = Vector3.MoveTowards(tx.transform.position,
+				posFinalTexto_mas1.transform.position,300*Time.deltaTime);
 			yield return null;
 		}
-		texto_mas1.enabled = false;
+		if (mostrarPasosMovimiento == true) {
+			string suma = PizarraPasos.text;
+			suma += "1 ";
+			PizarraPasos.text = suma;
+			tx.enabled = false;
+		} else {
+			tx.enabled = false;
+		}
 		yield return new WaitForSeconds (0.0f);
 	}
 
