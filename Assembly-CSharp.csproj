@@ -581,6 +581,7 @@
      <Compile Include="Assets\JMO Assets\Cartoon FX\Scripts\CFX_AutoRotate.cs" />
      <Compile Include="Assets\JMO Assets\Cartoon FX\Scripts\CFX_LightFlicker.cs" />
      <Compile Include="Assets\JMO Assets\Cartoon FX\Scripts\CFX_LightIntensityFade.cs" />
+     <Compile Include="Assets\Scrip IHC\ChangeNivel.cs" />
      <Compile Include="Assets\Scrip IHC\CS_Trigger.cs" />
      <Compile Include="Assets\Scrip IHC\Delete.cs" />
      <Compile Include="Assets\Scrip IHC\DragWhitMouse.cs" />
