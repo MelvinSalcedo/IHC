@@ -32,7 +32,7 @@ public class VariablesGlobales : MonoBehaviour {
 	[HideInInspector]
 	public int SectionCritic=0;
 
-	[HideInInspector]
+
 	public int ContadorNumeroPasos=0;
 	public int NP=0;
 

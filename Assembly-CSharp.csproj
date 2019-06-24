@@ -583,6 +583,7 @@
      <Compile Include="Assets\JMO Assets\Cartoon FX\Scripts\CFX_LightIntensityFade.cs" />
      <Compile Include="Assets\Scrip IHC\CS_Trigger.cs" />
      <Compile Include="Assets\Scrip IHC\Delete.cs" />
+     <Compile Include="Assets\Scrip IHC\DragWhitMouse.cs" />
      <Compile Include="Assets\Scrip IHC\ExamQuestion.cs" />
      <Compile Include="Assets\Scrip IHC\Misiones.cs" />
      <Compile Include="Assets\Scrip IHC\OutlineMesh.cs" />
