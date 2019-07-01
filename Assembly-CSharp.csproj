@@ -588,6 +588,8 @@
      <Compile Include="Assets\Scrip IHC\ExamQuestion.cs" />
      <Compile Include="Assets\Scrip IHC\Misiones.cs" />
      <Compile Include="Assets\Scrip IHC\OutlineMesh.cs" />
+     <Compile Include="Assets\Scrip IHC\Play\Play.cs" />
+     <Compile Include="Assets\Scrip IHC\PortalQuestion\MoveFish.cs" />
      <Compile Include="Assets\Scrip IHC\Respuestas.cs" />
      <Compile Include="Assets\Scrip IHC\ScriptArrow.cs" />
      <Compile Include="Assets\Scrip IHC\ScriptPlayer.cs" />

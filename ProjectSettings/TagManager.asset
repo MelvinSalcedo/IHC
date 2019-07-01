@@ -13,6 +13,7 @@ TagManager:
   - VariablesGlobales
   - ChekPoint
   - Flowchart
+  - pez
   layers:
   - Default
   - TransparentFX

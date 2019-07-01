@@ -9,5 +9,5 @@ EditorBuildSettings:
     path: Assets/Scene IHC/GameIhc.unity
     guid: 9750fbf91c57f55488507c2f8888d8cd
   - enabled: 1
-    path: Assets/Scene IHC/Mockups.unity
-    guid: 16b879ff015e8b24aaf669d665332b58
+    path: Assets/Scene IHC/GameIhc2.unity
+    guid: 6532f540215e89f45a858c9a6c191e6e

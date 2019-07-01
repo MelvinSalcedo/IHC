@@ -67,7 +67,7 @@ public class Misiones : MonoBehaviour {
 	// Update is called once per frame
 	void OnTriggerEnter(Collider col){
 		if (col.tag == "Jugador") {
-			
+			cs_VarGlobals.NP = 0;
 			if (obj != null && obj.name != "Puerta") {
 				obj.SetActive (true);
 				reproducirSonido (0);

@@ -32,9 +32,12 @@ public class VariablesGlobales : MonoBehaviour {
 	[HideInInspector]
 	public int SectionCritic=0;
 
+	[HideInInspector]
+	public int ContadorPecesEncerrados=0;
 
 	public int ContadorNumeroPasos=0;
 	public int NP=0;
+
 
 	[HideInInspector]
 	public bool EnEjecucionComandos=false;
@@ -70,6 +73,11 @@ public class VariablesGlobales : MonoBehaviour {
 	public void SetEnEjecucionComandos(bool ta){
 		StartCoroutine (time(ta));
 
+	}
+
+
+	public void Reintentar(string name){
+		fc.ExecuteBlock (name);
 	}
 
 	IEnumerator time(bool b){

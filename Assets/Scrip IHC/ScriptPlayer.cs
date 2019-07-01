@@ -9,9 +9,9 @@ using Random=UnityEngine.Random;
 public class ScriptPlayer : MonoBehaviour {
 	[Header("posicion de nombre y text")]
 	public Transform HeadSignal;
-	public Text[] texto_mas1; 
+	public Image[] texto_mas1; 
 	public Text posFinalTexto_mas1;
-	public Text PizarraPasos;
+	public Image[] PizarraPasos;
 
 	[Header("GameObject whit script VarGlobals")]
 	public GameObject GameObjectVarGlobals;
@@ -101,6 +101,7 @@ public class ScriptPlayer : MonoBehaviour {
 	private bool paseCP=true;
 	private bool mostrarPasosMovimiento=true;
 
+	int t=-1;
 	void Start () {
 		GameObjectVarGlobals = GameObject.FindWithTag ("VariablesGlobales");
 		cs_VarGlobals = GameObjectVarGlobals.GetComponent<VariablesGlobales> ();
@@ -313,7 +314,7 @@ public class ScriptPlayer : MonoBehaviour {
 				int temporal = int.Parse(numberOfPases.text)+1;
 				numberOfPases.text = temporal.ToString();
 				ContadorListaInstrucciones++;
-
+				//print
 				//SCarrow.fc.ExecuteBlock (ContadorListaInstrucciones.ToString());
 
 				ListaInstrucciones.RemoveAt (0);
@@ -369,6 +370,7 @@ public class ScriptPlayer : MonoBehaviour {
 			for(int y = 0; y < Parent.transform.childCount; y++){
 				Destroy(Parent.transform.GetChild(y).gameObject);
 			}
+			t = -1;
 			SCarrow.ClearCsArrow ();
 			ParticulaFree.transform.position =jugador.position+posicionAdicional;
 			ParticulaPlayer.SetActive (true);
@@ -404,17 +406,18 @@ public class ScriptPlayer : MonoBehaviour {
 	public void Enter (){
 		KeySpace ();
 	}
-
-
-
+		
 	public void ResetPizarraNumeroPasos(){
-		PizarraPasos.text = "";
+		t=-1;
+		for (int i = 0; i < PizarraPasos.Length; i++) {
+			PizarraPasos [i].enabled = false;
+		}
 		cs_VarGlobals.ContadorNumeroPasos = 0;
 		cs_VarGlobals.NP = 0;
 
 	}
 
-	IEnumerator Mostar_mas1(Text tx){
+	IEnumerator Mostar_mas1(Image tx){
 		float s = 0;
 		tx.enabled = true;
 		while(tx.transform.position != posFinalTexto_mas1.transform.position){
@@ -422,10 +425,13 @@ public class ScriptPlayer : MonoBehaviour {
 				posFinalTexto_mas1.transform.position,300*Time.deltaTime);
 			yield return null;
 		}
+		if (ListaInstrucciones.Count == 0) {
+			yield return null;
+		}
+		//print (t);
 		if (mostrarPasosMovimiento == true) {
-			string suma = PizarraPasos.text;
-			suma += "1 ";
-			PizarraPasos.text = suma;
+			t++;
+			PizarraPasos[t].enabled=true;
 			tx.enabled = false;
 		} else {
 			tx.enabled = false;

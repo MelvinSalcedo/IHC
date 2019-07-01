@@ -64,26 +64,29 @@ namespace Fungus
             bool hideOption = (hideIfVisited && targetBlock != null && targetBlock.GetExecutionCount() > 0) || hideThisOption.Value;
 
             var menuDialog = MenuDialog.GetMenuDialog();
-                if (menuDialog != null)
-                {
-                    menuDialog.SetActive(true);
+			if (menuDialog != null) {
+				menuDialog.SetActive (true);
 
-                    var flowchart = GetFlowchart();
-                    string displayText = flowchart.SubstituteVariables(text);
+				var flowchart = GetFlowchart ();
+				string displayText = flowchart.SubstituteVariables (text);
 					
-					if (cs_VarGlobals.NP == 0) {
-						cs_VarGlobals.NP++;
-						//print ("---- "+cs_VarGlobals.ContadorNumeroPasos);
-						string t = cs_VarGlobals.ContadorNumeroPasos.ToString ();
-						menuDialog.AddOption (t, interactable, hideOption, targetBlock);
+					
+
+				if (cs_VarGlobals.NP == 0) {
+					cs_VarGlobals.NP++;
+					//print ("---- "+cs_VarGlobals.ContadorNumeroPasos);
+					string t = cs_VarGlobals.ContadorNumeroPasos.ToString ();
+					menuDialog.AddOption (t, interactable, hideOption, targetBlock);
 						
-					} else {
-						
-						string t = (cs_VarGlobals.ContadorNumeroPasos+2).ToString ();
-						menuDialog.AddOption (t, interactable, hideOption, targetBlock);
-					}
+				} else if (cs_VarGlobals.NP == 1) {
+					string t = (cs_VarGlobals.ContadorNumeroPasos + 2).ToString ();
+					menuDialog.AddOption (t, interactable, hideOption, targetBlock);
+				}
+				else if (cs_VarGlobals.NP==-1) {
+					menuDialog.AddOption (displayText, interactable, hideOption, targetBlock);
+				}
 		
-                }
+			} 
             
             Continue();
         }
