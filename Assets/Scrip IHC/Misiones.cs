@@ -27,13 +27,15 @@ public class Misiones : MonoBehaviour {
 
 	[Header("StartCoroutine")]
 	public GameObject Door;
-
+    [Header("MostrarPasitos")]
+    public int SeePasitos=0;
 	private Animator animDor;
 
 	private GameObject obj_personaje;
 	private ScriptPlayer sc_personaje;
 	public GameObject GameObjectVarGlobals;
 	private VariablesGlobales cs_VarGlobals;
+
 	void Start () {
 		GameObjectVarGlobals = GameObject.FindWithTag ("VariablesGlobales");
 		cs_VarGlobals = GameObjectVarGlobals.GetComponent<VariablesGlobales> ();
@@ -68,6 +70,10 @@ public class Misiones : MonoBehaviour {
 	void OnTriggerEnter(Collider col){
 		if (col.tag == "Jugador") {
 			cs_VarGlobals.NP = 0;
+            if (SeePasitos == 1) {
+                cs_VarGlobals.V_sumarPasitos();
+                
+            }
 			if (obj != null && obj.name != "Puerta") {
 				obj.SetActive (true);
 				reproducirSonido (0);

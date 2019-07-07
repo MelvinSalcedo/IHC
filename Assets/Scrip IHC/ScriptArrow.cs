@@ -95,11 +95,11 @@ public class ScriptArrow : MonoBehaviour {
 		if (NumberArrow < mt_arrowBlue.Length) {
 			
 			if (InstruccionPlayDeleteOneShot == 1) {
-				fc.ExecuteBlock ("eliminar");
+				//fc.ExecuteBlock ("eliminar");
 				InstruccionPlayDeleteOneShot = -1;
 			}
 			else if (InstruccionPlayDeleteOneShot == 0) {
-				fc.ExecuteBlock ("play");
+				//fc.ExecuteBlock ("play");
 
 			}
 

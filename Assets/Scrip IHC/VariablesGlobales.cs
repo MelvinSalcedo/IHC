@@ -42,11 +42,36 @@ public class VariablesGlobales : MonoBehaviour {
 	[HideInInspector]
 	public bool EnEjecucionComandos=false;
 
-	void Start(){
-		Bool_PermitirPressBotonos = true;
-	}
+    [HideInInspector]
+    public int I_BeginPlay = 0;
 
-	public void  countFishesClicked(){
+    [HideInInspector]
+    public int SumarPasitos = 0;
+
+    [Header("Camaras")]
+    public Transform Camara1;
+
+
+    public Transform PosFinal;
+
+    [Header("mostrar pasitos")]
+    public GameObject mostrarPasitos;
+    void Start(){
+		Bool_PermitirPressBotonos = true;
+        StartCoroutine(BeginPlay());
+    }
+
+    public void V_sumarPasitos() {
+        SumarPasitos = 1;
+        mostrarPasitos.SetActive(false);
+    }
+    public void SeeYat(Transform PosInicia)
+    {
+        StartCoroutine(MoveCamera(PosInicia));
+
+    }
+
+    public void  countFishesClicked(){
 		I_CountFishesClicked++;
 		if (I_CountFishesClicked == 3) {
 			//trigerCamNext.SetActive (true);
@@ -86,4 +111,42 @@ public class VariablesGlobales : MonoBehaviour {
 		yield return new WaitForSeconds (0.0f);
 	}
 
+    IEnumerator BeginPlay()
+    {
+        while (I_BeginPlay == 0)
+        {
+            yield return new WaitForSeconds(15.0f);
+            if (I_BeginPlay == 0)
+            {
+                fc.ExecuteBlock("Event Begin");
+            }
+        }
+        if (I_BeginPlay == 1)
+        { 
+            fc.ExecuteBlock("NotEventBegin");
+        }
+        
+    }
+    IEnumerator MoveCamera(Transform PosInicial)
+    {
+        while (Camara1.position != PosFinal.position)
+        {
+            Camara1.position = Vector3.MoveTowards(Camara1.position,
+                PosFinal.position, 5 * Time.deltaTime);
+            Camara1.rotation = Quaternion.Slerp(Camara1.rotation,
+                PosFinal.rotation, Time.deltaTime * 1);
+            yield return null;
+        }
+        print("sdasdsadsa");
+        yield return new WaitForSeconds(3.0f);
+        while (Camara1.rotation != PosInicial.rotation)
+        {
+            Camara1.position = Vector3.MoveTowards(Camara1.position,
+                PosInicial.position, 5 * Time.deltaTime);
+            Camara1.rotation = Quaternion.Slerp(Camara1.rotation,
+                PosInicial.rotation, Time.deltaTime * 1);
+            yield return null;
+        }
+        print("fin");
+    }
 }

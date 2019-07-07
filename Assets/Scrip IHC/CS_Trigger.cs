@@ -39,7 +39,10 @@ public class CS_Trigger : MonoBehaviour {
 		if (col.tag == "Jugador") {
 			Cs_VarGlobals.SectionCritic = 1;
 			Cs_VarGlobals.NP = -1;
-			StartCoroutine (moveCamera());
+            if (pos0Camera != null)
+            {
+                StartCoroutine(moveCamera());
+            }
 
 			if (IsQuestion == true) {
 				//this.gameObject.SetActive (false);

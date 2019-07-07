@@ -222,7 +222,8 @@ public class ScriptPlayer : MonoBehaviour {
 
 	void KeySpace(){
 		if (cs_VarGlobals.EnEjecucionComandos == false && ContadorInstrucciones!=0) {
-			mostrarPasosMovimiento = true;
+            cs_VarGlobals.I_BeginPlay = 1;
+            mostrarPasosMovimiento = true;
 			SCarrow.SpaceArrow ();
 			ContadorInstrucciones = 0;
 			ArmarSecuenciaInstruciones ();
@@ -251,6 +252,7 @@ public class ScriptPlayer : MonoBehaviour {
 			//cs_VarGlobals.EnEjecucionComandos=false;
 		}
 		if (cs_VarGlobals.EnEjecucionComandos == false) {
+            
 			if (Input.GetMouseButtonDown (1)) {
 				KeyDelete ();
 			} else if (Input.GetKeyDown ("space") ) {
@@ -295,18 +297,22 @@ public class ScriptPlayer : MonoBehaviour {
 				paseCP = false;
 			}
 			if (CuadradosDiferenciaDistancia <= 0.2f) {
-				
-				//******************************
 
-				namePose = Camera.main.WorldToScreenPoint(HeadSignal.position);
-				for (int i = 0; i < texto_mas1.Length; i++) {
-					if (texto_mas1 [i].enabled==false) {
-						texto_mas1[i].transform.position = namePose;
+                //******************************
+                if (cs_VarGlobals.SumarPasitos == 0)
+                {
+                    namePose = Camera.main.WorldToScreenPoint(HeadSignal.position);
+                    for (int i = 0; i < texto_mas1.Length; i++)
+                    {
+                        if (texto_mas1[i].enabled == false)
+                        {
+                            texto_mas1[i].transform.position = namePose;
 
-						StartCoroutine (Mostar_mas1(texto_mas1[i]));
-						break;
-					}
-				}
+                            StartCoroutine(Mostar_mas1(texto_mas1[i]));
+                            break;
+                        }
+                    }
+                }
 
 
 				//*****************************
