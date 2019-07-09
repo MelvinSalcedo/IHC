@@ -46,6 +46,7 @@ public class MoveFish : MonoBehaviour {
 
 	void OnMouseDown ()
 	{
+        fc.ExecuteBlock("button");
 		skinnedMeshRenderer.material = mt_outline;
 		SectionCritic = 1;
 		skinnedMeshRenderer.material = mt_real;

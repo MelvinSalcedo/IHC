@@ -32,7 +32,8 @@ public class ScriptPlayer : MonoBehaviour {
 
 	[Header ("Text")]
 	public Text numberOfPases;
-
+    [Header("particula Rsalto")]
+    public GameObject ParticulaResalto;
 
 	[HideInInspector]
 	public Sprite llave_d;
@@ -280,6 +281,7 @@ public class ScriptPlayer : MonoBehaviour {
 	void play(){
 		if (ListaInstrucciones.Count > 0) {
 			if (n_activador == 1) {
+
 				cube = GameObject.CreatePrimitive (PrimitiveType.Cube);
 				cube.transform.position = P_I_P_segundo.transform.position + ListaInstrucciones [0];
 				P_I_P_segundo.transform.position = cube.transform.position;
@@ -297,9 +299,9 @@ public class ScriptPlayer : MonoBehaviour {
 				paseCP = false;
 			}
 			if (CuadradosDiferenciaDistancia <= 0.2f) {
-
+                StartCoroutine(C_partilaResalto(ParticulaResalto));
                 //******************************
-                if (cs_VarGlobals.SumarPasitos == 0)
+                if (cs_VarGlobals.SumarPasitos == 0 && t!=PizarraPasos.Length-1)
                 {
                     namePose = Camera.main.WorldToScreenPoint(HeadSignal.position);
                     for (int i = 0; i < texto_mas1.Length; i++)
@@ -307,7 +309,6 @@ public class ScriptPlayer : MonoBehaviour {
                         if (texto_mas1[i].enabled == false)
                         {
                             texto_mas1[i].transform.position = namePose;
-
                             StartCoroutine(Mostar_mas1(texto_mas1[i]));
                             break;
                         }
@@ -424,7 +425,7 @@ public class ScriptPlayer : MonoBehaviour {
 	}
 
 	IEnumerator Mostar_mas1(Image tx){
-		float s = 0;
+
 		tx.enabled = true;
 		while(tx.transform.position != posFinalTexto_mas1.transform.position){
 			tx.transform.position = Vector3.MoveTowards(tx.transform.position,
@@ -444,5 +445,13 @@ public class ScriptPlayer : MonoBehaviour {
 		}
 		yield return new WaitForSeconds (0.0f);
 	}
+
+    IEnumerator C_partilaResalto(GameObject obj)
+    {
+        yield return new WaitForSeconds(0.1f);
+        obj.SetActive(true);
+        yield return new WaitForSeconds(0.1f);
+        obj.SetActive(false);
+    }
 
 }
